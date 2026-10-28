@@ -1,0 +1,5340 @@
+{
+  "secoes": [
+    {
+      "code": "A",
+      "name": "AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA",
+      "label": "A - AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA"
+    },
+    {
+      "code": "B",
+      "name": "INDÚSTRIAS EXTRATIVAS",
+      "label": "B - INDÚSTRIAS EXTRATIVAS"
+    },
+    {
+      "code": "C",
+      "name": "INDÚSTRIAS DE TRANSFORMAÇÃO",
+      "label": "C - INDÚSTRIAS DE TRANSFORMAÇÃO"
+    },
+    {
+      "code": "D",
+      "name": "ELETRICIDADE E GÁS",
+      "label": "D - ELETRICIDADE E GÁS"
+    },
+    {
+      "code": "E",
+      "name": "ÁGUA, ESGOTO, ATIVIDADES DE GESTÃO DE RESÍDUOS E DESCONTAMINAÇÃO",
+      "label": "E - ÁGUA, ESGOTO, ATIVIDADES DE GESTÃO DE RESÍDUOS E DESCONTAMINAÇÃO"
+    },
+    {
+      "code": "F",
+      "name": "CONSTRUÇÃO",
+      "label": "F - CONSTRUÇÃO"
+    },
+    {
+      "code": "G",
+      "name": "COMÉRCIO; REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS",
+      "label": "G - COMÉRCIO; REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+    },
+    {
+      "code": "H",
+      "name": "TRANSPORTE, ARMAZENAGEM E CORREIO",
+      "label": "H - TRANSPORTE, ARMAZENAGEM E CORREIO"
+    },
+    {
+      "code": "I",
+      "name": "ALOJAMENTO E ALIMENTAÇÃO",
+      "label": "I - ALOJAMENTO E ALIMENTAÇÃO"
+    },
+    {
+      "code": "J",
+      "name": "INFORMAÇÃO E COMUNICAÇÃO",
+      "label": "J - INFORMAÇÃO E COMUNICAÇÃO"
+    },
+    {
+      "code": "K",
+      "name": "ATIVIDADES FINANCEIRAS, DE SEGUROS E SERVIÇOS RELACIONADOS",
+      "label": "K - ATIVIDADES FINANCEIRAS, DE SEGUROS E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "L",
+      "name": "ATIVIDADES IMOBILIÁRIAS",
+      "label": "L - ATIVIDADES IMOBILIÁRIAS"
+    },
+    {
+      "code": "M",
+      "name": "ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS",
+      "label": "M - ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS"
+    },
+    {
+      "code": "N",
+      "name": "ATIVIDADES ADMINISTRATIVAS E SERVIÇOS COMPLEMENTARES",
+      "label": "N - ATIVIDADES ADMINISTRATIVAS E SERVIÇOS COMPLEMENTARES"
+    },
+    {
+      "code": "O",
+      "name": "ADMINISTRAÇÃO PÚBLICA, DEFESA E SEGURIDADE SOCIAL",
+      "label": "O - ADMINISTRAÇÃO PÚBLICA, DEFESA E SEGURIDADE SOCIAL"
+    },
+    {
+      "code": "P",
+      "name": "EDUCAÇÃO",
+      "label": "P - EDUCAÇÃO"
+    },
+    {
+      "code": "Q",
+      "name": "SAÚDE HUMANA E SERVIÇOS SOCIAIS",
+      "label": "Q - SAÚDE HUMANA E SERVIÇOS SOCIAIS"
+    },
+    {
+      "code": "R",
+      "name": "ARTES, CULTURA, ESPORTE E RECREAÇÃO",
+      "label": "R - ARTES, CULTURA, ESPORTE E RECREAÇÃO"
+    },
+    {
+      "code": "S",
+      "name": "OUTRAS ATIVIDADES DE SERVIÇOS",
+      "label": "S - OUTRAS ATIVIDADES DE SERVIÇOS"
+    },
+    {
+      "code": "T",
+      "name": "SERVIÇOS DOMÉSTICOS",
+      "label": "T - SERVIÇOS DOMÉSTICOS"
+    },
+    {
+      "code": "U",
+      "name": "ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS",
+      "label": "U - ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS"
+    }
+  ],
+  "divisoes": [
+    {
+      "code": "01",
+      "name": "AGRICULTURA, PECUÁRIA E SERVIÇOS RELACIONADOS",
+      "label": "01 - AGRICULTURA, PECUÁRIA E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "02",
+      "name": "PRODUÇÃO FLORESTAL",
+      "label": "02 - PRODUÇÃO FLORESTAL"
+    },
+    {
+      "code": "03",
+      "name": "PESCA E AQÜICULTURA",
+      "label": "03 - PESCA E AQÜICULTURA"
+    },
+    {
+      "code": "05",
+      "name": "EXTRAÇÃO DE CARVÃO MINERAL",
+      "label": "05 - EXTRAÇÃO DE CARVÃO MINERAL"
+    },
+    {
+      "code": "06",
+      "name": "EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL",
+      "label": "06 - EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "07",
+      "name": "EXTRAÇÃO DE MINERAIS METÁLICOS",
+      "label": "07 - EXTRAÇÃO DE MINERAIS METÁLICOS"
+    },
+    {
+      "code": "08",
+      "name": "EXTRAÇÃO DE MINERAIS NÃO-METÁLICOS",
+      "label": "08 - EXTRAÇÃO DE MINERAIS NÃO-METÁLICOS"
+    },
+    {
+      "code": "09",
+      "name": "ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS",
+      "label": "09 - ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS"
+    },
+    {
+      "code": "10",
+      "name": "FABRICAÇÃO DE PRODUTOS ALIMENTÍCIOS",
+      "label": "10 - FABRICAÇÃO DE PRODUTOS ALIMENTÍCIOS"
+    },
+    {
+      "code": "11",
+      "name": "FABRICAÇÃO DE BEBIDAS",
+      "label": "11 - FABRICAÇÃO DE BEBIDAS"
+    },
+    {
+      "code": "12",
+      "name": "FABRICAÇÃO DE PRODUTOS DO FUMO",
+      "label": "12 - FABRICAÇÃO DE PRODUTOS DO FUMO"
+    },
+    {
+      "code": "13",
+      "name": "FABRICAÇÃO DE PRODUTOS TÊXTEIS",
+      "label": "13 - FABRICAÇÃO DE PRODUTOS TÊXTEIS"
+    },
+    {
+      "code": "14",
+      "name": "CONFECÇÃO DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS",
+      "label": "14 - CONFECÇÃO DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS"
+    },
+    {
+      "code": "15",
+      "name": "PREPARAÇÃO DE COUROS E FABRICAÇÃO DE ARTEFATOS DE COURO, ARTIGOS PARA VIAGEM E CALÇADOS",
+      "label": "15 - PREPARAÇÃO DE COUROS E FABRICAÇÃO DE ARTEFATOS DE COURO, ARTIGOS PARA VIAGEM E CALÇADOS"
+    },
+    {
+      "code": "16",
+      "name": "FABRICAÇÃO DE PRODUTOS DE MADEIRA",
+      "label": "16 - FABRICAÇÃO DE PRODUTOS DE MADEIRA"
+    },
+    {
+      "code": "17",
+      "name": "FABRICAÇÃO DE CELULOSE, PAPEL E PRODUTOS DE PAPEL",
+      "label": "17 - FABRICAÇÃO DE CELULOSE, PAPEL E PRODUTOS DE PAPEL"
+    },
+    {
+      "code": "18",
+      "name": "IMPRESSÃO E REPRODUÇÃO DE GRAVAÇÕES",
+      "label": "18 - IMPRESSÃO E REPRODUÇÃO DE GRAVAÇÕES"
+    },
+    {
+      "code": "19",
+      "name": "FABRICAÇÃO DE COQUE, DE PRODUTOS DERIVADOS DO PETRÓLEO E DE BIOCOMBUSTÍVEIS",
+      "label": "19 - FABRICAÇÃO DE COQUE, DE PRODUTOS DERIVADOS DO PETRÓLEO E DE BIOCOMBUSTÍVEIS"
+    },
+    {
+      "code": "29",
+      "name": "FABRICAÇÃO DE VEÍCULOS AUTOMOTORES, REBOQUES E CARROCERIAS",
+      "label": "29 - FABRICAÇÃO DE VEÍCULOS AUTOMOTORES, REBOQUES E CARROCERIAS"
+    },
+    {
+      "code": "20",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS",
+      "label": "20 - FABRICAÇÃO DE PRODUTOS QUÍMICOS"
+    },
+    {
+      "code": "21",
+      "name": "FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS E FARMACÊUTICOS",
+      "label": "21 - FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS E FARMACÊUTICOS"
+    },
+    {
+      "code": "22",
+      "name": "FABRICAÇÃO DE PRODUTOS DE BORRACHA E DE MATERIAL PLÁSTICO",
+      "label": "22 - FABRICAÇÃO DE PRODUTOS DE BORRACHA E DE MATERIAL PLÁSTICO"
+    },
+    {
+      "code": "23",
+      "name": "FABRICAÇÃO DE PRODUTOS DE MINERAIS NÃO-METÁLICOS",
+      "label": "23 - FABRICAÇÃO DE PRODUTOS DE MINERAIS NÃO-METÁLICOS"
+    },
+    {
+      "code": "24",
+      "name": "METALURGIA",
+      "label": "24 - METALURGIA"
+    },
+    {
+      "code": "25",
+      "name": "FABRICAÇÃO DE PRODUTOS DE METAL, EXCETO MÁQUINAS  E EQUIPAMENTOS",
+      "label": "25 - FABRICAÇÃO DE PRODUTOS DE METAL, EXCETO MÁQUINAS  E EQUIPAMENTOS"
+    },
+    {
+      "code": "26",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA, PRODUTOS ELETRÔNICOS E ÓPTICOS",
+      "label": "26 - FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA, PRODUTOS ELETRÔNICOS E ÓPTICOS"
+    },
+    {
+      "code": "27",
+      "name": "FABRICAÇÃO DE MÁQUINAS, APARELHOS E MATERIAIS ELÉTRICOS",
+      "label": "27 - FABRICAÇÃO DE MÁQUINAS, APARELHOS E MATERIAIS ELÉTRICOS"
+    },
+    {
+      "code": "28",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+      "label": "28 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS"
+    },
+    {
+      "code": "30",
+      "name": "FABRICAÇÃO DE OUTROS EQUIPAMENTOS DE TRANSPORTE, EXCETO VEÍCULOS AUTOMOTORES",
+      "label": "30 - FABRICAÇÃO DE OUTROS EQUIPAMENTOS DE TRANSPORTE, EXCETO VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "31",
+      "name": "FABRICAÇÃO DE MÓVEIS",
+      "label": "31 - FABRICAÇÃO DE MÓVEIS"
+    },
+    {
+      "code": "32",
+      "name": "FABRICAÇÃO DE PRODUTOS DIVERSOS",
+      "label": "32 - FABRICAÇÃO DE PRODUTOS DIVERSOS"
+    },
+    {
+      "code": "33",
+      "name": "MANUTENÇÃO, REPARAÇÃO E INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+      "label": "33 - MANUTENÇÃO, REPARAÇÃO E INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS"
+    },
+    {
+      "code": "35",
+      "name": "ELETRICIDADE, GÁS E OUTRAS UTILIDADES",
+      "label": "35 - ELETRICIDADE, GÁS E OUTRAS UTILIDADES"
+    },
+    {
+      "code": "36",
+      "name": "CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA",
+      "label": "36 - CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA"
+    },
+    {
+      "code": "37",
+      "name": "ESGOTO E ATIVIDADES RELACIONADAS",
+      "label": "37 - ESGOTO E ATIVIDADES RELACIONADAS"
+    },
+    {
+      "code": "38",
+      "name": "COLETA, TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS; RECUPERAÇÃO DE MATERIAIS",
+      "label": "38 - COLETA, TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS; RECUPERAÇÃO DE MATERIAIS"
+    },
+    {
+      "code": "39",
+      "name": "DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS",
+      "label": "39 - DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS"
+    },
+    {
+      "code": "41",
+      "name": "CONSTRUÇÃO DE EDIFÍCIOS",
+      "label": "41 - CONSTRUÇÃO DE EDIFÍCIOS"
+    },
+    {
+      "code": "42",
+      "name": "OBRAS DE INFRA-ESTRUTURA",
+      "label": "42 - OBRAS DE INFRA-ESTRUTURA"
+    },
+    {
+      "code": "52",
+      "name": "ARMAZENAMENTO E ATIVIDADES AUXILIARES DOS TRANSPORTES",
+      "label": "52 - ARMAZENAMENTO E ATIVIDADES AUXILIARES DOS TRANSPORTES"
+    },
+    {
+      "code": "53",
+      "name": "CORREIO E OUTRAS ATIVIDADES DE ENTREGA",
+      "label": "53 - CORREIO E OUTRAS ATIVIDADES DE ENTREGA"
+    },
+    {
+      "code": "55",
+      "name": "ALOJAMENTO",
+      "label": "55 - ALOJAMENTO"
+    },
+    {
+      "code": "56",
+      "name": "ALIMENTAÇÃO",
+      "label": "56 - ALIMENTAÇÃO"
+    },
+    {
+      "code": "43",
+      "name": "SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO",
+      "label": "43 - SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO"
+    },
+    {
+      "code": "45",
+      "name": "COMÉRCIO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS",
+      "label": "45 - COMÉRCIO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+    },
+    {
+      "code": "60",
+      "name": "ATIVIDADES DE RÁDIO E DE TELEVISÃO",
+      "label": "60 - ATIVIDADES DE RÁDIO E DE TELEVISÃO"
+    },
+    {
+      "code": "46",
+      "name": "COMÉRCIO POR ATACADO, EXCETO VEÍCULOS AUTOMOTORES E MOTOCICLETAS",
+      "label": "46 - COMÉRCIO POR ATACADO, EXCETO VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+    },
+    {
+      "code": "47",
+      "name": "COMÉRCIO VAREJISTA",
+      "label": "47 - COMÉRCIO VAREJISTA"
+    },
+    {
+      "code": "49",
+      "name": "TRANSPORTE TERRESTRE",
+      "label": "49 - TRANSPORTE TERRESTRE"
+    },
+    {
+      "code": "50",
+      "name": "TRANSPORTE AQUAVIÁRIO",
+      "label": "50 - TRANSPORTE AQUAVIÁRIO"
+    },
+    {
+      "code": "51",
+      "name": "TRANSPORTE AÉREO",
+      "label": "51 - TRANSPORTE AÉREO"
+    },
+    {
+      "code": "71",
+      "name": "SERVIÇOS DE ARQUITETURA E ENGENHARIA; TESTES E ANÁLISES TÉCNICAS",
+      "label": "71 - SERVIÇOS DE ARQUITETURA E ENGENHARIA; TESTES E ANÁLISES TÉCNICAS"
+    },
+    {
+      "code": "58",
+      "name": "EDIÇÃO E EDIÇÃO INTEGRADA À IMPRESSÃO",
+      "label": "58 - EDIÇÃO E EDIÇÃO INTEGRADA À IMPRESSÃO"
+    },
+    {
+      "code": "59",
+      "name": "ATIVIDADES CINEMATOGRÁFICAS, PRODUÇÃO DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO; GRAVAÇÃO DE SOM E EDIÇÃO DE MÚSICA",
+      "label": "59 - ATIVIDADES CINEMATOGRÁFICAS, PRODUÇÃO DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO; GRAVAÇÃO DE SOM E EDIÇÃO DE MÚSICA"
+    },
+    {
+      "code": "61",
+      "name": "TELECOMUNICAÇÕES",
+      "label": "61 - TELECOMUNICAÇÕES"
+    },
+    {
+      "code": "62",
+      "name": "ATIVIDADES DOS SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO",
+      "label": "62 - ATIVIDADES DOS SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO"
+    },
+    {
+      "code": "63",
+      "name": "ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO",
+      "label": "63 - ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO"
+    },
+    {
+      "code": "64",
+      "name": "ATIVIDADES DE SERVIÇOS FINANCEIROS",
+      "label": "64 - ATIVIDADES DE SERVIÇOS FINANCEIROS"
+    },
+    {
+      "code": "65",
+      "name": "SEGUROS, RESSEGUROS, PREVIDÊNCIA COMPLEMENTAR E PLANOS DE SAÚDE",
+      "label": "65 - SEGUROS, RESSEGUROS, PREVIDÊNCIA COMPLEMENTAR E PLANOS DE SAÚDE"
+    },
+    {
+      "code": "66",
+      "name": "ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS, SEGUROS, PREVIDÊNCIA COMPLEMENTAR E PLANOS DE SAÚDE",
+      "label": "66 - ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS, SEGUROS, PREVIDÊNCIA COMPLEMENTAR E PLANOS DE SAÚDE"
+    },
+    {
+      "code": "68",
+      "name": "ATIVIDADES IMOBILIÁRIAS",
+      "label": "68 - ATIVIDADES IMOBILIÁRIAS"
+    },
+    {
+      "code": "69",
+      "name": "ATIVIDADES JURÍDICAS, DE CONTABILIDADE E DE AUDITORIA",
+      "label": "69 - ATIVIDADES JURÍDICAS, DE CONTABILIDADE E DE AUDITORIA"
+    },
+    {
+      "code": "70",
+      "name": "ATIVIDADES DE SEDES DE EMPRESAS E DE CONSULTORIA EM GESTÃO EMPRESARIAL",
+      "label": "70 - ATIVIDADES DE SEDES DE EMPRESAS E DE CONSULTORIA EM GESTÃO EMPRESARIAL"
+    },
+    {
+      "code": "72",
+      "name": "PESQUISA E DESENVOLVIMENTO CIENTÍFICO",
+      "label": "72 - PESQUISA E DESENVOLVIMENTO CIENTÍFICO"
+    },
+    {
+      "code": "73",
+      "name": "PUBLICIDADE E PESQUISA DE MERCADO",
+      "label": "73 - PUBLICIDADE E PESQUISA DE MERCADO"
+    },
+    {
+      "code": "74",
+      "name": "OUTRAS ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS",
+      "label": "74 - OUTRAS ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS"
+    },
+    {
+      "code": "75",
+      "name": "ATIVIDADES VETERINÁRIAS",
+      "label": "75 - ATIVIDADES VETERINÁRIAS"
+    },
+    {
+      "code": "91",
+      "name": "ATIVIDADES LIGADAS AO PATRIMÔNIO CULTURAL E AMBIENTAL",
+      "label": "91 - ATIVIDADES LIGADAS AO PATRIMÔNIO CULTURAL E AMBIENTAL"
+    },
+    {
+      "code": "92",
+      "name": "ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS",
+      "label": "92 - ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS"
+    },
+    {
+      "code": "77",
+      "name": "ALUGUÉIS NÃO-IMOBILIÁRIOS E GESTÃO DE ATIVOS INTANGÍVEIS NÃO-FINANCEIROS",
+      "label": "77 - ALUGUÉIS NÃO-IMOBILIÁRIOS E GESTÃO DE ATIVOS INTANGÍVEIS NÃO-FINANCEIROS"
+    },
+    {
+      "code": "78",
+      "name": "SELEÇÃO, AGENCIAMENTO E LOCAÇÃO DE MÃO-DE-OBRA",
+      "label": "78 - SELEÇÃO, AGENCIAMENTO E LOCAÇÃO DE MÃO-DE-OBRA"
+    },
+    {
+      "code": "79",
+      "name": "AGÊNCIAS DE VIAGENS, OPERADORES TURÍSTICOS E SERVIÇOS DE RESERVAS",
+      "label": "79 - AGÊNCIAS DE VIAGENS, OPERADORES TURÍSTICOS E SERVIÇOS DE RESERVAS"
+    },
+    {
+      "code": "80",
+      "name": "ATIVIDADES DE VIGILÂNCIA, SEGURANÇA E INVESTIGAÇÃO",
+      "label": "80 - ATIVIDADES DE VIGILÂNCIA, SEGURANÇA E INVESTIGAÇÃO"
+    },
+    {
+      "code": "81",
+      "name": "SERVIÇOS PARA EDIFÍCIOS E ATIVIDADES PAISAGÍSTICAS",
+      "label": "81 - SERVIÇOS PARA EDIFÍCIOS E ATIVIDADES PAISAGÍSTICAS"
+    },
+    {
+      "code": "82",
+      "name": "SERVIÇOS DE ESCRITÓRIO, DE APOIO ADMINISTRATIVO E OUTROS SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS",
+      "label": "82 - SERVIÇOS DE ESCRITÓRIO, DE APOIO ADMINISTRATIVO E OUTROS SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS"
+    },
+    {
+      "code": "84",
+      "name": "ADMINISTRAÇÃO PÚBLICA, DEFESA E SEGURIDADE SOCIAL",
+      "label": "84 - ADMINISTRAÇÃO PÚBLICA, DEFESA E SEGURIDADE SOCIAL"
+    },
+    {
+      "code": "85",
+      "name": "EDUCAÇÃO",
+      "label": "85 - EDUCAÇÃO"
+    },
+    {
+      "code": "86",
+      "name": "ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA",
+      "label": "86 - ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA"
+    },
+    {
+      "code": "87",
+      "name": "ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA INTEGRADAS COM ASSISTÊNCIA SOCIAL, PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES",
+      "label": "87 - ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA INTEGRADAS COM ASSISTÊNCIA SOCIAL, PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES"
+    },
+    {
+      "code": "88",
+      "name": "SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO",
+      "label": "88 - SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO"
+    },
+    {
+      "code": "90",
+      "name": "ATIVIDADES ARTÍSTICAS, CRIATIVAS E DE ESPETÁCULOS",
+      "label": "90 - ATIVIDADES ARTÍSTICAS, CRIATIVAS E DE ESPETÁCULOS"
+    },
+    {
+      "code": "93",
+      "name": "ATIVIDADES ESPORTIVAS E DE RECREAÇÃO E LAZER",
+      "label": "93 - ATIVIDADES ESPORTIVAS E DE RECREAÇÃO E LAZER"
+    },
+    {
+      "code": "94",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS",
+      "label": "94 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS"
+    },
+    {
+      "code": "95",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO E DE OBJETOS PESSOAIS E DOMÉSTICOS",
+      "label": "95 - REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO E DE OBJETOS PESSOAIS E DOMÉSTICOS"
+    },
+    {
+      "code": "96",
+      "name": "OUTRAS ATIVIDADES DE SERVIÇOS PESSOAIS",
+      "label": "96 - OUTRAS ATIVIDADES DE SERVIÇOS PESSOAIS"
+    },
+    {
+      "code": "97",
+      "name": "SERVIÇOS DOMÉSTICOS",
+      "label": "97 - SERVIÇOS DOMÉSTICOS"
+    },
+    {
+      "code": "99",
+      "name": "ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS",
+      "label": "99 - ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS"
+    }
+  ],
+  "grupos": [
+    {
+      "code": "011",
+      "name": "PRODUÇÃO DE LAVOURAS TEMPORÁRIAS",
+      "label": "011 - PRODUÇÃO DE LAVOURAS TEMPORÁRIAS"
+    },
+    {
+      "code": "012",
+      "name": "HORTICULTURA E FLORICULTURA",
+      "label": "012 - HORTICULTURA E FLORICULTURA"
+    },
+    {
+      "code": "013",
+      "name": "PRODUÇÃO DE LAVOURAS PERMANENTES",
+      "label": "013 - PRODUÇÃO DE LAVOURAS PERMANENTES"
+    },
+    {
+      "code": "014",
+      "name": "PRODUÇÃO DE SEMENTES E MUDAS CERTIFICADAS",
+      "label": "014 - PRODUÇÃO DE SEMENTES E MUDAS CERTIFICADAS"
+    },
+    {
+      "code": "015",
+      "name": "PECUÁRIA",
+      "label": "015 - PECUÁRIA"
+    },
+    {
+      "code": "016",
+      "name": "ATIVIDADES DE APOIO À AGRICULTURA E À PECUÁRIA; ATIVIDADES DE PÓS-COLHEITA",
+      "label": "016 - ATIVIDADES DE APOIO À AGRICULTURA E À PECUÁRIA; ATIVIDADES DE PÓS-COLHEITA"
+    },
+    {
+      "code": "017",
+      "name": "CAÇA E SERVIÇOS RELACIONADOS",
+      "label": "017 - CAÇA E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "021",
+      "name": "PRODUÇÃO FLORESTAL - FLORESTAS PLANTADAS",
+      "label": "021 - PRODUÇÃO FLORESTAL - FLORESTAS PLANTADAS"
+    },
+    {
+      "code": "022",
+      "name": "PRODUÇÃO FLORESTAL - FLORESTAS NATIVAS",
+      "label": "022 - PRODUÇÃO FLORESTAL - FLORESTAS NATIVAS"
+    },
+    {
+      "code": "023",
+      "name": "ATIVIDADES DE APOIO À PRODUÇÃO FLORESTAL",
+      "label": "023 - ATIVIDADES DE APOIO À PRODUÇÃO FLORESTAL"
+    },
+    {
+      "code": "031",
+      "name": "PESCA",
+      "label": "031 - PESCA"
+    },
+    {
+      "code": "032",
+      "name": "AQÜICULTURA",
+      "label": "032 - AQÜICULTURA"
+    },
+    {
+      "code": "050",
+      "name": "EXTRAÇÃO DE CARVÃO MINERAL",
+      "label": "050 - EXTRAÇÃO DE CARVÃO MINERAL"
+    },
+    {
+      "code": "060",
+      "name": "EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL",
+      "label": "060 - EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "071",
+      "name": "EXTRAÇÃO DE MINÉRIO DE FERRO",
+      "label": "071 - EXTRAÇÃO DE MINÉRIO DE FERRO"
+    },
+    {
+      "code": "072",
+      "name": "EXTRAÇÃO DE MINERAIS METÁLICOS NÃO-FERROSOS",
+      "label": "072 - EXTRAÇÃO DE MINERAIS METÁLICOS NÃO-FERROSOS"
+    },
+    {
+      "code": "081",
+      "name": "EXTRAÇÃO DE PEDRA, AREIA E ARGILA",
+      "label": "081 - EXTRAÇÃO DE PEDRA, AREIA E ARGILA"
+    },
+    {
+      "code": "089",
+      "name": "EXTRAÇÃO DE OUTROS MINERAIS NÃO-METÁLICOS",
+      "label": "089 - EXTRAÇÃO DE OUTROS MINERAIS NÃO-METÁLICOS"
+    },
+    {
+      "code": "091",
+      "name": "ATIVIDADES DE APOIO À EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL",
+      "label": "091 - ATIVIDADES DE APOIO À EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "099",
+      "name": "ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS, EXCETO PETRÓLEO E GÁS NATURAL",
+      "label": "099 - ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS, EXCETO PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "101",
+      "name": "ABATE E FABRICAÇÃO DE PRODUTOS DE CARNE",
+      "label": "101 - ABATE E FABRICAÇÃO DE PRODUTOS DE CARNE"
+    },
+    {
+      "code": "102",
+      "name": "PRESERVAÇÃO DO PESCADO E FABRICAÇÃO DE PRODUTOS DO PESCADO",
+      "label": "102 - PRESERVAÇÃO DO PESCADO E FABRICAÇÃO DE PRODUTOS DO PESCADO"
+    },
+    {
+      "code": "103",
+      "name": "FABRICAÇÃO DE CONSERVAS DE FRUTAS, LEGUMES E OUTROS VEGETAIS",
+      "label": "103 - FABRICAÇÃO DE CONSERVAS DE FRUTAS, LEGUMES E OUTROS VEGETAIS"
+    },
+    {
+      "code": "104",
+      "name": "FABRICAÇÃO DE ÓLEOS E GORDURAS VEGETAIS E ANIMAIS",
+      "label": "104 - FABRICAÇÃO DE ÓLEOS E GORDURAS VEGETAIS E ANIMAIS"
+    },
+    {
+      "code": "105",
+      "name": "LATICÍNIOS",
+      "label": "105 - LATICÍNIOS"
+    },
+    {
+      "code": "106",
+      "name": "MOAGEM, FABRICAÇÃO DE PRODUTOS AMILÁCEOS E DE ALIMENTOS PARA ANIMAIS",
+      "label": "106 - MOAGEM, FABRICAÇÃO DE PRODUTOS AMILÁCEOS E DE ALIMENTOS PARA ANIMAIS"
+    },
+    {
+      "code": "107",
+      "name": "FABRICAÇÃO E REFINO DE AÇÚCAR",
+      "label": "107 - FABRICAÇÃO E REFINO DE AÇÚCAR"
+    },
+    {
+      "code": "108",
+      "name": "TORREFAÇÃO E MOAGEM DE CAFÉ",
+      "label": "108 - TORREFAÇÃO E MOAGEM DE CAFÉ"
+    },
+    {
+      "code": "109",
+      "name": "FABRICAÇÃO DE OUTROS PRODUTOS ALIMENTÍCIOS",
+      "label": "109 - FABRICAÇÃO DE OUTROS PRODUTOS ALIMENTÍCIOS"
+    },
+    {
+      "code": "111",
+      "name": "FABRICAÇÃO DE BEBIDAS ALCOÓLICAS",
+      "label": "111 - FABRICAÇÃO DE BEBIDAS ALCOÓLICAS"
+    },
+    {
+      "code": "112",
+      "name": "FABRICAÇÃO DE BEBIDAS NÃO-ALCOÓLICAS",
+      "label": "112 - FABRICAÇÃO DE BEBIDAS NÃO-ALCOÓLICAS"
+    },
+    {
+      "code": "121",
+      "name": "PROCESSAMENTO INDUSTRIAL DO FUMO",
+      "label": "121 - PROCESSAMENTO INDUSTRIAL DO FUMO"
+    },
+    {
+      "code": "122",
+      "name": "FABRICAÇÃO DE PRODUTOS DO FUMO",
+      "label": "122 - FABRICAÇÃO DE PRODUTOS DO FUMO"
+    },
+    {
+      "code": "131",
+      "name": "PREPARAÇÃO E FIAÇÃO DE FIBRAS TÊXTEIS",
+      "label": "131 - PREPARAÇÃO E FIAÇÃO DE FIBRAS TÊXTEIS"
+    },
+    {
+      "code": "132",
+      "name": "TECELAGEM, EXCETO MALHA",
+      "label": "132 - TECELAGEM, EXCETO MALHA"
+    },
+    {
+      "code": "133",
+      "name": "FABRICAÇÃO DE TECIDOS DE MALHA",
+      "label": "133 - FABRICAÇÃO DE TECIDOS DE MALHA"
+    },
+    {
+      "code": "134",
+      "name": "ACABAMENTOS EM FIOS, TECIDOS E ARTEFATOS TÊXTEIS",
+      "label": "134 - ACABAMENTOS EM FIOS, TECIDOS E ARTEFATOS TÊXTEIS"
+    },
+    {
+      "code": "135",
+      "name": "FABRICAÇÃO DE ARTEFATOS TÊXTEIS, EXCETO VESTUÁRIO",
+      "label": "135 - FABRICAÇÃO DE ARTEFATOS TÊXTEIS, EXCETO VESTUÁRIO"
+    },
+    {
+      "code": "141",
+      "name": "CONFECÇÃO DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS",
+      "label": "141 - CONFECÇÃO DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS"
+    },
+    {
+      "code": "142",
+      "name": "FABRICAÇÃO DE ARTIGOS DE MALHARIA E TRICOTAGEM",
+      "label": "142 - FABRICAÇÃO DE ARTIGOS DE MALHARIA E TRICOTAGEM"
+    },
+    {
+      "code": "151",
+      "name": "CURTIMENTO E OUTRAS PREPARAÇÕES DE COURO",
+      "label": "151 - CURTIMENTO E OUTRAS PREPARAÇÕES DE COURO"
+    },
+    {
+      "code": "152",
+      "name": "FABRICAÇÃO DE ARTIGOS PARA VIAGEM E DE ARTEFATOS DIVERSOS DE COURO",
+      "label": "152 - FABRICAÇÃO DE ARTIGOS PARA VIAGEM E DE ARTEFATOS DIVERSOS DE COURO"
+    },
+    {
+      "code": "153",
+      "name": "FABRICAÇÃO DE CALÇADOS",
+      "label": "153 - FABRICAÇÃO DE CALÇADOS"
+    },
+    {
+      "code": "750",
+      "name": "ATIVIDADES VETERINÁRIAS",
+      "label": "750 - ATIVIDADES VETERINÁRIAS"
+    },
+    {
+      "code": "154",
+      "name": "FABRICAÇÃO DE PARTES PARA CALÇADOS, DE QUALQUER MATERIAL",
+      "label": "154 - FABRICAÇÃO DE PARTES PARA CALÇADOS, DE QUALQUER MATERIAL"
+    },
+    {
+      "code": "161",
+      "name": "DESDOBRAMENTO DE MADEIRA",
+      "label": "161 - DESDOBRAMENTO DE MADEIRA"
+    },
+    {
+      "code": "162",
+      "name": "FABRICAÇÃO DE PRODUTOS DE MADEIRA, CORTIÇA E MATERIAL TRANÇADO, EXCETO MÓVEIS",
+      "label": "162 - FABRICAÇÃO DE PRODUTOS DE MADEIRA, CORTIÇA E MATERIAL TRANÇADO, EXCETO MÓVEIS"
+    },
+    {
+      "code": "171",
+      "name": "FABRICAÇÃO DE CELULOSE E OUTRAS PASTAS PARA A FABRICAÇÃO DE PAPEL",
+      "label": "171 - FABRICAÇÃO DE CELULOSE E OUTRAS PASTAS PARA A FABRICAÇÃO DE PAPEL"
+    },
+    {
+      "code": "172",
+      "name": "FABRICAÇÃO DE PAPEL, CARTOLINA E PAPEL-CARTÃO",
+      "label": "172 - FABRICAÇÃO DE PAPEL, CARTOLINA E PAPEL-CARTÃO"
+    },
+    {
+      "code": "173",
+      "name": "FABRICAÇÃO DE EMBALAGENS DE PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO",
+      "label": "173 - FABRICAÇÃO DE EMBALAGENS DE PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO"
+    },
+    {
+      "code": "174",
+      "name": "FABRICAÇÃO DE PRODUTOS DIVERSOS DE PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO",
+      "label": "174 - FABRICAÇÃO DE PRODUTOS DIVERSOS DE PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO"
+    },
+    {
+      "code": "181",
+      "name": "ATIVIDADE DE IMPRESSÃO",
+      "label": "181 - ATIVIDADE DE IMPRESSÃO"
+    },
+    {
+      "code": "182",
+      "name": "SERVIÇOS DE PRÉ-IMPRESSÃO E ACABAMENTOS GRÁFICOS",
+      "label": "182 - SERVIÇOS DE PRÉ-IMPRESSÃO E ACABAMENTOS GRÁFICOS"
+    },
+    {
+      "code": "183",
+      "name": "REPRODUÇÃO DE MATERIAIS GRAVADOS EM QUALQUER SUPORTE",
+      "label": "183 - REPRODUÇÃO DE MATERIAIS GRAVADOS EM QUALQUER SUPORTE"
+    },
+    {
+      "code": "191",
+      "name": "COQUERIAS",
+      "label": "191 - COQUERIAS"
+    },
+    {
+      "code": "192",
+      "name": "FABRICAÇÃO DE PRODUTOS DERIVADOS DO PETRÓLEO",
+      "label": "192 - FABRICAÇÃO DE PRODUTOS DERIVADOS DO PETRÓLEO"
+    },
+    {
+      "code": "193",
+      "name": "FABRICAÇÃO DE BIOCOMBUSTÍVEIS",
+      "label": "193 - FABRICAÇÃO DE BIOCOMBUSTÍVEIS"
+    },
+    {
+      "code": "201",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS INORGÂNICOS",
+      "label": "201 - FABRICAÇÃO DE PRODUTOS QUÍMICOS INORGÂNICOS"
+    },
+    {
+      "code": "202",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS ORGÂNICOS",
+      "label": "202 - FABRICAÇÃO DE PRODUTOS QUÍMICOS ORGÂNICOS"
+    },
+    {
+      "code": "203",
+      "name": "FABRICAÇÃO DE RESINAS E ELASTÔMEROS",
+      "label": "203 - FABRICAÇÃO DE RESINAS E ELASTÔMEROS"
+    },
+    {
+      "code": "204",
+      "name": "FABRICAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS",
+      "label": "204 - FABRICAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS"
+    },
+    {
+      "code": "205",
+      "name": "FABRICAÇÃO DE DEFENSIVOS AGRÍCOLAS E DESINFESTANTES DOMISSANITÁRIOS",
+      "label": "205 - FABRICAÇÃO DE DEFENSIVOS AGRÍCOLAS E DESINFESTANTES DOMISSANITÁRIOS"
+    },
+    {
+      "code": "206",
+      "name": "FABRICAÇÃO DE SABÕES, DETERGENTES, PRODUTOS DE LIMPEZA, COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL",
+      "label": "206 - FABRICAÇÃO DE SABÕES, DETERGENTES, PRODUTOS DE LIMPEZA, COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL"
+    },
+    {
+      "code": "207",
+      "name": "FABRICAÇÃO DE TINTAS, VERNIZES, ESMALTES, LACAS E PRODUTOS AFINS",
+      "label": "207 - FABRICAÇÃO DE TINTAS, VERNIZES, ESMALTES, LACAS E PRODUTOS AFINS"
+    },
+    {
+      "code": "209",
+      "name": "FABRICAÇÃO DE PRODUTOS E PREPARADOS QUÍMICOS DIVERSOS",
+      "label": "209 - FABRICAÇÃO DE PRODUTOS E PREPARADOS QUÍMICOS DIVERSOS"
+    },
+    {
+      "code": "211",
+      "name": "FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS",
+      "label": "211 - FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS"
+    },
+    {
+      "code": "212",
+      "name": "FABRICAÇÃO DE PRODUTOS FARMACÊUTICOS",
+      "label": "212 - FABRICAÇÃO DE PRODUTOS FARMACÊUTICOS"
+    },
+    {
+      "code": "221",
+      "name": "FABRICAÇÃO DE PRODUTOS DE BORRACHA",
+      "label": "221 - FABRICAÇÃO DE PRODUTOS DE BORRACHA"
+    },
+    {
+      "code": "222",
+      "name": "FABRICAÇÃO DE PRODUTOS DE MATERIAL PLÁSTICO",
+      "label": "222 - FABRICAÇÃO DE PRODUTOS DE MATERIAL PLÁSTICO"
+    },
+    {
+      "code": "231",
+      "name": "FABRICAÇÃO DE VIDRO E DE PRODUTOS DO VIDRO",
+      "label": "231 - FABRICAÇÃO DE VIDRO E DE PRODUTOS DO VIDRO"
+    },
+    {
+      "code": "232",
+      "name": "FABRICAÇÃO DE CIMENTO",
+      "label": "232 - FABRICAÇÃO DE CIMENTO"
+    },
+    {
+      "code": "233",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE CONCRETO, CIMENTO, FIBROCIMENTO, GESSO E MATERIAIS SEMELHANTES",
+      "label": "233 - FABRICAÇÃO DE ARTEFATOS DE CONCRETO, CIMENTO, FIBROCIMENTO, GESSO E MATERIAIS SEMELHANTES"
+    },
+    {
+      "code": "234",
+      "name": "FABRICAÇÃO DE PRODUTOS CERÂMICOS",
+      "label": "234 - FABRICAÇÃO DE PRODUTOS CERÂMICOS"
+    },
+    {
+      "code": "239",
+      "name": "APARELHAMENTO DE PEDRAS E FABRICAÇÃO DE OUTROS PRODUTOS DE MINERAIS NÃO-METÁLICOS",
+      "label": "239 - APARELHAMENTO DE PEDRAS E FABRICAÇÃO DE OUTROS PRODUTOS DE MINERAIS NÃO-METÁLICOS"
+    },
+    {
+      "code": "241",
+      "name": "PRODUÇÃO DE FERRO-GUSA E DE FERROLIGAS",
+      "label": "241 - PRODUÇÃO DE FERRO-GUSA E DE FERROLIGAS"
+    },
+    {
+      "code": "242",
+      "name": "SIDERURGIA",
+      "label": "242 - SIDERURGIA"
+    },
+    {
+      "code": "243",
+      "name": "PRODUÇÃO DE TUBOS DE AÇO, EXCETO TUBOS SEM COSTURA",
+      "label": "243 - PRODUÇÃO DE TUBOS DE AÇO, EXCETO TUBOS SEM COSTURA"
+    },
+    {
+      "code": "244",
+      "name": "METALURGIA DOS METAIS NÃO-FERROSOS",
+      "label": "244 - METALURGIA DOS METAIS NÃO-FERROSOS"
+    },
+    {
+      "code": "245",
+      "name": "FUNDIÇÃO",
+      "label": "245 - FUNDIÇÃO"
+    },
+    {
+      "code": "251",
+      "name": "FABRICAÇÃO DE ESTRUTURAS METÁLICAS E OBRAS DE CALDEIRARIA PESADA",
+      "label": "251 - FABRICAÇÃO DE ESTRUTURAS METÁLICAS E OBRAS DE CALDEIRARIA PESADA"
+    },
+    {
+      "code": "252",
+      "name": "FABRICAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS",
+      "label": "252 - FABRICAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS"
+    },
+    {
+      "code": "253",
+      "name": "FORJARIA, ESTAMPARIA, METALURGIA DO PÓ E SERVIÇOS DE TRATAMENTO DE METAIS",
+      "label": "253 - FORJARIA, ESTAMPARIA, METALURGIA DO PÓ E SERVIÇOS DE TRATAMENTO DE METAIS"
+    },
+    {
+      "code": "254",
+      "name": "FABRICAÇÃO DE ARTIGOS DE CUTELARIA, DE SERRALHERIA E FERRAMENTAS",
+      "label": "254 - FABRICAÇÃO DE ARTIGOS DE CUTELARIA, DE SERRALHERIA E FERRAMENTAS"
+    },
+    {
+      "code": "255",
+      "name": "FABRICAÇÃO DE EQUIPAMENTO BÉLICO PESADO, ARMAS E MUNIÇÕES",
+      "label": "255 - FABRICAÇÃO DE EQUIPAMENTO BÉLICO PESADO, ARMAS E MUNIÇÕES"
+    },
+    {
+      "code": "259",
+      "name": "FABRICAÇÃO DE PRODUTOS DE METAL NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "259 - FABRICAÇÃO DE PRODUTOS DE METAL NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "261",
+      "name": "FABRICAÇÃO DE COMPONENTES ELETRÔNICOS",
+      "label": "261 - FABRICAÇÃO DE COMPONENTES ELETRÔNICOS"
+    },
+    {
+      "code": "262",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E PERIFÉRICOS",
+      "label": "262 - FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E PERIFÉRICOS"
+    },
+    {
+      "code": "263",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE COMUNICAÇÃO",
+      "label": "263 - FABRICAÇÃO DE EQUIPAMENTOS DE COMUNICAÇÃO"
+    },
+    {
+      "code": "264",
+      "name": "FABRICAÇÃO DE APARELHOS DE RECEPÇÃO, REPRODUÇÃO, GRAVAÇÃO E AMPLIFICAÇÃO DE ÁUDIO E VÍDEO",
+      "label": "264 - FABRICAÇÃO DE APARELHOS DE RECEPÇÃO, REPRODUÇÃO, GRAVAÇÃO E AMPLIFICAÇÃO DE ÁUDIO E VÍDEO"
+    },
+    {
+      "code": "265",
+      "name": "FABRICAÇÃO DE APARELHOS E INSTRUMENTOS DE MEDIDA, TESTE E CONTROLE; CRONÔMETROS E RELÓGIOS",
+      "label": "265 - FABRICAÇÃO DE APARELHOS E INSTRUMENTOS DE MEDIDA, TESTE E CONTROLE; CRONÔMETROS E RELÓGIOS"
+    },
+    {
+      "code": "266",
+      "name": "FABRICAÇÃO DE APARELHOS ELETROMÉDICOS E ELETROTERAPÊUTICOS E EQUIPAMENTOS DE IRRADIAÇÃO",
+      "label": "266 - FABRICAÇÃO DE APARELHOS ELETROMÉDICOS E ELETROTERAPÊUTICOS E EQUIPAMENTOS DE IRRADIAÇÃO"
+    },
+    {
+      "code": "267",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS E INSTRUMENTOS ÓPTICOS, FOTOGRÁFICOS E CINEMATOGRÁFICOS",
+      "label": "267 - FABRICAÇÃO DE EQUIPAMENTOS E INSTRUMENTOS ÓPTICOS, FOTOGRÁFICOS E CINEMATOGRÁFICOS"
+    },
+    {
+      "code": "268",
+      "name": "FABRICAÇÃO DE MÍDIAS VIRGENS, MAGNÉTICAS E ÓPTICAS",
+      "label": "268 - FABRICAÇÃO DE MÍDIAS VIRGENS, MAGNÉTICAS E ÓPTICAS"
+    },
+    {
+      "code": "271",
+      "name": "FABRICAÇÃO DE GERADORES, TRANSFORMADORES E MOTORES ELÉTRICOS",
+      "label": "271 - FABRICAÇÃO DE GERADORES, TRANSFORMADORES E MOTORES ELÉTRICOS"
+    },
+    {
+      "code": "272",
+      "name": "FABRICAÇÃO DE PILHAS, BATERIAS E ACUMULADORES ELÉTRICOS",
+      "label": "272 - FABRICAÇÃO DE PILHAS, BATERIAS E ACUMULADORES ELÉTRICOS"
+    },
+    {
+      "code": "273",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS PARA DISTRIBUIÇÃO E CONTROLE DE ENERGIA ELÉTRICA",
+      "label": "273 - FABRICAÇÃO DE EQUIPAMENTOS PARA DISTRIBUIÇÃO E CONTROLE DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "274",
+      "name": "FABRICAÇÃO DE LÂMPADAS E OUTROS EQUIPAMENTOS DE ILUMINAÇÃO",
+      "label": "274 - FABRICAÇÃO DE LÂMPADAS E OUTROS EQUIPAMENTOS DE ILUMINAÇÃO"
+    },
+    {
+      "code": "275",
+      "name": "FABRICAÇÃO DE ELETRODOMÉSTICOS",
+      "label": "275 - FABRICAÇÃO DE ELETRODOMÉSTICOS"
+    },
+    {
+      "code": "279",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS E APARELHOS ELÉTRICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "279 - FABRICAÇÃO DE EQUIPAMENTOS E APARELHOS ELÉTRICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "281",
+      "name": "FABRICAÇÃO DE MOTORES, BOMBAS, COMPRESSORES E EQUIPAMENTOS DE TRANSMISSÃO",
+      "label": "281 - FABRICAÇÃO DE MOTORES, BOMBAS, COMPRESSORES E EQUIPAMENTOS DE TRANSMISSÃO"
+    },
+    {
+      "code": "282",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO GERAL",
+      "label": "282 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO GERAL"
+    },
+    {
+      "code": "283",
+      "name": "FABRICAÇÃO DE TRATORES E DE MÁQUINAS E EQUIPAMENTOS PARA A AGRICULTURA E PECUÁRIA",
+      "label": "283 - FABRICAÇÃO DE TRATORES E DE MÁQUINAS E EQUIPAMENTOS PARA A AGRICULTURA E PECUÁRIA"
+    },
+    {
+      "code": "284",
+      "name": "FABRICAÇÃO DE MÁQUINAS-FERRAMENTA",
+      "label": "284 - FABRICAÇÃO DE MÁQUINAS-FERRAMENTA"
+    },
+    {
+      "code": "285",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO NA EXTRAÇÃO MINERAL E NA CONSTRUÇÃO",
+      "label": "285 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO NA EXTRAÇÃO MINERAL E NA CONSTRUÇÃO"
+    },
+    {
+      "code": "286",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO INDUSTRIAL ESPECÍFICO",
+      "label": "286 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO INDUSTRIAL ESPECÍFICO"
+    },
+    {
+      "code": "291",
+      "name": "FABRICAÇÃO DE AUTOMÓVEIS, CAMIONETAS E UTILITÁRIOS",
+      "label": "291 - FABRICAÇÃO DE AUTOMÓVEIS, CAMIONETAS E UTILITÁRIOS"
+    },
+    {
+      "code": "292",
+      "name": "FABRICAÇÃO DE CAMINHÕES E ÔNIBUS",
+      "label": "292 - FABRICAÇÃO DE CAMINHÕES E ÔNIBUS"
+    },
+    {
+      "code": "293",
+      "name": "FABRICAÇÃO DE CABINES, CARROCERIAS E REBOQUES PARA VEÍCULOS AUTOMOTORES",
+      "label": "293 - FABRICAÇÃO DE CABINES, CARROCERIAS E REBOQUES PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "294",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES",
+      "label": "294 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "295",
+      "name": "RECONDICIONAMENTO E RECUPERAÇÃO DE MOTORES PARA VEÍCULOS AUTOMOTORES",
+      "label": "295 - RECONDICIONAMENTO E RECUPERAÇÃO DE MOTORES PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "301",
+      "name": "CONSTRUÇÃO DE EMBARCAÇÕES",
+      "label": "301 - CONSTRUÇÃO DE EMBARCAÇÕES"
+    },
+    {
+      "code": "303",
+      "name": "FABRICAÇÃO DE VEÍCULOS FERROVIÁRIOS",
+      "label": "303 - FABRICAÇÃO DE VEÍCULOS FERROVIÁRIOS"
+    },
+    {
+      "code": "304",
+      "name": "FABRICAÇÃO DE AERONAVES",
+      "label": "304 - FABRICAÇÃO DE AERONAVES"
+    },
+    {
+      "code": "305",
+      "name": "FABRICAÇÃO DE VEÍCULOS MILITARES DE COMBATE",
+      "label": "305 - FABRICAÇÃO DE VEÍCULOS MILITARES DE COMBATE"
+    },
+    {
+      "code": "309",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE TRANSPORTE NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "309 - FABRICAÇÃO DE EQUIPAMENTOS DE TRANSPORTE NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "310",
+      "name": "FABRICAÇÃO DE MÓVEIS",
+      "label": "310 - FABRICAÇÃO DE MÓVEIS"
+    },
+    {
+      "code": "321",
+      "name": "FABRICAÇÃO DE ARTIGOS DE JOALHERIA, BIJUTERIA E SEMELHANTES",
+      "label": "321 - FABRICAÇÃO DE ARTIGOS DE JOALHERIA, BIJUTERIA E SEMELHANTES"
+    },
+    {
+      "code": "322",
+      "name": "FABRICAÇÃO DE INSTRUMENTOS MUSICAIS",
+      "label": "322 - FABRICAÇÃO DE INSTRUMENTOS MUSICAIS"
+    },
+    {
+      "code": "323",
+      "name": "FABRICAÇÃO DE ARTEFATOS PARA PESCA E ESPORTE",
+      "label": "323 - FABRICAÇÃO DE ARTEFATOS PARA PESCA E ESPORTE"
+    },
+    {
+      "code": "324",
+      "name": "FABRICAÇÃO DE BRINQUEDOS E JOGOS RECREATIVOS",
+      "label": "324 - FABRICAÇÃO DE BRINQUEDOS E JOGOS RECREATIVOS"
+    },
+    {
+      "code": "325",
+      "name": "FABRICAÇÃO DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO E ODONTOLÓGICO E DE ARTIGOS ÓPTICOS",
+      "label": "325 - FABRICAÇÃO DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO E ODONTOLÓGICO E DE ARTIGOS ÓPTICOS"
+    },
+    {
+      "code": "329",
+      "name": "FABRICAÇÃO DE PRODUTOS DIVERSOS",
+      "label": "329 - FABRICAÇÃO DE PRODUTOS DIVERSOS"
+    },
+    {
+      "code": "331",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+      "label": "331 - MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS"
+    },
+    {
+      "code": "332",
+      "name": "INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+      "label": "332 - INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS"
+    },
+    {
+      "code": "351",
+      "name": "GERAÇÃO, TRANSMISSÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA",
+      "label": "351 - GERAÇÃO, TRANSMISSÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "352",
+      "name": "PRODUÇÃO E DISTRIBUIÇÃO DE COMBUSTÍVEIS GASOSOS POR REDES URBANAS",
+      "label": "352 - PRODUÇÃO E DISTRIBUIÇÃO DE COMBUSTÍVEIS GASOSOS POR REDES URBANAS"
+    },
+    {
+      "code": "353",
+      "name": "PRODUÇÃO E DISTRIBUIÇÃO DE VAPOR, ÁGUA QUENTE E AR CONDICIONADO",
+      "label": "353 - PRODUÇÃO E DISTRIBUIÇÃO DE VAPOR, ÁGUA QUENTE E AR CONDICIONADO"
+    },
+    {
+      "code": "360",
+      "name": "CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA",
+      "label": "360 - CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA"
+    },
+    {
+      "code": "370",
+      "name": "ESGOTO E ATIVIDADES RELACIONADAS",
+      "label": "370 - ESGOTO E ATIVIDADES RELACIONADAS"
+    },
+    {
+      "code": "381",
+      "name": "COLETA DE RESÍDUOS",
+      "label": "381 - COLETA DE RESÍDUOS"
+    },
+    {
+      "code": "382",
+      "name": "TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS",
+      "label": "382 - TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS"
+    },
+    {
+      "code": "383",
+      "name": "RECUPERAÇÃO DE MATERIAIS",
+      "label": "383 - RECUPERAÇÃO DE MATERIAIS"
+    },
+    {
+      "code": "390",
+      "name": "DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS",
+      "label": "390 - DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS"
+    },
+    {
+      "code": "411",
+      "name": "INCORPORAÇÃO DE EMPREENDIMENTOS IMOBILIÁRIOS",
+      "label": "411 - INCORPORAÇÃO DE EMPREENDIMENTOS IMOBILIÁRIOS"
+    },
+    {
+      "code": "412",
+      "name": "CONSTRUÇÃO DE EDIFÍCIOS",
+      "label": "412 - CONSTRUÇÃO DE EDIFÍCIOS"
+    },
+    {
+      "code": "421",
+      "name": "CONSTRUÇÃO DE RODOVIAS, FERROVIAS, OBRAS URBANAS E OBRAS-DE-ARTE ESPECIAIS",
+      "label": "421 - CONSTRUÇÃO DE RODOVIAS, FERROVIAS, OBRAS URBANAS E OBRAS-DE-ARTE ESPECIAIS"
+    },
+    {
+      "code": "422",
+      "name": "OBRAS DE INFRA-ESTRUTURA PARA ENERGIA ELÉTRICA, TELECOMUNICAÇÕES, ÁGUA, ESGOTO E TRANSPORTE POR DUTOS",
+      "label": "422 - OBRAS DE INFRA-ESTRUTURA PARA ENERGIA ELÉTRICA, TELECOMUNICAÇÕES, ÁGUA, ESGOTO E TRANSPORTE POR DUTOS"
+    },
+    {
+      "code": "429",
+      "name": "CONSTRUÇÃO DE OUTRAS OBRAS DE INFRA-ESTRUTURA",
+      "label": "429 - CONSTRUÇÃO DE OUTRAS OBRAS DE INFRA-ESTRUTURA"
+    },
+    {
+      "code": "431",
+      "name": "DEMOLIÇÃO E PREPARAÇÃO DO TERRENO",
+      "label": "431 - DEMOLIÇÃO E PREPARAÇÃO DO TERRENO"
+    },
+    {
+      "code": "432",
+      "name": "INSTALAÇÕES ELÉTRICAS, HIDRÁULICAS E OUTRAS INSTALAÇÕES EM CONSTRUÇÕES",
+      "label": "432 - INSTALAÇÕES ELÉTRICAS, HIDRÁULICAS E OUTRAS INSTALAÇÕES EM CONSTRUÇÕES"
+    },
+    {
+      "code": "771",
+      "name": "LOCAÇÃO DE MEIOS DE TRANSPORTE SEM CONDUTOR",
+      "label": "771 - LOCAÇÃO DE MEIOS DE TRANSPORTE SEM CONDUTOR"
+    },
+    {
+      "code": "433",
+      "name": "OBRAS DE ACABAMENTO",
+      "label": "433 - OBRAS DE ACABAMENTO"
+    },
+    {
+      "code": "439",
+      "name": "OUTROS SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO",
+      "label": "439 - OUTROS SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO"
+    },
+    {
+      "code": "451",
+      "name": "COMÉRCIO DE VEÍCULOS AUTOMOTORES",
+      "label": "451 - COMÉRCIO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "452",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES",
+      "label": "452 - MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "453",
+      "name": "COMÉRCIO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES",
+      "label": "453 - COMÉRCIO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "454",
+      "name": "COMÉRCIO, MANUTENÇÃO E REPARAÇÃO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS",
+      "label": "454 - COMÉRCIO, MANUTENÇÃO E REPARAÇÃO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS"
+    },
+    {
+      "code": "461",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO, EXCETO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS",
+      "label": "461 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO, EXCETO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+    },
+    {
+      "code": "462",
+      "name": "COMÉRCIO ATACADISTA DE MATÉRIAS-PRIMAS AGRÍCOLAS E ANIMAIS VIVOS",
+      "label": "462 - COMÉRCIO ATACADISTA DE MATÉRIAS-PRIMAS AGRÍCOLAS E ANIMAIS VIVOS"
+    },
+    {
+      "code": "463",
+      "name": "COMÉRCIO ATACADISTA ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO",
+      "label": "463 - COMÉRCIO ATACADISTA ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO"
+    },
+    {
+      "code": "464",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS DE CONSUMO NÃO-ALIMENTAR",
+      "label": "464 - COMÉRCIO ATACADISTA DE PRODUTOS DE CONSUMO NÃO-ALIMENTAR"
+    },
+    {
+      "code": "465",
+      "name": "COMÉRCIO ATACADISTA DE EQUIPAMENTOS E PRODUTOS DE TECNOLOGIAS DE INFORMAÇÃO E COMUNICAÇÃO",
+      "label": "465 - COMÉRCIO ATACADISTA DE EQUIPAMENTOS E PRODUTOS DE TECNOLOGIAS DE INFORMAÇÃO E COMUNICAÇÃO"
+    },
+    {
+      "code": "466",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS, EXCETO DE TECNOLOGIAS DE INFORMAÇÃO E COMUNICAÇÃO",
+      "label": "466 - COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS, EXCETO DE TECNOLOGIAS DE INFORMAÇÃO E COMUNICAÇÃO"
+    },
+    {
+      "code": "467",
+      "name": "COMÉRCIO ATACADISTA DE MADEIRA, FERRAGENS, FERRAMENTAS, MATERIAL ELÉTRICO E MATERIAL DE CONSTRUÇÃO",
+      "label": "467 - COMÉRCIO ATACADISTA DE MADEIRA, FERRAGENS, FERRAMENTAS, MATERIAL ELÉTRICO E MATERIAL DE CONSTRUÇÃO"
+    },
+    {
+      "code": "468",
+      "name": "COMÉRCIO ATACADISTA ESPECIALIZADO EM OUTROS PRODUTOS",
+      "label": "468 - COMÉRCIO ATACADISTA ESPECIALIZADO EM OUTROS PRODUTOS"
+    },
+    {
+      "code": "469",
+      "name": "COMÉRCIO ATACADISTA NÃO-ESPECIALIZADO",
+      "label": "469 - COMÉRCIO ATACADISTA NÃO-ESPECIALIZADO"
+    },
+    {
+      "code": "471",
+      "name": "COMÉRCIO VAREJISTA NÃO-ESPECIALIZADO",
+      "label": "471 - COMÉRCIO VAREJISTA NÃO-ESPECIALIZADO"
+    },
+    {
+      "code": "472",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO",
+      "label": "472 - COMÉRCIO VAREJISTA DE PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO"
+    },
+    {
+      "code": "473",
+      "name": "COMÉRCIO VAREJISTA DE COMBUSTÍVEIS PARA VEÍCULOS AUTOMOTORES",
+      "label": "473 - COMÉRCIO VAREJISTA DE COMBUSTÍVEIS PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "474",
+      "name": "COMÉRCIO VAREJISTA DE MATERIAL DE CONSTRUÇÃO",
+      "label": "474 - COMÉRCIO VAREJISTA DE MATERIAL DE CONSTRUÇÃO"
+    },
+    {
+      "code": "475",
+      "name": "COMÉRCIO VAREJISTA DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO; EQUIPAMENTOS E ARTIGOS DE USO DOMÉSTICO",
+      "label": "475 - COMÉRCIO VAREJISTA DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO; EQUIPAMENTOS E ARTIGOS DE USO DOMÉSTICO"
+    },
+    {
+      "code": "476",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS CULTURAIS, RECREATIVOS E ESPORTIVOS",
+      "label": "476 - COMÉRCIO VAREJISTA DE ARTIGOS CULTURAIS, RECREATIVOS E ESPORTIVOS"
+    },
+    {
+      "code": "477",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS FARMACÊUTICOS, PERFUMARIA E COSMÉTICOS E ARTIGOS MÉDICOS, ÓPTICOS E ORTOPÉDICOS",
+      "label": "477 - COMÉRCIO VAREJISTA DE PRODUTOS FARMACÊUTICOS, PERFUMARIA E COSMÉTICOS E ARTIGOS MÉDICOS, ÓPTICOS E ORTOPÉDICOS"
+    },
+    {
+      "code": "478",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS NOVOS NÃO ESPECIFICADOS ANTERIORMENTE E DE PRODUTOS USADOS",
+      "label": "478 - COMÉRCIO VAREJISTA DE PRODUTOS NOVOS NÃO ESPECIFICADOS ANTERIORMENTE E DE PRODUTOS USADOS"
+    },
+    {
+      "code": "479",
+      "name": "COMÉRCIO AMBULANTE E OUTROS TIPOS DE COMÉRCIO VAREJISTA",
+      "label": "479 - COMÉRCIO AMBULANTE E OUTROS TIPOS DE COMÉRCIO VAREJISTA"
+    },
+    {
+      "code": "491",
+      "name": "TRANSPORTE FERROVIÁRIO E METROFERROVIÁRIO",
+      "label": "491 - TRANSPORTE FERROVIÁRIO E METROFERROVIÁRIO"
+    },
+    {
+      "code": "492",
+      "name": "TRANSPORTE RODOVIÁRIO DE PASSAGEIROS",
+      "label": "492 - TRANSPORTE RODOVIÁRIO DE PASSAGEIROS"
+    },
+    {
+      "code": "493",
+      "name": "TRANSPORTE RODOVIÁRIO DE CARGA",
+      "label": "493 - TRANSPORTE RODOVIÁRIO DE CARGA"
+    },
+    {
+      "code": "494",
+      "name": "TRANSPORTE DUTOVIÁRIO",
+      "label": "494 - TRANSPORTE DUTOVIÁRIO"
+    },
+    {
+      "code": "495",
+      "name": "TRENS TURÍSTICOS, TELEFÉRICOS E SIMILARES",
+      "label": "495 - TRENS TURÍSTICOS, TELEFÉRICOS E SIMILARES"
+    },
+    {
+      "code": "501",
+      "name": "TRANSPORTE MARÍTIMO DE CABOTAGEM E LONGO CURSO",
+      "label": "501 - TRANSPORTE MARÍTIMO DE CABOTAGEM E LONGO CURSO"
+    },
+    {
+      "code": "502",
+      "name": "TRANSPORTE POR NAVEGAÇÃO INTERIOR",
+      "label": "502 - TRANSPORTE POR NAVEGAÇÃO INTERIOR"
+    },
+    {
+      "code": "503",
+      "name": "NAVEGAÇÃO DE APOIO",
+      "label": "503 - NAVEGAÇÃO DE APOIO"
+    },
+    {
+      "code": "509",
+      "name": "OUTROS TRANSPORTES AQUAVIÁRIOS",
+      "label": "509 - OUTROS TRANSPORTES AQUAVIÁRIOS"
+    },
+    {
+      "code": "511",
+      "name": "TRANSPORTE AÉREO DE PASSAGEIROS",
+      "label": "511 - TRANSPORTE AÉREO DE PASSAGEIROS"
+    },
+    {
+      "code": "512",
+      "name": "TRANSPORTE AÉREO DE CARGA",
+      "label": "512 - TRANSPORTE AÉREO DE CARGA"
+    },
+    {
+      "code": "513",
+      "name": "TRANSPORTE ESPACIAL",
+      "label": "513 - TRANSPORTE ESPACIAL"
+    },
+    {
+      "code": "521",
+      "name": "ARMAZENAMENTO, CARGA E DESCARGA",
+      "label": "521 - ARMAZENAMENTO, CARGA E DESCARGA"
+    },
+    {
+      "code": "522",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES TERRESTRES",
+      "label": "522 - ATIVIDADES AUXILIARES DOS TRANSPORTES TERRESTRES"
+    },
+    {
+      "code": "523",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES AQUAVIÁRIOS",
+      "label": "523 - ATIVIDADES AUXILIARES DOS TRANSPORTES AQUAVIÁRIOS"
+    },
+    {
+      "code": "524",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES AÉREOS",
+      "label": "524 - ATIVIDADES AUXILIARES DOS TRANSPORTES AÉREOS"
+    },
+    {
+      "code": "525",
+      "name": "ATIVIDADES RELACIONADAS À ORGANIZAÇÃO DO TRANSPORTE DE CARGA",
+      "label": "525 - ATIVIDADES RELACIONADAS À ORGANIZAÇÃO DO TRANSPORTE DE CARGA"
+    },
+    {
+      "code": "531",
+      "name": "ATIVIDADES DE CORREIO",
+      "label": "531 - ATIVIDADES DE CORREIO"
+    },
+    {
+      "code": "532",
+      "name": "ATIVIDADES DE MALOTE E DE ENTREGA",
+      "label": "532 - ATIVIDADES DE MALOTE E DE ENTREGA"
+    },
+    {
+      "code": "551",
+      "name": "HOTÉIS E SIMILARES",
+      "label": "551 - HOTÉIS E SIMILARES"
+    },
+    {
+      "code": "559",
+      "name": "OUTROS TIPOS DE ALOJAMENTO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "559 - OUTROS TIPOS DE ALOJAMENTO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "561",
+      "name": "RESTAURANTES E OUTROS SERVIÇOS DE ALIMENTAÇÃO E BEBIDAS",
+      "label": "561 - RESTAURANTES E OUTROS SERVIÇOS DE ALIMENTAÇÃO E BEBIDAS"
+    },
+    {
+      "code": "562",
+      "name": "SERVIÇOS DE CATERING, BUFÊ E OUTROS SERVIÇOS DE COMIDA PREPARADA",
+      "label": "562 - SERVIÇOS DE CATERING, BUFÊ E OUTROS SERVIÇOS DE COMIDA PREPARADA"
+    },
+    {
+      "code": "772",
+      "name": "ALUGUEL DE OBJETOS PESSOAIS E DOMÉSTICOS",
+      "label": "772 - ALUGUEL DE OBJETOS PESSOAIS E DOMÉSTICOS"
+    },
+    {
+      "code": "581",
+      "name": "EDIÇÃO DE LIVROS, JORNAIS, REVISTAS E OUTRAS ATIVIDADES DE EDIÇÃO",
+      "label": "581 - EDIÇÃO DE LIVROS, JORNAIS, REVISTAS E OUTRAS ATIVIDADES DE EDIÇÃO"
+    },
+    {
+      "code": "582",
+      "name": "EDIÇÃO INTEGRADA À IMPRESSÃO DE LIVROS, JORNAIS, REVISTAS E OUTRAS PUBLICAÇÕES",
+      "label": "582 - EDIÇÃO INTEGRADA À IMPRESSÃO DE LIVROS, JORNAIS, REVISTAS E OUTRAS PUBLICAÇÕES"
+    },
+    {
+      "code": "591",
+      "name": "ATIVIDADES CINEMATOGRÁFICAS, PRODUÇÃO DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO",
+      "label": "591 - ATIVIDADES CINEMATOGRÁFICAS, PRODUÇÃO DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO"
+    },
+    {
+      "code": "592",
+      "name": "ATIVIDADES DE GRAVAÇÃO DE SOM E DE EDIÇÃO DE MÚSICA",
+      "label": "592 - ATIVIDADES DE GRAVAÇÃO DE SOM E DE EDIÇÃO DE MÚSICA"
+    },
+    {
+      "code": "601",
+      "name": "ATIVIDADES DE RÁDIO",
+      "label": "601 - ATIVIDADES DE RÁDIO"
+    },
+    {
+      "code": "602",
+      "name": "ATIVIDADES DE TELEVISÃO",
+      "label": "602 - ATIVIDADES DE TELEVISÃO"
+    },
+    {
+      "code": "611",
+      "name": "TELECOMUNICAÇÕES POR FIO",
+      "label": "611 - TELECOMUNICAÇÕES POR FIO"
+    },
+    {
+      "code": "612",
+      "name": "TELECOMUNICAÇÕES SEM FIO",
+      "label": "612 - TELECOMUNICAÇÕES SEM FIO"
+    },
+    {
+      "code": "613",
+      "name": "TELECOMUNICAÇÕES POR SATÉLITE",
+      "label": "613 - TELECOMUNICAÇÕES POR SATÉLITE"
+    },
+    {
+      "code": "614",
+      "name": "OPERADORAS DE TELEVISÃO POR ASSINATURA",
+      "label": "614 - OPERADORAS DE TELEVISÃO POR ASSINATURA"
+    },
+    {
+      "code": "619",
+      "name": "OUTRAS ATIVIDADES DE TELECOMUNICAÇÕES",
+      "label": "619 - OUTRAS ATIVIDADES DE TELECOMUNICAÇÕES"
+    },
+    {
+      "code": "620",
+      "name": "ATIVIDADES DOS SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO",
+      "label": "620 - ATIVIDADES DOS SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO"
+    },
+    {
+      "code": "631",
+      "name": "TRATAMENTO DE DADOS, HOSPEDAGEM NA INTERNET E OUTRAS ATIVIDADES RELACIONADAS",
+      "label": "631 - TRATAMENTO DE DADOS, HOSPEDAGEM NA INTERNET E OUTRAS ATIVIDADES RELACIONADAS"
+    },
+    {
+      "code": "639",
+      "name": "OUTRAS ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO",
+      "label": "639 - OUTRAS ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO"
+    },
+    {
+      "code": "641",
+      "name": "BANCO CENTRAL",
+      "label": "641 - BANCO CENTRAL"
+    },
+    {
+      "code": "642",
+      "name": "INTERMEDIAÇÃO MONETÁRIA - DEPÓSITOS À VISTA",
+      "label": "642 - INTERMEDIAÇÃO MONETÁRIA - DEPÓSITOS À VISTA"
+    },
+    {
+      "code": "643",
+      "name": "INTERMEDIAÇÃO NÃO-MONETÁRIA - OUTROS INSTRUMENTOS DE CAPTAÇÃO",
+      "label": "643 - INTERMEDIAÇÃO NÃO-MONETÁRIA - OUTROS INSTRUMENTOS DE CAPTAÇÃO"
+    },
+    {
+      "code": "644",
+      "name": "ARRENDAMENTO MERCANTIL",
+      "label": "644 - ARRENDAMENTO MERCANTIL"
+    },
+    {
+      "code": "645",
+      "name": "SOCIEDADES DE CAPITALIZAÇÃO",
+      "label": "645 - SOCIEDADES DE CAPITALIZAÇÃO"
+    },
+    {
+      "code": "646",
+      "name": "ATIVIDADES DE SOCIEDADES DE PARTICIPAÇÃO",
+      "label": "646 - ATIVIDADES DE SOCIEDADES DE PARTICIPAÇÃO"
+    },
+    {
+      "code": "647",
+      "name": "FUNDOS DE INVESTIMENTO",
+      "label": "647 - FUNDOS DE INVESTIMENTO"
+    },
+    {
+      "code": "649",
+      "name": "ATIVIDADES DE SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "649 - ATIVIDADES DE SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "651",
+      "name": "SEGUROS DE VIDA E NÃO-VIDA",
+      "label": "651 - SEGUROS DE VIDA E NÃO-VIDA"
+    },
+    {
+      "code": "652",
+      "name": "SEGUROS-SAÚDE",
+      "label": "652 - SEGUROS-SAÚDE"
+    },
+    {
+      "code": "653",
+      "name": "RESSEGUROS",
+      "label": "653 - RESSEGUROS"
+    },
+    {
+      "code": "654",
+      "name": "PREVIDÊNCIA COMPLEMENTAR",
+      "label": "654 - PREVIDÊNCIA COMPLEMENTAR"
+    },
+    {
+      "code": "655",
+      "name": "PLANOS DE SAÚDE",
+      "label": "655 - PLANOS DE SAÚDE"
+    },
+    {
+      "code": "661",
+      "name": "ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS",
+      "label": "661 - ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS"
+    },
+    {
+      "code": "662",
+      "name": "ATIVIDADES AUXILIARES DOS SEGUROS, DA PREVIDÊNCIA COMPLEMENTAR E DOS PLANOS DE SAÚDE",
+      "label": "662 - ATIVIDADES AUXILIARES DOS SEGUROS, DA PREVIDÊNCIA COMPLEMENTAR E DOS PLANOS DE SAÚDE"
+    },
+    {
+      "code": "663",
+      "name": "ATIVIDADES DE ADMINISTRAÇÃO DE FUNDOS POR CONTRATO OU COMISSÃO",
+      "label": "663 - ATIVIDADES DE ADMINISTRAÇÃO DE FUNDOS POR CONTRATO OU COMISSÃO"
+    },
+    {
+      "code": "681",
+      "name": "ATIVIDADES IMOBILIÁRIAS DE IMÓVEIS PRÓPRIOS",
+      "label": "681 - ATIVIDADES IMOBILIÁRIAS DE IMÓVEIS PRÓPRIOS"
+    },
+    {
+      "code": "682",
+      "name": "ATIVIDADES IMOBILIÁRIAS POR CONTRATO OU COMISSÃO",
+      "label": "682 - ATIVIDADES IMOBILIÁRIAS POR CONTRATO OU COMISSÃO"
+    },
+    {
+      "code": "691",
+      "name": "ATIVIDADES JURÍDICAS",
+      "label": "691 - ATIVIDADES JURÍDICAS"
+    },
+    {
+      "code": "692",
+      "name": "ATIVIDADES DE CONTABILIDADE, CONSULTORIA E AUDITORIA CONTÁBIL E TRIBUTÁRIA",
+      "label": "692 - ATIVIDADES DE CONTABILIDADE, CONSULTORIA E AUDITORIA CONTÁBIL E TRIBUTÁRIA"
+    },
+    {
+      "code": "701",
+      "name": "SEDES DE EMPRESAS E UNIDADES ADMINISTRATIVAS LOCAIS",
+      "label": "701 - SEDES DE EMPRESAS E UNIDADES ADMINISTRATIVAS LOCAIS"
+    },
+    {
+      "code": "702",
+      "name": "ATIVIDADES DE CONSULTORIA EM GESTÃO EMPRESARIAL",
+      "label": "702 - ATIVIDADES DE CONSULTORIA EM GESTÃO EMPRESARIAL"
+    },
+    {
+      "code": "711",
+      "name": "SERVIÇOS DE ARQUITETURA E ENGENHARIA E ATIVIDADES TÉCNICAS RELACIONADAS",
+      "label": "711 - SERVIÇOS DE ARQUITETURA E ENGENHARIA E ATIVIDADES TÉCNICAS RELACIONADAS"
+    },
+    {
+      "code": "712",
+      "name": "TESTES E ANÁLISES TÉCNICAS",
+      "label": "712 - TESTES E ANÁLISES TÉCNICAS"
+    },
+    {
+      "code": "721",
+      "name": "PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS FÍSICAS E NATURAIS",
+      "label": "721 - PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS FÍSICAS E NATURAIS"
+    },
+    {
+      "code": "722",
+      "name": "PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS SOCIAIS E HUMANAS",
+      "label": "722 - PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS SOCIAIS E HUMANAS"
+    },
+    {
+      "code": "731",
+      "name": "PUBLICIDADE",
+      "label": "731 - PUBLICIDADE"
+    },
+    {
+      "code": "732",
+      "name": "PESQUISAS DE MERCADO E DE OPINIÃO PÚBLICA",
+      "label": "732 - PESQUISAS DE MERCADO E DE OPINIÃO PÚBLICA"
+    },
+    {
+      "code": "741",
+      "name": "DESIGN E DECORAÇÃO DE INTERIORES",
+      "label": "741 - DESIGN E DECORAÇÃO DE INTERIORES"
+    },
+    {
+      "code": "742",
+      "name": "ATIVIDADES FOTOGRÁFICAS E SIMILARES",
+      "label": "742 - ATIVIDADES FOTOGRÁFICAS E SIMILARES"
+    },
+    {
+      "code": "749",
+      "name": "ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "749 - ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "773",
+      "name": "ALUGUEL DE MÁQUINAS E EQUIPAMENTOS SEM OPERADOR",
+      "label": "773 - ALUGUEL DE MÁQUINAS E EQUIPAMENTOS SEM OPERADOR"
+    },
+    {
+      "code": "774",
+      "name": "GESTÃO DE ATIVOS INTANGÍVEIS NÃO-FINANCEIROS",
+      "label": "774 - GESTÃO DE ATIVOS INTANGÍVEIS NÃO-FINANCEIROS"
+    },
+    {
+      "code": "781",
+      "name": "SELEÇÃO E AGENCIAMENTO DE MÃO-DE-OBRA",
+      "label": "781 - SELEÇÃO E AGENCIAMENTO DE MÃO-DE-OBRA"
+    },
+    {
+      "code": "782",
+      "name": "LOCAÇÃO DE MÃO-DE-OBRA TEMPORÁRIA",
+      "label": "782 - LOCAÇÃO DE MÃO-DE-OBRA TEMPORÁRIA"
+    },
+    {
+      "code": "783",
+      "name": "FORNECIMENTO E GESTÃO DE RECURSOS HUMANOS PARA TERCEIROS",
+      "label": "783 - FORNECIMENTO E GESTÃO DE RECURSOS HUMANOS PARA TERCEIROS"
+    },
+    {
+      "code": "791",
+      "name": "AGÊNCIAS DE VIAGENS E OPERADORES TURÍSTICOS",
+      "label": "791 - AGÊNCIAS DE VIAGENS E OPERADORES TURÍSTICOS"
+    },
+    {
+      "code": "799",
+      "name": "SERVIÇOS DE RESERVAS E OUTROS SERVIÇOS DE TURISMO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "799 - SERVIÇOS DE RESERVAS E OUTROS SERVIÇOS DE TURISMO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "801",
+      "name": "ATIVIDADES DE VIGILÂNCIA, SEGURANÇA PRIVADA E TRANSPORTE DE VALORES",
+      "label": "801 - ATIVIDADES DE VIGILÂNCIA, SEGURANÇA PRIVADA E TRANSPORTE DE VALORES"
+    },
+    {
+      "code": "802",
+      "name": "ATIVIDADES DE MONITORAMENTO DE SISTEMAS DE SEGURANÇA",
+      "label": "802 - ATIVIDADES DE MONITORAMENTO DE SISTEMAS DE SEGURANÇA"
+    },
+    {
+      "code": "803",
+      "name": "ATIVIDADES DE INVESTIGAÇÃO PARTICULAR",
+      "label": "803 - ATIVIDADES DE INVESTIGAÇÃO PARTICULAR"
+    },
+    {
+      "code": "811",
+      "name": "SERVIÇOS COMBINADOS PARA APOIO A EDIFÍCIOS",
+      "label": "811 - SERVIÇOS COMBINADOS PARA APOIO A EDIFÍCIOS"
+    },
+    {
+      "code": "812",
+      "name": "ATIVIDADES DE LIMPEZA",
+      "label": "812 - ATIVIDADES DE LIMPEZA"
+    },
+    {
+      "code": "813",
+      "name": "ATIVIDADES PAISAGÍSTICAS",
+      "label": "813 - ATIVIDADES PAISAGÍSTICAS"
+    },
+    {
+      "code": "821",
+      "name": "SERVIÇOS DE ESCRITÓRIO E APOIO ADMINISTRATIVO",
+      "label": "821 - SERVIÇOS DE ESCRITÓRIO E APOIO ADMINISTRATIVO"
+    },
+    {
+      "code": "822",
+      "name": "ATIVIDADES DE TELEATENDIMENTO",
+      "label": "822 - ATIVIDADES DE TELEATENDIMENTO"
+    },
+    {
+      "code": "823",
+      "name": "ATIVIDADES DE ORGANIZAÇÃO DE EVENTOS, EXCETO CULTURAIS E ESPORTIVOS",
+      "label": "823 - ATIVIDADES DE ORGANIZAÇÃO DE EVENTOS, EXCETO CULTURAIS E ESPORTIVOS"
+    },
+    {
+      "code": "829",
+      "name": "OUTRAS ATIVIDADES DE SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS",
+      "label": "829 - OUTRAS ATIVIDADES DE SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS"
+    },
+    {
+      "code": "841",
+      "name": "ADMINISTRAÇÃO DO ESTADO E DA POLÍTICA ECONÔMICA E SOCIAL",
+      "label": "841 - ADMINISTRAÇÃO DO ESTADO E DA POLÍTICA ECONÔMICA E SOCIAL"
+    },
+    {
+      "code": "842",
+      "name": "SERVIÇOS COLETIVOS PRESTADOS PELA ADMINISTRAÇÃO PÚBLICA",
+      "label": "842 - SERVIÇOS COLETIVOS PRESTADOS PELA ADMINISTRAÇÃO PÚBLICA"
+    },
+    {
+      "code": "843",
+      "name": "SEGURIDADE SOCIAL OBRIGATÓRIA",
+      "label": "843 - SEGURIDADE SOCIAL OBRIGATÓRIA"
+    },
+    {
+      "code": "851",
+      "name": "EDUCAÇÃO INFANTIL E ENSINO FUNDAMENTAL",
+      "label": "851 - EDUCAÇÃO INFANTIL E ENSINO FUNDAMENTAL"
+    },
+    {
+      "code": "852",
+      "name": "ENSINO MÉDIO",
+      "label": "852 - ENSINO MÉDIO"
+    },
+    {
+      "code": "853",
+      "name": "EDUCAÇÃO SUPERIOR",
+      "label": "853 - EDUCAÇÃO SUPERIOR"
+    },
+    {
+      "code": "854",
+      "name": "EDUCAÇÃO PROFISSIONAL DE NÍVEL TÉCNICO E TECNOLÓGICO",
+      "label": "854 - EDUCAÇÃO PROFISSIONAL DE NÍVEL TÉCNICO E TECNOLÓGICO"
+    },
+    {
+      "code": "855",
+      "name": "ATIVIDADES DE APOIO À EDUCAÇÃO",
+      "label": "855 - ATIVIDADES DE APOIO À EDUCAÇÃO"
+    },
+    {
+      "code": "859",
+      "name": "OUTRAS ATIVIDADES DE ENSINO",
+      "label": "859 - OUTRAS ATIVIDADES DE ENSINO"
+    },
+    {
+      "code": "861",
+      "name": "ATIVIDADES DE ATENDIMENTO HOSPITALAR",
+      "label": "861 - ATIVIDADES DE ATENDIMENTO HOSPITALAR"
+    },
+    {
+      "code": "862",
+      "name": "SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS E DE REMOÇÃO DE PACIENTES",
+      "label": "862 - SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS E DE REMOÇÃO DE PACIENTES"
+    },
+    {
+      "code": "863",
+      "name": "ATIVIDADES DE ATENÇÃO AMBULATORIAL EXECUTADAS POR MÉDICOS E ODONTÓLOGOS",
+      "label": "863 - ATIVIDADES DE ATENÇÃO AMBULATORIAL EXECUTADAS POR MÉDICOS E ODONTÓLOGOS"
+    },
+    {
+      "code": "864",
+      "name": "ATIVIDADES DE SERVIÇOS DE COMPLEMENTAÇÃO DIAGNÓSTICA E TERAPÊUTICA",
+      "label": "864 - ATIVIDADES DE SERVIÇOS DE COMPLEMENTAÇÃO DIAGNÓSTICA E TERAPÊUTICA"
+    },
+    {
+      "code": "865",
+      "name": "ATIVIDADES DE PROFISSIONAIS DA ÁREA DE SAÚDE, EXCETO MÉDICOS E ODONTÓLOGOS",
+      "label": "865 - ATIVIDADES DE PROFISSIONAIS DA ÁREA DE SAÚDE, EXCETO MÉDICOS E ODONTÓLOGOS"
+    },
+    {
+      "code": "866",
+      "name": "ATIVIDADES DE APOIO À GESTÃO DE SAÚDE",
+      "label": "866 - ATIVIDADES DE APOIO À GESTÃO DE SAÚDE"
+    },
+    {
+      "code": "869",
+      "name": "ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "869 - ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "871",
+      "name": "ATIVIDADES DE ASSISTÊNCIA A IDOSOS, DEFICIENTES FÍSICOS, IMUNODEPRIMIDOS E CONVALESCENTES, E DE INFRA-ESTRUTURA E APOIO A PACIENTES PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES",
+      "label": "871 - ATIVIDADES DE ASSISTÊNCIA A IDOSOS, DEFICIENTES FÍSICOS, IMUNODEPRIMIDOS E CONVALESCENTES, E DE INFRA-ESTRUTURA E APOIO A PACIENTES PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES"
+    },
+    {
+      "code": "872",
+      "name": "ATIVIDADES DE ASSISTÊNCIA PSICOSSOCIAL E À SAÚDE A PORTADORES DE DISTÚRBIOS PSÍQUICOS, DEFICIÊNCIA MENTAL E DEPENDÊNCIA QUÍMICA",
+      "label": "872 - ATIVIDADES DE ASSISTÊNCIA PSICOSSOCIAL E À SAÚDE A PORTADORES DE DISTÚRBIOS PSÍQUICOS, DEFICIÊNCIA MENTAL E DEPENDÊNCIA QUÍMICA"
+    },
+    {
+      "code": "873",
+      "name": "ATIVIDADES DE ASSISTÊNCIA SOCIAL PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES",
+      "label": "873 - ATIVIDADES DE ASSISTÊNCIA SOCIAL PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES"
+    },
+    {
+      "code": "880",
+      "name": "SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO",
+      "label": "880 - SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO"
+    },
+    {
+      "code": "900",
+      "name": "ATIVIDADES ARTÍSTICAS, CRIATIVAS E DE ESPETÁCULOS",
+      "label": "900 - ATIVIDADES ARTÍSTICAS, CRIATIVAS E DE ESPETÁCULOS"
+    },
+    {
+      "code": "910",
+      "name": "ATIVIDADES LIGADAS AO PATRIMÔNIO CULTURAL E AMBIENTAL",
+      "label": "910 - ATIVIDADES LIGADAS AO PATRIMÔNIO CULTURAL E AMBIENTAL"
+    },
+    {
+      "code": "920",
+      "name": "ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS",
+      "label": "920 - ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS"
+    },
+    {
+      "code": "931",
+      "name": "ATIVIDADES ESPORTIVAS",
+      "label": "931 - ATIVIDADES ESPORTIVAS"
+    },
+    {
+      "code": "932",
+      "name": "ATIVIDADES DE RECREAÇÃO E LAZER",
+      "label": "932 - ATIVIDADES DE RECREAÇÃO E LAZER"
+    },
+    {
+      "code": "941",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PATRONAIS, EMPRESARIAIS E PROFISSIONAIS",
+      "label": "941 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PATRONAIS, EMPRESARIAIS E PROFISSIONAIS"
+    },
+    {
+      "code": "942",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES SINDICAIS",
+      "label": "942 - ATIVIDADES DE ORGANIZAÇÕES SINDICAIS"
+    },
+    {
+      "code": "943",
+      "name": "ATIVIDADES DE ASSOCIAÇÕES DE DEFESA DE DIREITOS SOCIAIS",
+      "label": "943 - ATIVIDADES DE ASSOCIAÇÕES DE DEFESA DE DIREITOS SOCIAIS"
+    },
+    {
+      "code": "949",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "949 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "951",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO",
+      "label": "951 - REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE INFORMÁTICA E COMUNICAÇÃO"
+    },
+    {
+      "code": "952",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE OBJETOS E EQUIPAMENTOS PESSOAIS E DOMÉSTICOS",
+      "label": "952 - REPARAÇÃO E MANUTENÇÃO DE OBJETOS E EQUIPAMENTOS PESSOAIS E DOMÉSTICOS"
+    },
+    {
+      "code": "960",
+      "name": "OUTRAS ATIVIDADES DE SERVIÇOS PESSOAIS",
+      "label": "960 - OUTRAS ATIVIDADES DE SERVIÇOS PESSOAIS"
+    },
+    {
+      "code": "970",
+      "name": "SERVIÇOS DOMÉSTICOS",
+      "label": "970 - SERVIÇOS DOMÉSTICOS"
+    },
+    {
+      "code": "990",
+      "name": "ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS",
+      "label": "990 - ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS"
+    }
+  ],
+  "classes": [
+    {
+      "code": "01113",
+      "name": "CULTIVO DE CEREAIS",
+      "label": "01113 - CULTIVO DE CEREAIS"
+    },
+    {
+      "code": "01121",
+      "name": "CULTIVO DE ALGODÃO HERBÁCEO E DE OUTRAS FIBRAS DE LAVOURA TEMPORÁRIA",
+      "label": "01121 - CULTIVO DE ALGODÃO HERBÁCEO E DE OUTRAS FIBRAS DE LAVOURA TEMPORÁRIA"
+    },
+    {
+      "code": "01130",
+      "name": "CULTIVO DE CANA-DE-AÇÚCAR",
+      "label": "01130 - CULTIVO DE CANA-DE-AÇÚCAR"
+    },
+    {
+      "code": "01148",
+      "name": "CULTIVO DE FUMO",
+      "label": "01148 - CULTIVO DE FUMO"
+    },
+    {
+      "code": "01156",
+      "name": "CULTIVO DE SOJA",
+      "label": "01156 - CULTIVO DE SOJA"
+    },
+    {
+      "code": "01164",
+      "name": "CULTIVO DE OLEAGINOSAS DE LAVOURA TEMPORÁRIA, EXCETO SOJA",
+      "label": "01164 - CULTIVO DE OLEAGINOSAS DE LAVOURA TEMPORÁRIA, EXCETO SOJA"
+    },
+    {
+      "code": "01199",
+      "name": "CULTIVO DE PLANTAS DE LAVOURA TEMPORÁRIA NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "01199 - CULTIVO DE PLANTAS DE LAVOURA TEMPORÁRIA NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "01211",
+      "name": "HORTICULTURA",
+      "label": "01211 - HORTICULTURA"
+    },
+    {
+      "code": "01229",
+      "name": "CULTIVO DE FLORES E PLANTAS ORNAMENTAIS",
+      "label": "01229 - CULTIVO DE FLORES E PLANTAS ORNAMENTAIS"
+    },
+    {
+      "code": "07243",
+      "name": "EXTRAÇÃO DE MINÉRIO DE METAIS PRECIOSOS",
+      "label": "07243 - EXTRAÇÃO DE MINÉRIO DE METAIS PRECIOSOS"
+    },
+    {
+      "code": "01318",
+      "name": "CULTIVO DE LARANJA",
+      "label": "01318 - CULTIVO DE LARANJA"
+    },
+    {
+      "code": "01326",
+      "name": "CULTIVO DE UVA",
+      "label": "01326 - CULTIVO DE UVA"
+    },
+    {
+      "code": "01334",
+      "name": "CULTIVO DE FRUTAS DE LAVOURA PERMANENTE, EXCETO LARANJA E UVA",
+      "label": "01334 - CULTIVO DE FRUTAS DE LAVOURA PERMANENTE, EXCETO LARANJA E UVA"
+    },
+    {
+      "code": "01342",
+      "name": "CULTIVO DE CAFÉ",
+      "label": "01342 - CULTIVO DE CAFÉ"
+    },
+    {
+      "code": "01351",
+      "name": "CULTIVO DE CACAU",
+      "label": "01351 - CULTIVO DE CACAU"
+    },
+    {
+      "code": "01393",
+      "name": "CULTIVO DE PLANTAS DE LAVOURA PERMANENTE NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "01393 - CULTIVO DE PLANTAS DE LAVOURA PERMANENTE NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "01415",
+      "name": "PRODUÇÃO DE SEMENTES CERTIFICADAS",
+      "label": "01415 - PRODUÇÃO DE SEMENTES CERTIFICADAS"
+    },
+    {
+      "code": "01423",
+      "name": "PRODUÇÃO DE MUDAS E OUTRAS FORMAS DE PROPAGAÇÃO VEGETAL, CERTIFICADAS",
+      "label": "01423 - PRODUÇÃO DE MUDAS E OUTRAS FORMAS DE PROPAGAÇÃO VEGETAL, CERTIFICADAS"
+    },
+    {
+      "code": "01512",
+      "name": "CRIAÇÃO DE BOVINOS",
+      "label": "01512 - CRIAÇÃO DE BOVINOS"
+    },
+    {
+      "code": "10538",
+      "name": "FABRICAÇÃO DE SORVETES E OUTROS GELADOS COMESTÍVEIS",
+      "label": "10538 - FABRICAÇÃO DE SORVETES E OUTROS GELADOS COMESTÍVEIS"
+    },
+    {
+      "code": "01521",
+      "name": "CRIAÇÃO DE OUTROS ANIMAIS DE GRANDE PORTE",
+      "label": "01521 - CRIAÇÃO DE OUTROS ANIMAIS DE GRANDE PORTE"
+    },
+    {
+      "code": "01539",
+      "name": "CRIAÇÃO DE CAPRINOS E OVINOS",
+      "label": "01539 - CRIAÇÃO DE CAPRINOS E OVINOS"
+    },
+    {
+      "code": "01547",
+      "name": "CRIAÇÃO DE SUÍNOS",
+      "label": "01547 - CRIAÇÃO DE SUÍNOS"
+    },
+    {
+      "code": "01555",
+      "name": "CRIAÇÃO DE AVES",
+      "label": "01555 - CRIAÇÃO DE AVES"
+    },
+    {
+      "code": "01598",
+      "name": "CRIAÇÃO DE ANIMAIS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "01598 - CRIAÇÃO DE ANIMAIS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "01610",
+      "name": "ATIVIDADES DE APOIO À AGRICULTURA",
+      "label": "01610 - ATIVIDADES DE APOIO À AGRICULTURA"
+    },
+    {
+      "code": "01628",
+      "name": "ATIVIDADES DE APOIO À PECUÁRIA",
+      "label": "01628 - ATIVIDADES DE APOIO À PECUÁRIA"
+    },
+    {
+      "code": "01636",
+      "name": "ATIVIDADES DE PÓS-COLHEITA",
+      "label": "01636 - ATIVIDADES DE PÓS-COLHEITA"
+    },
+    {
+      "code": "01709",
+      "name": "CAÇA E SERVIÇOS RELACIONADOS",
+      "label": "01709 - CAÇA E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "10619",
+      "name": "BENEFICIAMENTO DE ARROZ E FABRICAÇÃO DE PRODUTOS DO ARROZ",
+      "label": "10619 - BENEFICIAMENTO DE ARROZ E FABRICAÇÃO DE PRODUTOS DO ARROZ"
+    },
+    {
+      "code": "02101",
+      "name": "PRODUÇÃO FLORESTAL - FLORESTAS PLANTADAS",
+      "label": "02101 - PRODUÇÃO FLORESTAL - FLORESTAS PLANTADAS"
+    },
+    {
+      "code": "02209",
+      "name": "PRODUÇÃO FLORESTAL - FLORESTAS NATIVAS",
+      "label": "02209 - PRODUÇÃO FLORESTAL - FLORESTAS NATIVAS"
+    },
+    {
+      "code": "02306",
+      "name": "ATIVIDADES DE APOIO À PRODUÇÃO FLORESTAL",
+      "label": "02306 - ATIVIDADES DE APOIO À PRODUÇÃO FLORESTAL"
+    },
+    {
+      "code": "03116",
+      "name": "PESCA EM ÁGUA SALGADA",
+      "label": "03116 - PESCA EM ÁGUA SALGADA"
+    },
+    {
+      "code": "03124",
+      "name": "PESCA EM ÁGUA DOCE",
+      "label": "03124 - PESCA EM ÁGUA DOCE"
+    },
+    {
+      "code": "03213",
+      "name": "AQUICULTURA EM ÁGUA SALGADA E SALOBRA",
+      "label": "03213 - AQUICULTURA EM ÁGUA SALGADA E SALOBRA"
+    },
+    {
+      "code": "03221",
+      "name": "AQUICULTURA EM ÁGUA DOCE",
+      "label": "03221 - AQUICULTURA EM ÁGUA DOCE"
+    },
+    {
+      "code": "05003",
+      "name": "EXTRAÇÃO DE CARVÃO MINERAL",
+      "label": "05003 - EXTRAÇÃO DE CARVÃO MINERAL"
+    },
+    {
+      "code": "06000",
+      "name": "EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL",
+      "label": "06000 - EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "07103",
+      "name": "EXTRAÇÃO DE MINÉRIO DE FERRO",
+      "label": "07103 - EXTRAÇÃO DE MINÉRIO DE FERRO"
+    },
+    {
+      "code": "07219",
+      "name": "EXTRAÇÃO DE MINÉRIO DE ALUMÍNIO",
+      "label": "07219 - EXTRAÇÃO DE MINÉRIO DE ALUMÍNIO"
+    },
+    {
+      "code": "07227",
+      "name": "EXTRAÇÃO DE MINÉRIO DE ESTANHO",
+      "label": "07227 - EXTRAÇÃO DE MINÉRIO DE ESTANHO"
+    },
+    {
+      "code": "07235",
+      "name": "EXTRAÇÃO DE MINÉRIO DE MANGANÊS",
+      "label": "07235 - EXTRAÇÃO DE MINÉRIO DE MANGANÊS"
+    },
+    {
+      "code": "07251",
+      "name": "EXTRAÇÃO DE MINERAIS RADIOATIVOS",
+      "label": "07251 - EXTRAÇÃO DE MINERAIS RADIOATIVOS"
+    },
+    {
+      "code": "07294",
+      "name": "EXTRAÇÃO DE MINERAIS METÁLICOS NÃO FERROSOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "07294 - EXTRAÇÃO DE MINERAIS METÁLICOS NÃO FERROSOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "08100",
+      "name": "EXTRAÇÃO DE PEDRA, AREIA E ARGILA",
+      "label": "08100 - EXTRAÇÃO DE PEDRA, AREIA E ARGILA"
+    },
+    {
+      "code": "08916",
+      "name": "EXTRAÇÃO DE MINERAIS PARA FABRICAÇÃO DE ADUBOS, FERTILIZANTES E OUTROS PRODUTOS QUÍMICOS",
+      "label": "08916 - EXTRAÇÃO DE MINERAIS PARA FABRICAÇÃO DE ADUBOS, FERTILIZANTES E OUTROS PRODUTOS QUÍMICOS"
+    },
+    {
+      "code": "08924",
+      "name": "EXTRAÇÃO E REFINO DE SAL MARINHO E SAL-GEMA",
+      "label": "08924 - EXTRAÇÃO E REFINO DE SAL MARINHO E SAL-GEMA"
+    },
+    {
+      "code": "08932",
+      "name": "EXTRAÇÃO DE GEMAS (PEDRAS PRECIOSAS E SEMIPRECIOSAS)",
+      "label": "08932 - EXTRAÇÃO DE GEMAS (PEDRAS PRECIOSAS E SEMIPRECIOSAS)"
+    },
+    {
+      "code": "08991",
+      "name": "EXTRAÇÃO DE MINERAIS NÃO METÁLICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "08991 - EXTRAÇÃO DE MINERAIS NÃO METÁLICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "09106",
+      "name": "ATIVIDADES DE APOIO À EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL",
+      "label": "09106 - ATIVIDADES DE APOIO À EXTRAÇÃO DE PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "09904",
+      "name": "ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS, EXCETO PETRÓLEO E GÁS NATURAL",
+      "label": "09904 - ATIVIDADES DE APOIO À EXTRAÇÃO DE MINERAIS, EXCETO PETRÓLEO E GÁS NATURAL"
+    },
+    {
+      "code": "10112",
+      "name": "ABATE DE RESES, EXCETO SUÍNOS",
+      "label": "10112 - ABATE DE RESES, EXCETO SUÍNOS"
+    },
+    {
+      "code": "10121",
+      "name": "ABATE DE SUÍNOS, AVES E OUTROS PEQUENOS ANIMAIS",
+      "label": "10121 - ABATE DE SUÍNOS, AVES E OUTROS PEQUENOS ANIMAIS"
+    },
+    {
+      "code": "10139",
+      "name": "FABRICAÇÃO DE PRODUTOS DE CARNE",
+      "label": "10139 - FABRICAÇÃO DE PRODUTOS DE CARNE"
+    },
+    {
+      "code": "10201",
+      "name": "PRESERVAÇÃO DO PESCADO E FABRICAÇÃO DE PRODUTOS DO PESCADO",
+      "label": "10201 - PRESERVAÇÃO DO PESCADO E FABRICAÇÃO DE PRODUTOS DO PESCADO"
+    },
+    {
+      "code": "10317",
+      "name": "FABRICAÇÃO DE CONSERVAS DE FRUTAS",
+      "label": "10317 - FABRICAÇÃO DE CONSERVAS DE FRUTAS"
+    },
+    {
+      "code": "10325",
+      "name": "FABRICAÇÃO DE CONSERVAS DE LEGUMES E OUTROS VEGETAIS",
+      "label": "10325 - FABRICAÇÃO DE CONSERVAS DE LEGUMES E OUTROS VEGETAIS"
+    },
+    {
+      "code": "10333",
+      "name": "FABRICAÇÃO DE SUCOS DE FRUTAS, HORTALIÇAS E LEGUMES",
+      "label": "10333 - FABRICAÇÃO DE SUCOS DE FRUTAS, HORTALIÇAS E LEGUMES"
+    },
+    {
+      "code": "10414",
+      "name": "FABRICAÇÃO DE ÓLEOS VEGETAIS EM BRUTO, EXCETO ÓLEO DE MILHO",
+      "label": "10414 - FABRICAÇÃO DE ÓLEOS VEGETAIS EM BRUTO, EXCETO ÓLEO DE MILHO"
+    },
+    {
+      "code": "10422",
+      "name": "FABRICAÇÃO DE ÓLEOS VEGETAIS REFINADOS, EXCETO ÓLEO DE MILHO",
+      "label": "10422 - FABRICAÇÃO DE ÓLEOS VEGETAIS REFINADOS, EXCETO ÓLEO DE MILHO"
+    },
+    {
+      "code": "10431",
+      "name": "FABRICAÇÃO DE MARGARINA E OUTRAS GORDURAS VEGETAIS E DE ÓLEOS NÃO COMESTÍVEIS DE ANIMAIS",
+      "label": "10431 - FABRICAÇÃO DE MARGARINA E OUTRAS GORDURAS VEGETAIS E DE ÓLEOS NÃO COMESTÍVEIS DE ANIMAIS"
+    },
+    {
+      "code": "10511",
+      "name": "PREPARAÇÃO DO LEITE",
+      "label": "10511 - PREPARAÇÃO DO LEITE"
+    },
+    {
+      "code": "10520",
+      "name": "FABRICAÇÃO DE LATICÍNIOS",
+      "label": "10520 - FABRICAÇÃO DE LATICÍNIOS"
+    },
+    {
+      "code": "10627",
+      "name": "MOAGEM DE TRIGO E FABRICAÇÃO DE DERIVADOS",
+      "label": "10627 - MOAGEM DE TRIGO E FABRICAÇÃO DE DERIVADOS"
+    },
+    {
+      "code": "10635",
+      "name": "FABRICAÇÃO DE FARINHA DE MANDIOCA E DERIVADOS",
+      "label": "10635 - FABRICAÇÃO DE FARINHA DE MANDIOCA E DERIVADOS"
+    },
+    {
+      "code": "10643",
+      "name": "FABRICAÇÃO DE FARINHA DE MILHO E DERIVADOS, EXCETO ÓLEOS DE MILHO",
+      "label": "10643 - FABRICAÇÃO DE FARINHA DE MILHO E DERIVADOS, EXCETO ÓLEOS DE MILHO"
+    },
+    {
+      "code": "10651",
+      "name": "FABRICAÇÃO DE AMIDOS E FÉCULAS DE VEGETAIS E DE ÓLEOS DE MILHO",
+      "label": "10651 - FABRICAÇÃO DE AMIDOS E FÉCULAS DE VEGETAIS E DE ÓLEOS DE MILHO"
+    },
+    {
+      "code": "10660",
+      "name": "FABRICAÇÃO DE ALIMENTOS PARA ANIMAIS",
+      "label": "10660 - FABRICAÇÃO DE ALIMENTOS PARA ANIMAIS"
+    },
+    {
+      "code": "10694",
+      "name": "MOAGEM E FABRICAÇÃO DE PRODUTOS DE ORIGEM VEGETAL NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "10694 - MOAGEM E FABRICAÇÃO DE PRODUTOS DE ORIGEM VEGETAL NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "10716",
+      "name": "FABRICAÇÃO DE AÇÚCAR EM BRUTO",
+      "label": "10716 - FABRICAÇÃO DE AÇÚCAR EM BRUTO"
+    },
+    {
+      "code": "10724",
+      "name": "FABRICAÇÃO DE AÇÚCAR REFINADO",
+      "label": "10724 - FABRICAÇÃO DE AÇÚCAR REFINADO"
+    },
+    {
+      "code": "10813",
+      "name": "TORREFAÇÃO E MOAGEM DE CAFÉ",
+      "label": "10813 - TORREFAÇÃO E MOAGEM DE CAFÉ"
+    },
+    {
+      "code": "10821",
+      "name": "FABRICAÇÃO DE PRODUTOS À BASE DE CAFÉ",
+      "label": "10821 - FABRICAÇÃO DE PRODUTOS À BASE DE CAFÉ"
+    },
+    {
+      "code": "10911",
+      "name": "FABRICAÇÃO DE PRODUTOS DE PANIFICAÇÃO",
+      "label": "10911 - FABRICAÇÃO DE PRODUTOS DE PANIFICAÇÃO"
+    },
+    {
+      "code": "10929",
+      "name": "FABRICAÇÃO DE BISCOITOS E BOLACHAS",
+      "label": "10929 - FABRICAÇÃO DE BISCOITOS E BOLACHAS"
+    },
+    {
+      "code": "10937",
+      "name": "FABRICAÇÃO DE PRODUTOS DERIVADOS DO CACAU, DE CHOCOLATES E CONFEITOS",
+      "label": "10937 - FABRICAÇÃO DE PRODUTOS DERIVADOS DO CACAU, DE CHOCOLATES E CONFEITOS"
+    },
+    {
+      "code": "10945",
+      "name": "FABRICAÇÃO DE MASSAS ALIMENTÍCIAS",
+      "label": "10945 - FABRICAÇÃO DE MASSAS ALIMENTÍCIAS"
+    },
+    {
+      "code": "10953",
+      "name": "FABRICAÇÃO DE ESPECIARIAS, MOLHOS, TEMPEROS E CONDIMENTOS",
+      "label": "10953 - FABRICAÇÃO DE ESPECIARIAS, MOLHOS, TEMPEROS E CONDIMENTOS"
+    },
+    {
+      "code": "15335",
+      "name": "FABRICAÇÃO DE CALÇADOS DE MATERIAL SINTÉTICO",
+      "label": "15335 - FABRICAÇÃO DE CALÇADOS DE MATERIAL SINTÉTICO"
+    },
+    {
+      "code": "10961",
+      "name": "FABRICAÇÃO DE ALIMENTOS E PRATOS PRONTOS",
+      "label": "10961 - FABRICAÇÃO DE ALIMENTOS E PRATOS PRONTOS"
+    },
+    {
+      "code": "10996",
+      "name": "FABRICAÇÃO DE PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "10996 - FABRICAÇÃO DE PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "11119",
+      "name": "FABRICAÇÃO DE AGUARDENTES E OUTRAS BEBIDAS DESTILADAS",
+      "label": "11119 - FABRICAÇÃO DE AGUARDENTES E OUTRAS BEBIDAS DESTILADAS"
+    },
+    {
+      "code": "11127",
+      "name": "FABRICAÇÃO DE VINHO",
+      "label": "11127 - FABRICAÇÃO DE VINHO"
+    },
+    {
+      "code": "11135",
+      "name": "FABRICAÇÃO DE MALTE, CERVEJAS E CHOPES",
+      "label": "11135 - FABRICAÇÃO DE MALTE, CERVEJAS E CHOPES"
+    },
+    {
+      "code": "11216",
+      "name": "FABRICAÇÃO DE ÁGUAS ENVASADAS",
+      "label": "11216 - FABRICAÇÃO DE ÁGUAS ENVASADAS"
+    },
+    {
+      "code": "11224",
+      "name": "FABRICAÇÃO DE REFRIGERANTES E DE OUTRAS BEBIDAS NÃO ALCOÓLICAS",
+      "label": "11224 - FABRICAÇÃO DE REFRIGERANTES E DE OUTRAS BEBIDAS NÃO ALCOÓLICAS"
+    },
+    {
+      "code": "12107",
+      "name": "PROCESSAMENTO INDUSTRIAL DO FUMO",
+      "label": "12107 - PROCESSAMENTO INDUSTRIAL DO FUMO"
+    },
+    {
+      "code": "12204",
+      "name": "FABRICAÇÃO DE PRODUTOS DO FUMO",
+      "label": "12204 - FABRICAÇÃO DE PRODUTOS DO FUMO"
+    },
+    {
+      "code": "13111",
+      "name": "PREPARAÇÃO E FIAÇÃO DE FIBRAS DE ALGODÃO",
+      "label": "13111 - PREPARAÇÃO E FIAÇÃO DE FIBRAS DE ALGODÃO"
+    },
+    {
+      "code": "20339",
+      "name": "FABRICAÇÃO DE ELASTÔMEROS",
+      "label": "20339 - FABRICAÇÃO DE ELASTÔMEROS"
+    },
+    {
+      "code": "13120",
+      "name": "PREPARAÇÃO E FIAÇÃO DE FIBRAS TÊXTEIS NATURAIS, EXCETO ALGODÃO",
+      "label": "13120 - PREPARAÇÃO E FIAÇÃO DE FIBRAS TÊXTEIS NATURAIS, EXCETO ALGODÃO"
+    },
+    {
+      "code": "13138",
+      "name": "FIAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS",
+      "label": "13138 - FIAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS"
+    },
+    {
+      "code": "13146",
+      "name": "FABRICAÇÃO DE LINHAS PARA COSTURAR E BORDAR",
+      "label": "13146 - FABRICAÇÃO DE LINHAS PARA COSTURAR E BORDAR"
+    },
+    {
+      "code": "13219",
+      "name": "TECELAGEM DE FIOS DE ALGODÃO",
+      "label": "13219 - TECELAGEM DE FIOS DE ALGODÃO"
+    },
+    {
+      "code": "13227",
+      "name": "TECELAGEM DE FIOS DE FIBRAS TÊXTEIS NATURAIS, EXCETO ALGODÃO",
+      "label": "13227 - TECELAGEM DE FIOS DE FIBRAS TÊXTEIS NATURAIS, EXCETO ALGODÃO"
+    },
+    {
+      "code": "13235",
+      "name": "TECELAGEM DE FIOS DE FIBRAS ARTIFICIAIS E SINTÉTICAS",
+      "label": "13235 - TECELAGEM DE FIOS DE FIBRAS ARTIFICIAIS E SINTÉTICAS"
+    },
+    {
+      "code": "13308",
+      "name": "FABRICAÇÃO DE TECIDOS DE MALHA",
+      "label": "13308 - FABRICAÇÃO DE TECIDOS DE MALHA"
+    },
+    {
+      "code": "13405",
+      "name": "ACABAMENTOS EM FIOS, TECIDOS E ARTEFATOS TÊXTEIS",
+      "label": "13405 - ACABAMENTOS EM FIOS, TECIDOS E ARTEFATOS TÊXTEIS"
+    },
+    {
+      "code": "13511",
+      "name": "FABRICAÇÃO DE ARTEFATOS TÊXTEIS PARA USO DOMÉSTICO",
+      "label": "13511 - FABRICAÇÃO DE ARTEFATOS TÊXTEIS PARA USO DOMÉSTICO"
+    },
+    {
+      "code": "13529",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE TAPEÇARIA",
+      "label": "13529 - FABRICAÇÃO DE ARTEFATOS DE TAPEÇARIA"
+    },
+    {
+      "code": "13537",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE CORDOARIA",
+      "label": "13537 - FABRICAÇÃO DE ARTEFATOS DE CORDOARIA"
+    },
+    {
+      "code": "13545",
+      "name": "FABRICAÇÃO DE TECIDOS ESPECIAIS, INCLUSIVE ARTEFATOS",
+      "label": "13545 - FABRICAÇÃO DE TECIDOS ESPECIAIS, INCLUSIVE ARTEFATOS"
+    },
+    {
+      "code": "13596",
+      "name": "FABRICAÇÃO DE OUTROS PRODUTOS TÊXTEIS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "13596 - FABRICAÇÃO DE OUTROS PRODUTOS TÊXTEIS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "14118",
+      "name": "CONFECÇÃO DE ROUPAS ÍNTIMAS",
+      "label": "14118 - CONFECÇÃO DE ROUPAS ÍNTIMAS"
+    },
+    {
+      "code": "14126",
+      "name": "CONFECÇÃO DE PEÇAS DE VESTUÁRIO, EXCETO ROUPAS ÍNTIMAS",
+      "label": "14126 - CONFECÇÃO DE PEÇAS DE VESTUÁRIO, EXCETO ROUPAS ÍNTIMAS"
+    },
+    {
+      "code": "14134",
+      "name": "CONFECÇÃO DE ROUPAS PROFISSIONAIS",
+      "label": "14134 - CONFECÇÃO DE ROUPAS PROFISSIONAIS"
+    },
+    {
+      "code": "14142",
+      "name": "FABRICAÇÃO DE ACESSÓRIOS DO VESTUÁRIO, EXCETO PARA SEGURANÇA E PROTEÇÃO",
+      "label": "14142 - FABRICAÇÃO DE ACESSÓRIOS DO VESTUÁRIO, EXCETO PARA SEGURANÇA E PROTEÇÃO"
+    },
+    {
+      "code": "14215",
+      "name": "FABRICAÇÃO DE MEIAS",
+      "label": "14215 - FABRICAÇÃO DE MEIAS"
+    },
+    {
+      "code": "14223",
+      "name": "FABRICAÇÃO DE ARTIGOS DO VESTUÁRIO, PRODUZIDOS EM MALHARIAS E TRICOTAGENS, EXCETO MEIAS",
+      "label": "14223 - FABRICAÇÃO DE ARTIGOS DO VESTUÁRIO, PRODUZIDOS EM MALHARIAS E TRICOTAGENS, EXCETO MEIAS"
+    },
+    {
+      "code": "15106",
+      "name": "CURTIMENTO E OUTRAS PREPARAÇÕES DE COURO",
+      "label": "15106 - CURTIMENTO E OUTRAS PREPARAÇÕES DE COURO"
+    },
+    {
+      "code": "15211",
+      "name": "FABRICAÇÃO DE ARTIGOS PARA VIAGEM, BOLSAS E SEMELHANTES DE QUALQUER MATERIAL",
+      "label": "15211 - FABRICAÇÃO DE ARTIGOS PARA VIAGEM, BOLSAS E SEMELHANTES DE QUALQUER MATERIAL"
+    },
+    {
+      "code": "15297",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE COURO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "15297 - FABRICAÇÃO DE ARTEFATOS DE COURO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "15319",
+      "name": "FABRICAÇÃO DE CALÇADOS DE COURO",
+      "label": "15319 - FABRICAÇÃO DE CALÇADOS DE COURO"
+    },
+    {
+      "code": "15327",
+      "name": "FABRICAÇÃO DE TÊNIS DE QUALQUER MATERIAL",
+      "label": "15327 - FABRICAÇÃO DE TÊNIS DE QUALQUER MATERIAL"
+    },
+    {
+      "code": "15394",
+      "name": "FABRICAÇÃO DE CALÇADOS DE MATERIAIS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "15394 - FABRICAÇÃO DE CALÇADOS DE MATERIAIS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "15408",
+      "name": "FABRICAÇÃO DE PARTES PARA CALÇADOS, DE QUALQUER MATERIAL",
+      "label": "15408 - FABRICAÇÃO DE PARTES PARA CALÇADOS, DE QUALQUER MATERIAL"
+    },
+    {
+      "code": "16102",
+      "name": "DESDOBRAMENTO DE MADEIRA",
+      "label": "16102 - DESDOBRAMENTO DE MADEIRA"
+    },
+    {
+      "code": "16218",
+      "name": "FABRICAÇÃO DE MADEIRA LAMINADA E DE CHAPAS DE MADEIRA COMPENSADA, PRENSADA E AGLOMERADA",
+      "label": "16218 - FABRICAÇÃO DE MADEIRA LAMINADA E DE CHAPAS DE MADEIRA COMPENSADA, PRENSADA E AGLOMERADA"
+    },
+    {
+      "code": "16226",
+      "name": "FABRICAÇÃO DE ESTRUTURAS DE MADEIRA E DE ARTIGOS DE CARPINTARIA PARA CONSTRUÇÃO",
+      "label": "16226 - FABRICAÇÃO DE ESTRUTURAS DE MADEIRA E DE ARTIGOS DE CARPINTARIA PARA CONSTRUÇÃO"
+    },
+    {
+      "code": "16234",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE TANOARIA E DE EMBALAGENS DE MADEIRA",
+      "label": "16234 - FABRICAÇÃO DE ARTEFATOS DE TANOARIA E DE EMBALAGENS DE MADEIRA"
+    },
+    {
+      "code": "16293",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE MADEIRA, PALHA, CORTIÇA, VIME E MATERIAL TRANÇADO NÃO ESPECIFICADOS ANTERIORMENTE, EXCETO MÓVEIS",
+      "label": "16293 - FABRICAÇÃO DE ARTEFATOS DE MADEIRA, PALHA, CORTIÇA, VIME E MATERIAL TRANÇADO NÃO ESPECIFICADOS ANTERIORMENTE, EXCETO MÓVEIS"
+    },
+    {
+      "code": "17109",
+      "name": "FABRICAÇÃO DE CELULOSE E OUTRAS PASTAS PARA A FABRICAÇÃO DE PAPEL",
+      "label": "17109 - FABRICAÇÃO DE CELULOSE E OUTRAS PASTAS PARA A FABRICAÇÃO DE PAPEL"
+    },
+    {
+      "code": "17214",
+      "name": "FABRICAÇÃO DE PAPEL",
+      "label": "17214 - FABRICAÇÃO DE PAPEL"
+    },
+    {
+      "code": "17222",
+      "name": "FABRICAÇÃO DE CARTOLINA E PAPEL-CARTÃO",
+      "label": "17222 - FABRICAÇÃO DE CARTOLINA E PAPEL-CARTÃO"
+    },
+    {
+      "code": "17311",
+      "name": "FABRICAÇÃO DE EMBALAGENS DE PAPEL",
+      "label": "17311 - FABRICAÇÃO DE EMBALAGENS DE PAPEL"
+    },
+    {
+      "code": "17320",
+      "name": "FABRICAÇÃO DE EMBALAGENS DE CARTOLINA E PAPEL-CARTÃO",
+      "label": "17320 - FABRICAÇÃO DE EMBALAGENS DE CARTOLINA E PAPEL-CARTÃO"
+    },
+    {
+      "code": "17338",
+      "name": "FABRICAÇÃO DE CHAPAS E DE EMBALAGENS DE PAPELÃO ONDULADO",
+      "label": "17338 - FABRICAÇÃO DE CHAPAS E DE EMBALAGENS DE PAPELÃO ONDULADO"
+    },
+    {
+      "code": "23125",
+      "name": "FABRICAÇÃO DE EMBALAGENS DE VIDRO",
+      "label": "23125 - FABRICAÇÃO DE EMBALAGENS DE VIDRO"
+    },
+    {
+      "code": "17419",
+      "name": "FABRICAÇÃO DE PRODUTOS DE PAPEL, CARTOLINA, PAPEL CARTÃO E PAPELÃO ONDULADO PARA USO COMERCIAL E DE ESCRITÓRIO",
+      "label": "17419 - FABRICAÇÃO DE PRODUTOS DE PAPEL, CARTOLINA, PAPEL CARTÃO E PAPELÃO ONDULADO PARA USO COMERCIAL E DE ESCRITÓRIO"
+    },
+    {
+      "code": "17427",
+      "name": "FABRICAÇÃO DE PRODUTOS DE PAPEL PARA USOS DOMÉSTICO E HIGIÊNICO-SANITÁRIO",
+      "label": "17427 - FABRICAÇÃO DE PRODUTOS DE PAPEL PARA USOS DOMÉSTICO E HIGIÊNICO-SANITÁRIO"
+    },
+    {
+      "code": "17494",
+      "name": "FABRICAÇÃO DE PRODUTOS DE PASTAS CELULÓSICAS, PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "17494 - FABRICAÇÃO DE PRODUTOS DE PASTAS CELULÓSICAS, PAPEL, CARTOLINA, PAPEL-CARTÃO E PAPELÃO ONDULADO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "18113",
+      "name": "IMPRESSÃO DE JORNAIS, LIVROS, REVISTAS E OUTRAS PUBLICAÇÕES PERIÓDICAS",
+      "label": "18113 - IMPRESSÃO DE JORNAIS, LIVROS, REVISTAS E OUTRAS PUBLICAÇÕES PERIÓDICAS"
+    },
+    {
+      "code": "18121",
+      "name": "IMPRESSÃO DE MATERIAL DE SEGURANÇA",
+      "label": "18121 - IMPRESSÃO DE MATERIAL DE SEGURANÇA"
+    },
+    {
+      "code": "18130",
+      "name": "IMPRESSÃO DE MATERIAIS PARA OUTROS USOS",
+      "label": "18130 - IMPRESSÃO DE MATERIAIS PARA OUTROS USOS"
+    },
+    {
+      "code": "18211",
+      "name": "SERVIÇOS DE PRÉ-IMPRESSÃO",
+      "label": "18211 - SERVIÇOS DE PRÉ-IMPRESSÃO"
+    },
+    {
+      "code": "18229",
+      "name": "SERVIÇOS DE ACABAMENTOS GRÁFICOS",
+      "label": "18229 - SERVIÇOS DE ACABAMENTOS GRÁFICOS"
+    },
+    {
+      "code": "18300",
+      "name": "REPRODUÇÃO DE MATERIAIS GRAVADOS EM QUALQUER SUPORTE",
+      "label": "18300 - REPRODUÇÃO DE MATERIAIS GRAVADOS EM QUALQUER SUPORTE"
+    },
+    {
+      "code": "19101",
+      "name": "COQUERIAS",
+      "label": "19101 - COQUERIAS"
+    },
+    {
+      "code": "19217",
+      "name": "FABRICAÇÃO DE PRODUTOS DO REFINO DE PETRÓLEO",
+      "label": "19217 - FABRICAÇÃO DE PRODUTOS DO REFINO DE PETRÓLEO"
+    },
+    {
+      "code": "19225",
+      "name": "FABRICAÇÃO DE PRODUTOS DERIVADOS DO PETRÓLEO, EXCETO PRODUTOS DO REFINO",
+      "label": "19225 - FABRICAÇÃO DE PRODUTOS DERIVADOS DO PETRÓLEO, EXCETO PRODUTOS DO REFINO"
+    },
+    {
+      "code": "19314",
+      "name": "FABRICAÇÃO DE ÁLCOOL",
+      "label": "19314 - FABRICAÇÃO DE ÁLCOOL"
+    },
+    {
+      "code": "19322",
+      "name": "FABRICAÇÃO DE BIOCOMBUSTÍVEIS, EXCETO ÁLCOOL",
+      "label": "19322 - FABRICAÇÃO DE BIOCOMBUSTÍVEIS, EXCETO ÁLCOOL"
+    },
+    {
+      "code": "20118",
+      "name": "FABRICAÇÃO DE CLORO E ÁLCALIS",
+      "label": "20118 - FABRICAÇÃO DE CLORO E ÁLCALIS"
+    },
+    {
+      "code": "20126",
+      "name": "FABRICAÇÃO DE INTERMEDIÁRIOS PARA FERTILIZANTES",
+      "label": "20126 - FABRICAÇÃO DE INTERMEDIÁRIOS PARA FERTILIZANTES"
+    },
+    {
+      "code": "20134",
+      "name": "FABRICAÇÃO DE ADUBOS E FERTILIZANTES",
+      "label": "20134 - FABRICAÇÃO DE ADUBOS E FERTILIZANTES"
+    },
+    {
+      "code": "20142",
+      "name": "FABRICAÇÃO DE GASES INDUSTRIAIS",
+      "label": "20142 - FABRICAÇÃO DE GASES INDUSTRIAIS"
+    },
+    {
+      "code": "20193",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS INORGÂNICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "20193 - FABRICAÇÃO DE PRODUTOS QUÍMICOS INORGÂNICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "20215",
+      "name": "FABRICAÇÃO DE PRODUTOS PETROQUÍMICOS BÁSICOS",
+      "label": "20215 - FABRICAÇÃO DE PRODUTOS PETROQUÍMICOS BÁSICOS"
+    },
+    {
+      "code": "20223",
+      "name": "FABRICAÇÃO DE INTERMEDIÁRIOS PARA PLASTIFICANTES, RESINAS E FIBRAS",
+      "label": "20223 - FABRICAÇÃO DE INTERMEDIÁRIOS PARA PLASTIFICANTES, RESINAS E FIBRAS"
+    },
+    {
+      "code": "20291",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS ORGÂNICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "20291 - FABRICAÇÃO DE PRODUTOS QUÍMICOS ORGÂNICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "20312",
+      "name": "FABRICAÇÃO DE RESINAS TERMOPLÁSTICAS",
+      "label": "20312 - FABRICAÇÃO DE RESINAS TERMOPLÁSTICAS"
+    },
+    {
+      "code": "20321",
+      "name": "FABRICAÇÃO DE RESINAS TERMOFIXAS",
+      "label": "20321 - FABRICAÇÃO DE RESINAS TERMOFIXAS"
+    },
+    {
+      "code": "32914",
+      "name": "FABRICAÇÃO DE ESCOVAS, PINCÉIS E VASSOURAS",
+      "label": "32914 - FABRICAÇÃO DE ESCOVAS, PINCÉIS E VASSOURAS"
+    },
+    {
+      "code": "20401",
+      "name": "FABRICAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS",
+      "label": "20401 - FABRICAÇÃO DE FIBRAS ARTIFICIAIS E SINTÉTICAS"
+    },
+    {
+      "code": "20517",
+      "name": "FABRICAÇÃO DE DEFENSIVOS AGRÍCOLAS",
+      "label": "20517 - FABRICAÇÃO DE DEFENSIVOS AGRÍCOLAS"
+    },
+    {
+      "code": "20525",
+      "name": "FABRICAÇÃO DE DESINFESTANTES DOMISSANITÁRIOS",
+      "label": "20525 - FABRICAÇÃO DE DESINFESTANTES DOMISSANITÁRIOS"
+    },
+    {
+      "code": "20614",
+      "name": "FABRICAÇÃO DE SABÕES E DETERGENTES SINTÉTICOS",
+      "label": "20614 - FABRICAÇÃO DE SABÕES E DETERGENTES SINTÉTICOS"
+    },
+    {
+      "code": "20622",
+      "name": "FABRICAÇÃO DE PRODUTOS DE LIMPEZA E POLIMENTO",
+      "label": "20622 - FABRICAÇÃO DE PRODUTOS DE LIMPEZA E POLIMENTO"
+    },
+    {
+      "code": "20631",
+      "name": "FABRICAÇÃO DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL",
+      "label": "20631 - FABRICAÇÃO DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL"
+    },
+    {
+      "code": "20711",
+      "name": "FABRICAÇÃO DE TINTAS, VERNIZES, ESMALTES E LACAS",
+      "label": "20711 - FABRICAÇÃO DE TINTAS, VERNIZES, ESMALTES E LACAS"
+    },
+    {
+      "code": "20720",
+      "name": "FABRICAÇÃO DE TINTAS DE IMPRESSÃO",
+      "label": "20720 - FABRICAÇÃO DE TINTAS DE IMPRESSÃO"
+    },
+    {
+      "code": "20738",
+      "name": "FABRICAÇÃO DE IMPERMEABILIZANTES, SOLVENTES E PRODUTOS AFINS",
+      "label": "20738 - FABRICAÇÃO DE IMPERMEABILIZANTES, SOLVENTES E PRODUTOS AFINS"
+    },
+    {
+      "code": "20916",
+      "name": "FABRICAÇÃO DE ADESIVOS E SELANTES",
+      "label": "20916 - FABRICAÇÃO DE ADESIVOS E SELANTES"
+    },
+    {
+      "code": "20924",
+      "name": "FABRICAÇÃO DE EXPLOSIVOS",
+      "label": "20924 - FABRICAÇÃO DE EXPLOSIVOS"
+    },
+    {
+      "code": "20932",
+      "name": "FABRICAÇÃO DE ADITIVOS DE USO INDUSTRIAL",
+      "label": "20932 - FABRICAÇÃO DE ADITIVOS DE USO INDUSTRIAL"
+    },
+    {
+      "code": "20941",
+      "name": "FABRICAÇÃO DE CATALISADORES",
+      "label": "20941 - FABRICAÇÃO DE CATALISADORES"
+    },
+    {
+      "code": "20991",
+      "name": "FABRICAÇÃO DE PRODUTOS QUÍMICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "20991 - FABRICAÇÃO DE PRODUTOS QUÍMICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "27511",
+      "name": "FABRICAÇÃO DE FOGÕES, REFRIGERADORES E MÁQUINAS DE LAVAR E SECAR PARA USO DOMÉSTICO",
+      "label": "27511 - FABRICAÇÃO DE FOGÕES, REFRIGERADORES E MÁQUINAS DE LAVAR E SECAR PARA USO DOMÉSTICO"
+    },
+    {
+      "code": "21106",
+      "name": "FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS",
+      "label": "21106 - FABRICAÇÃO DE PRODUTOS FARMOQUÍMICOS"
+    },
+    {
+      "code": "21211",
+      "name": "FABRICAÇÃO DE MEDICAMENTOS PARA USO HUMANO",
+      "label": "21211 - FABRICAÇÃO DE MEDICAMENTOS PARA USO HUMANO"
+    },
+    {
+      "code": "21220",
+      "name": "FABRICAÇÃO DE MEDICAMENTOS PARA USO VETERINÁRIO",
+      "label": "21220 - FABRICAÇÃO DE MEDICAMENTOS PARA USO VETERINÁRIO"
+    },
+    {
+      "code": "21238",
+      "name": "FABRICAÇÃO DE PREPARAÇÕES FARMACÊUTICAS",
+      "label": "21238 - FABRICAÇÃO DE PREPARAÇÕES FARMACÊUTICAS"
+    },
+    {
+      "code": "22111",
+      "name": "FABRICAÇÃO DE PNEUMÁTICOS E DE CÂMARAS-DE-AR",
+      "label": "22111 - FABRICAÇÃO DE PNEUMÁTICOS E DE CÂMARAS-DE-AR"
+    },
+    {
+      "code": "22129",
+      "name": "REFORMA DE PNEUMÁTICOS USADOS",
+      "label": "22129 - REFORMA DE PNEUMÁTICOS USADOS"
+    },
+    {
+      "code": "22196",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE BORRACHA NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "22196 - FABRICAÇÃO DE ARTEFATOS DE BORRACHA NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "22218",
+      "name": "FABRICAÇÃO DE LAMINADOS PLANOS E TUBULARES DE MATERIAL PLÁSTICO",
+      "label": "22218 - FABRICAÇÃO DE LAMINADOS PLANOS E TUBULARES DE MATERIAL PLÁSTICO"
+    },
+    {
+      "code": "22226",
+      "name": "FABRICAÇÃO DE EMBALAGENS DE MATERIAL PLÁSTICO",
+      "label": "22226 - FABRICAÇÃO DE EMBALAGENS DE MATERIAL PLÁSTICO"
+    },
+    {
+      "code": "22234",
+      "name": "FABRICAÇÃO DE TUBOS E ACESSÓRIOS DE MATERIAL PLÁSTICO PARA USO NA CONSTRUÇÃO",
+      "label": "22234 - FABRICAÇÃO DE TUBOS E ACESSÓRIOS DE MATERIAL PLÁSTICO PARA USO NA CONSTRUÇÃO"
+    },
+    {
+      "code": "22293",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE MATERIAL PLÁSTICO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "22293 - FABRICAÇÃO DE ARTEFATOS DE MATERIAL PLÁSTICO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "23117",
+      "name": "FABRICAÇÃO DE VIDRO PLANO E DE SEGURANÇA",
+      "label": "23117 - FABRICAÇÃO DE VIDRO PLANO E DE SEGURANÇA"
+    },
+    {
+      "code": "23192",
+      "name": "FABRICAÇÃO DE ARTIGOS DE VIDRO",
+      "label": "23192 - FABRICAÇÃO DE ARTIGOS DE VIDRO"
+    },
+    {
+      "code": "23206",
+      "name": "FABRICAÇÃO DE CIMENTO",
+      "label": "23206 - FABRICAÇÃO DE CIMENTO"
+    },
+    {
+      "code": "23303",
+      "name": "FABRICAÇÃO DE ARTEFATOS DE CONCRETO, CIMENTO, FIBROCIMENTO, GESSO E MATERIAIS SEMELHANTES",
+      "label": "23303 - FABRICAÇÃO DE ARTEFATOS DE CONCRETO, CIMENTO, FIBROCIMENTO, GESSO E MATERIAIS SEMELHANTES"
+    },
+    {
+      "code": "23419",
+      "name": "FABRICAÇÃO DE PRODUTOS CERÂMICOS REFRATÁRIOS",
+      "label": "23419 - FABRICAÇÃO DE PRODUTOS CERÂMICOS REFRATÁRIOS"
+    },
+    {
+      "code": "23427",
+      "name": "FABRICAÇÃO DE PRODUTOS CERÂMICOS NÃO REFRATÁRIOS PARA USO ESTRUTURAL NA CONSTRUÇÃO",
+      "label": "23427 - FABRICAÇÃO DE PRODUTOS CERÂMICOS NÃO REFRATÁRIOS PARA USO ESTRUTURAL NA CONSTRUÇÃO"
+    },
+    {
+      "code": "23494",
+      "name": "FABRICAÇÃO DE PRODUTOS CERÂMICOS NÃO REFRATÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "23494 - FABRICAÇÃO DE PRODUTOS CERÂMICOS NÃO REFRATÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "23915",
+      "name": "APARELHAMENTO E OUTROS TRABALHOS EM PEDRAS",
+      "label": "23915 - APARELHAMENTO E OUTROS TRABALHOS EM PEDRAS"
+    },
+    {
+      "code": "23923",
+      "name": "FABRICAÇÃO DE CAL E GESSO",
+      "label": "23923 - FABRICAÇÃO DE CAL E GESSO"
+    },
+    {
+      "code": "23991",
+      "name": "FABRICAÇÃO DE PRODUTOS DE MINERAIS NÃO METÁLICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "23991 - FABRICAÇÃO DE PRODUTOS DE MINERAIS NÃO METÁLICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "24113",
+      "name": "PRODUÇÃO DE FERRO-GUSA",
+      "label": "24113 - PRODUÇÃO DE FERRO-GUSA"
+    },
+    {
+      "code": "24121",
+      "name": "PRODUÇÃO DE FERROLIGAS",
+      "label": "24121 - PRODUÇÃO DE FERROLIGAS"
+    },
+    {
+      "code": "46460",
+      "name": "COMÉRCIO ATACADISTA DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL",
+      "label": "46460 - COMÉRCIO ATACADISTA DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL"
+    },
+    {
+      "code": "24211",
+      "name": "PRODUÇÃO DE SEMIACABADOS DE AÇO",
+      "label": "24211 - PRODUÇÃO DE SEMIACABADOS DE AÇO"
+    },
+    {
+      "code": "24229",
+      "name": "PRODUÇÃO DE LAMINADOS PLANOS DE AÇO",
+      "label": "24229 - PRODUÇÃO DE LAMINADOS PLANOS DE AÇO"
+    },
+    {
+      "code": "24237",
+      "name": "PRODUÇÃO DE LAMINADOS LONGOS DE AÇO",
+      "label": "24237 - PRODUÇÃO DE LAMINADOS LONGOS DE AÇO"
+    },
+    {
+      "code": "24245",
+      "name": "PRODUÇÃO DE RELAMINADOS, TREFILADOS E PERFILADOS DE AÇO",
+      "label": "24245 - PRODUÇÃO DE RELAMINADOS, TREFILADOS E PERFILADOS DE AÇO"
+    },
+    {
+      "code": "24318",
+      "name": "PRODUÇÃO DE TUBOS DE AÇO COM COSTURA",
+      "label": "24318 - PRODUÇÃO DE TUBOS DE AÇO COM COSTURA"
+    },
+    {
+      "code": "24393",
+      "name": "PRODUÇÃO DE OUTROS TUBOS DE FERRO E AÇO",
+      "label": "24393 - PRODUÇÃO DE OUTROS TUBOS DE FERRO E AÇO"
+    },
+    {
+      "code": "24415",
+      "name": "METALURGIA DO ALUMÍNIO E SUAS LIGAS",
+      "label": "24415 - METALURGIA DO ALUMÍNIO E SUAS LIGAS"
+    },
+    {
+      "code": "24423",
+      "name": "METALURGIA DOS METAIS PRECIOSOS",
+      "label": "24423 - METALURGIA DOS METAIS PRECIOSOS"
+    },
+    {
+      "code": "24431",
+      "name": "METALURGIA DO COBRE",
+      "label": "24431 - METALURGIA DO COBRE"
+    },
+    {
+      "code": "24491",
+      "name": "METALURGIA DOS METAIS NÃO FERROSOS E SUAS LIGAS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "24491 - METALURGIA DOS METAIS NÃO FERROSOS E SUAS LIGAS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "24512",
+      "name": "FUNDIÇÃO DE FERRO E AÇO",
+      "label": "24512 - FUNDIÇÃO DE FERRO E AÇO"
+    },
+    {
+      "code": "24521",
+      "name": "FUNDIÇÃO DE METAIS NÃO FERROSOS E SUAS LIGAS",
+      "label": "24521 - FUNDIÇÃO DE METAIS NÃO FERROSOS E SUAS LIGAS"
+    },
+    {
+      "code": "25110",
+      "name": "FABRICAÇÃO DE ESTRUTURAS METÁLICAS",
+      "label": "25110 - FABRICAÇÃO DE ESTRUTURAS METÁLICAS"
+    },
+    {
+      "code": "25128",
+      "name": "FABRICAÇÃO DE ESQUADRIAS DE METAL",
+      "label": "25128 - FABRICAÇÃO DE ESQUADRIAS DE METAL"
+    },
+    {
+      "code": "25136",
+      "name": "FABRICAÇÃO DE OBRAS DE CALDEIRARIA PESADA",
+      "label": "25136 - FABRICAÇÃO DE OBRAS DE CALDEIRARIA PESADA"
+    },
+    {
+      "code": "25217",
+      "name": "FABRICAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS PARA AQUECIMENTO CENTRAL",
+      "label": "25217 - FABRICAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS PARA AQUECIMENTO CENTRAL"
+    },
+    {
+      "code": "25225",
+      "name": "FABRICAÇÃO DE CALDEIRAS GERADORAS DE VAPOR, EXCETO PARA AQUECIMENTO CENTRAL E PARA VEÍCULOS",
+      "label": "25225 - FABRICAÇÃO DE CALDEIRAS GERADORAS DE VAPOR, EXCETO PARA AQUECIMENTO CENTRAL E PARA VEÍCULOS"
+    },
+    {
+      "code": "25314",
+      "name": "PRODUÇÃO DE FORJADOS DE AÇO E DE METAIS NÃO FERROSOS E SUAS LIGAS",
+      "label": "25314 - PRODUÇÃO DE FORJADOS DE AÇO E DE METAIS NÃO FERROSOS E SUAS LIGAS"
+    },
+    {
+      "code": "25322",
+      "name": "PRODUÇÃO DE ARTEFATOS ESTAMPADOS DE METAL; METALURGIA DO PÓ",
+      "label": "25322 - PRODUÇÃO DE ARTEFATOS ESTAMPADOS DE METAL; METALURGIA DO PÓ"
+    },
+    {
+      "code": "25390",
+      "name": "SERVIÇOS DE USINAGEM, SOLDA, TRATAMENTO E REVESTIMENTO EM METAIS",
+      "label": "25390 - SERVIÇOS DE USINAGEM, SOLDA, TRATAMENTO E REVESTIMENTO EM METAIS"
+    },
+    {
+      "code": "25411",
+      "name": "FABRICAÇÃO DE ARTIGOS DE CUTELARIA",
+      "label": "25411 - FABRICAÇÃO DE ARTIGOS DE CUTELARIA"
+    },
+    {
+      "code": "25420",
+      "name": "FABRICAÇÃO DE ARTIGOS DE SERRALHERIA, EXCETO ESQUADRIAS",
+      "label": "25420 - FABRICAÇÃO DE ARTIGOS DE SERRALHERIA, EXCETO ESQUADRIAS"
+    },
+    {
+      "code": "25438",
+      "name": "FABRICAÇÃO DE FERRAMENTAS",
+      "label": "25438 - FABRICAÇÃO DE FERRAMENTAS"
+    },
+    {
+      "code": "25501",
+      "name": "FABRICAÇÃO DE EQUIPAMENTO BÉLICO PESADO, ARMAS E MUNIÇÕES",
+      "label": "25501 - FABRICAÇÃO DE EQUIPAMENTO BÉLICO PESADO, ARMAS E MUNIÇÕES"
+    },
+    {
+      "code": "25918",
+      "name": "FABRICAÇÃO DE EMBALAGENS METÁLICAS",
+      "label": "25918 - FABRICAÇÃO DE EMBALAGENS METÁLICAS"
+    },
+    {
+      "code": "25926",
+      "name": "FABRICAÇÃO DE PRODUTOS DE TREFILADOS DE METAL",
+      "label": "25926 - FABRICAÇÃO DE PRODUTOS DE TREFILADOS DE METAL"
+    },
+    {
+      "code": "25934",
+      "name": "FABRICAÇÃO DE ARTIGOS DE METAL PARA USO DOMÉSTICO E PESSOAL",
+      "label": "25934 - FABRICAÇÃO DE ARTIGOS DE METAL PARA USO DOMÉSTICO E PESSOAL"
+    },
+    {
+      "code": "25993",
+      "name": "FABRICAÇÃO DE PRODUTOS DE METAL NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "25993 - FABRICAÇÃO DE PRODUTOS DE METAL NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "26108",
+      "name": "FABRICAÇÃO DE COMPONENTES ELETRÔNICOS",
+      "label": "26108 - FABRICAÇÃO DE COMPONENTES ELETRÔNICOS"
+    },
+    {
+      "code": "26213",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA",
+      "label": "26213 - FABRICAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA"
+    },
+    {
+      "code": "26221",
+      "name": "FABRICAÇÃO DE PERIFÉRICOS PARA EQUIPAMENTOS DE INFORMÁTICA",
+      "label": "26221 - FABRICAÇÃO DE PERIFÉRICOS PARA EQUIPAMENTOS DE INFORMÁTICA"
+    },
+    {
+      "code": "26311",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS TRANSMISSORES DE COMUNICAÇÃO",
+      "label": "26311 - FABRICAÇÃO DE EQUIPAMENTOS TRANSMISSORES DE COMUNICAÇÃO"
+    },
+    {
+      "code": "26329",
+      "name": "FABRICAÇÃO DE APARELHOS TELEFÔNICOS E DE OUTROS EQUIPAMENTOS DE COMUNICAÇÃO",
+      "label": "26329 - FABRICAÇÃO DE APARELHOS TELEFÔNICOS E DE OUTROS EQUIPAMENTOS DE COMUNICAÇÃO"
+    },
+    {
+      "code": "26400",
+      "name": "FABRICAÇÃO DE APARELHOS DE RECEPÇÃO, REPRODUÇÃO, GRAVAÇÃO E AMPLIFICAÇÃO DE ÁUDIO E VÍDEO",
+      "label": "26400 - FABRICAÇÃO DE APARELHOS DE RECEPÇÃO, REPRODUÇÃO, GRAVAÇÃO E AMPLIFICAÇÃO DE ÁUDIO E VÍDEO"
+    },
+    {
+      "code": "26515",
+      "name": "FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS DE MEDIDA, TESTE E CONTROLE",
+      "label": "26515 - FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS DE MEDIDA, TESTE E CONTROLE"
+    },
+    {
+      "code": "26523",
+      "name": "FABRICAÇÃO DE CRONÔMETROS E RELÓGIOS",
+      "label": "26523 - FABRICAÇÃO DE CRONÔMETROS E RELÓGIOS"
+    },
+    {
+      "code": "26604",
+      "name": "FABRICAÇÃO DE APARELHOS ELETROMÉDICOS E ELETROTERAPÊUTICOS E EQUIPAMENTOS DE IRRADIAÇÃO",
+      "label": "26604 - FABRICAÇÃO DE APARELHOS ELETROMÉDICOS E ELETROTERAPÊUTICOS E EQUIPAMENTOS DE IRRADIAÇÃO"
+    },
+    {
+      "code": "26701",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS E INSTRUMENTOS ÓPTICOS, FOTOGRÁFICOS E CINEMATOGRÁFICOS",
+      "label": "26701 - FABRICAÇÃO DE EQUIPAMENTOS E INSTRUMENTOS ÓPTICOS, FOTOGRÁFICOS E CINEMATOGRÁFICOS"
+    },
+    {
+      "code": "26809",
+      "name": "FABRICAÇÃO DE MÍDIAS VIRGENS, MAGNÉTICAS E ÓPTICAS",
+      "label": "26809 - FABRICAÇÃO DE MÍDIAS VIRGENS, MAGNÉTICAS E ÓPTICAS"
+    },
+    {
+      "code": "27104",
+      "name": "FABRICAÇÃO DE GERADORES, TRANSFORMADORES E MOTORES ELÉTRICOS",
+      "label": "27104 - FABRICAÇÃO DE GERADORES, TRANSFORMADORES E MOTORES ELÉTRICOS"
+    },
+    {
+      "code": "27210",
+      "name": "FABRICAÇÃO DE PILHAS, BATERIAS E ACUMULADORES ELÉTRICOS, EXCETO PARA VEÍCULOS AUTOMOTORES",
+      "label": "27210 - FABRICAÇÃO DE PILHAS, BATERIAS E ACUMULADORES ELÉTRICOS, EXCETO PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "27228",
+      "name": "FABRICAÇÃO DE BATERIAS E ACUMULADORES PARA VEÍCULOS AUTOMOTORES",
+      "label": "27228 - FABRICAÇÃO DE BATERIAS E ACUMULADORES PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "27317",
+      "name": "FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS PARA DISTRIBUIÇÃO E CONTROLE DE ENERGIA ELÉTRICA",
+      "label": "27317 - FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS PARA DISTRIBUIÇÃO E CONTROLE DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "27325",
+      "name": "FABRICAÇÃO DE MATERIAL ELÉTRICO PARA INSTALAÇÕES EM CIRCUITO DE CONSUMO",
+      "label": "27325 - FABRICAÇÃO DE MATERIAL ELÉTRICO PARA INSTALAÇÕES EM CIRCUITO DE CONSUMO"
+    },
+    {
+      "code": "27333",
+      "name": "FABRICAÇÃO DE FIOS, CABOS E CONDUTORES ELÉTRICOS ISOLADOS",
+      "label": "27333 - FABRICAÇÃO DE FIOS, CABOS E CONDUTORES ELÉTRICOS ISOLADOS"
+    },
+    {
+      "code": "27406",
+      "name": "FABRICAÇÃO DE LÂMPADAS E OUTROS EQUIPAMENTOS DE ILUMINAÇÃO",
+      "label": "27406 - FABRICAÇÃO DE LÂMPADAS E OUTROS EQUIPAMENTOS DE ILUMINAÇÃO"
+    },
+    {
+      "code": "27597",
+      "name": "FABRICAÇÃO DE APARELHOS ELETRODOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "27597 - FABRICAÇÃO DE APARELHOS ELETRODOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "27902",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS E APARELHOS ELÉTRICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "27902 - FABRICAÇÃO DE EQUIPAMENTOS E APARELHOS ELÉTRICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "28119",
+      "name": "FABRICAÇÃO DE MOTORES E TURBINAS, EXCETO PARA AVIÕES E VEÍCULOS RODOVIÁRIOS",
+      "label": "28119 - FABRICAÇÃO DE MOTORES E TURBINAS, EXCETO PARA AVIÕES E VEÍCULOS RODOVIÁRIOS"
+    },
+    {
+      "code": "28127",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS HIDRÁULICOS E PNEUMÁTICOS, EXCETO VÁLVULAS",
+      "label": "28127 - FABRICAÇÃO DE EQUIPAMENTOS HIDRÁULICOS E PNEUMÁTICOS, EXCETO VÁLVULAS"
+    },
+    {
+      "code": "28135",
+      "name": "FABRICAÇÃO DE VÁLVULAS, REGISTROS E DISPOSITIVOS SEMELHANTES",
+      "label": "28135 - FABRICAÇÃO DE VÁLVULAS, REGISTROS E DISPOSITIVOS SEMELHANTES"
+    },
+    {
+      "code": "28143",
+      "name": "FABRICAÇÃO DE COMPRESSORES",
+      "label": "28143 - FABRICAÇÃO DE COMPRESSORES"
+    },
+    {
+      "code": "28151",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE TRANSMISSÃO PARA FINS INDUSTRIAIS",
+      "label": "28151 - FABRICAÇÃO DE EQUIPAMENTOS DE TRANSMISSÃO PARA FINS INDUSTRIAIS"
+    },
+    {
+      "code": "28321",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS PARA IRRIGAÇÃO AGRÍCOLA",
+      "label": "28321 - FABRICAÇÃO DE EQUIPAMENTOS PARA IRRIGAÇÃO AGRÍCOLA"
+    },
+    {
+      "code": "28216",
+      "name": "FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS PARA INSTALAÇÕES TÉRMICAS",
+      "label": "28216 - FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS PARA INSTALAÇÕES TÉRMICAS"
+    },
+    {
+      "code": "28224",
+      "name": "FABRICAÇÃO DE MÁQUINAS, EQUIPAMENTOS E APARELHOS PARA TRANSPORTE E ELEVAÇÃO DE CARGAS E PESSOAS",
+      "label": "28224 - FABRICAÇÃO DE MÁQUINAS, EQUIPAMENTOS E APARELHOS PARA TRANSPORTE E ELEVAÇÃO DE CARGAS E PESSOAS"
+    },
+    {
+      "code": "28232",
+      "name": "FABRICAÇÃO DE MÁQUINAS E APARELHOS DE REFRIGERAÇÃO E VENTILAÇÃO PARA USO INDUSTRIAL E COMERCIAL",
+      "label": "28232 - FABRICAÇÃO DE MÁQUINAS E APARELHOS DE REFRIGERAÇÃO E VENTILAÇÃO PARA USO INDUSTRIAL E COMERCIAL"
+    },
+    {
+      "code": "28241",
+      "name": "FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS DE AR CONDICIONADO",
+      "label": "28241 - FABRICAÇÃO DE APARELHOS E EQUIPAMENTOS DE AR CONDICIONADO"
+    },
+    {
+      "code": "28259",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA SANEAMENTO BÁSICO E AMBIENTAL",
+      "label": "28259 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA SANEAMENTO BÁSICO E AMBIENTAL"
+    },
+    {
+      "code": "28291",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO GERAL NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "28291 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS DE USO GERAL NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "28313",
+      "name": "FABRICAÇÃO DE TRATORES AGRÍCOLAS",
+      "label": "28313 - FABRICAÇÃO DE TRATORES AGRÍCOLAS"
+    },
+    {
+      "code": "28330",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A AGRICULTURA E PECUÁRIA, EXCETO PARA IRRIGAÇÃO",
+      "label": "28330 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A AGRICULTURA E PECUÁRIA, EXCETO PARA IRRIGAÇÃO"
+    },
+    {
+      "code": "28402",
+      "name": "FABRICAÇÃO DE MÁQUINAS-FERRAMENTA",
+      "label": "28402 - FABRICAÇÃO DE MÁQUINAS-FERRAMENTA"
+    },
+    {
+      "code": "28518",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A PROSPECÇÃO E EXTRAÇÃO DE PETRÓLEO",
+      "label": "28518 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A PROSPECÇÃO E EXTRAÇÃO DE PETRÓLEO"
+    },
+    {
+      "code": "28526",
+      "name": "FABRICAÇÃO DE OUTRAS MÁQUINAS E EQUIPAMENTOS PARA USO NA EXTRAÇÃO MINERAL, EXCETO NA EXTRAÇÃO DE PETRÓLEO",
+      "label": "28526 - FABRICAÇÃO DE OUTRAS MÁQUINAS E EQUIPAMENTOS PARA USO NA EXTRAÇÃO MINERAL, EXCETO NA EXTRAÇÃO DE PETRÓLEO"
+    },
+    {
+      "code": "28534",
+      "name": "FABRICAÇÃO DE TRATORES, EXCETO AGRÍCOLAS",
+      "label": "28534 - FABRICAÇÃO DE TRATORES, EXCETO AGRÍCOLAS"
+    },
+    {
+      "code": "28542",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA TERRAPLENAGEM, PAVIMENTAÇÃO E CONSTRUÇÃO, EXCETO TRATORES",
+      "label": "28542 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA TERRAPLENAGEM, PAVIMENTAÇÃO E CONSTRUÇÃO, EXCETO TRATORES"
+    },
+    {
+      "code": "28615",
+      "name": "FABRICAÇÃO DE MÁQUINAS PARA A INDÚSTRIA METALÚRGICA, EXCETO MÁQUINAS-FERRAMENTA",
+      "label": "28615 - FABRICAÇÃO DE MÁQUINAS PARA A INDÚSTRIA METALÚRGICA, EXCETO MÁQUINAS-FERRAMENTA"
+    },
+    {
+      "code": "28623",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DE ALIMENTOS, BEBIDAS E FUMO",
+      "label": "28623 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DE ALIMENTOS, BEBIDAS E FUMO"
+    },
+    {
+      "code": "28631",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A INDÚSTRIA TÊXTIL",
+      "label": "28631 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A INDÚSTRIA TÊXTIL"
+    },
+    {
+      "code": "28640",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DO VESTUÁRIO, DO COURO E DE CALÇADOS",
+      "label": "28640 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DO VESTUÁRIO, DO COURO E DE CALÇADOS"
+    },
+    {
+      "code": "28658",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DE CELULOSE, PAPEL E PAPELÃO E ARTEFATOS",
+      "label": "28658 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA AS INDÚSTRIAS DE CELULOSE, PAPEL E PAPELÃO E ARTEFATOS"
+    },
+    {
+      "code": "30997",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS DE TRANSPORTE NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "30997 - FABRICAÇÃO DE EQUIPAMENTOS DE TRANSPORTE NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "28666",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A INDÚSTRIA DO PLÁSTICO",
+      "label": "28666 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA A INDÚSTRIA DO PLÁSTICO"
+    },
+    {
+      "code": "28691",
+      "name": "FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA USO INDUSTRIAL ESPECÍFICO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "28691 - FABRICAÇÃO DE MÁQUINAS E EQUIPAMENTOS PARA USO INDUSTRIAL ESPECÍFICO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "29107",
+      "name": "FABRICAÇÃO DE AUTOMÓVEIS, CAMIONETAS E UTILITÁRIOS",
+      "label": "29107 - FABRICAÇÃO DE AUTOMÓVEIS, CAMIONETAS E UTILITÁRIOS"
+    },
+    {
+      "code": "29204",
+      "name": "FABRICAÇÃO DE CAMINHÕES E ÔNIBUS",
+      "label": "29204 - FABRICAÇÃO DE CAMINHÕES E ÔNIBUS"
+    },
+    {
+      "code": "29301",
+      "name": "FABRICAÇÃO DE CABINES, CARROCERIAS E REBOQUES PARA VEÍCULOS AUTOMOTORES",
+      "label": "29301 - FABRICAÇÃO DE CABINES, CARROCERIAS E REBOQUES PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "29417",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA MOTOR DE VEÍCULOS AUTOMOTORES",
+      "label": "29417 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA MOTOR DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "29425",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA OS SISTEMAS DE MARCHA E TRANSMISSÃO DE VEÍCULOS AUTOMOTORES",
+      "label": "29425 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA OS SISTEMAS DE MARCHA E TRANSMISSÃO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "29433",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA DE FREIOS DE VEÍCULOS AUTOMOTORES",
+      "label": "29433 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA DE FREIOS DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "29441",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA DE DIREÇÃO E SUSPENSÃO DE VEÍCULOS AUTOMOTORES",
+      "label": "29441 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA O SISTEMA DE DIREÇÃO E SUSPENSÃO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "29450",
+      "name": "FABRICAÇÃO DE MATERIAL ELÉTRICO E ELETRÔNICO PARA VEÍCULOS AUTOMOTORES, EXCETO BATERIAS",
+      "label": "29450 - FABRICAÇÃO DE MATERIAL ELÉTRICO E ELETRÔNICO PARA VEÍCULOS AUTOMOTORES, EXCETO BATERIAS"
+    },
+    {
+      "code": "29492",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "29492 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "29506",
+      "name": "RECONDICIONAMENTO E RECUPERAÇÃO DE MOTORES PARA VEÍCULOS AUTOMOTORES",
+      "label": "29506 - RECONDICIONAMENTO E RECUPERAÇÃO DE MOTORES PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "30113",
+      "name": "CONSTRUÇÃO DE EMBARCAÇÕES E ESTRUTURAS FLUTUANTES",
+      "label": "30113 - CONSTRUÇÃO DE EMBARCAÇÕES E ESTRUTURAS FLUTUANTES"
+    },
+    {
+      "code": "30121",
+      "name": "CONSTRUÇÃO DE EMBARCAÇÕES PARA ESPORTE E LAZER",
+      "label": "30121 - CONSTRUÇÃO DE EMBARCAÇÕES PARA ESPORTE E LAZER"
+    },
+    {
+      "code": "30318",
+      "name": "FABRICAÇÃO DE LOCOMOTIVAS, VAGÕES E OUTROS MATERIAIS RODANTES",
+      "label": "30318 - FABRICAÇÃO DE LOCOMOTIVAS, VAGÕES E OUTROS MATERIAIS RODANTES"
+    },
+    {
+      "code": "30326",
+      "name": "FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS FERROVIÁRIOS",
+      "label": "30326 - FABRICAÇÃO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS FERROVIÁRIOS"
+    },
+    {
+      "code": "30415",
+      "name": "FABRICAÇÃO DE AERONAVES",
+      "label": "30415 - FABRICAÇÃO DE AERONAVES"
+    },
+    {
+      "code": "30423",
+      "name": "FABRICAÇÃO DE TURBINAS, MOTORES E OUTROS COMPONENTES E PEÇAS PARA AERONAVES",
+      "label": "30423 - FABRICAÇÃO DE TURBINAS, MOTORES E OUTROS COMPONENTES E PEÇAS PARA AERONAVES"
+    },
+    {
+      "code": "30504",
+      "name": "FABRICAÇÃO DE VEÍCULOS MILITARES DE COMBATE",
+      "label": "30504 - FABRICAÇÃO DE VEÍCULOS MILITARES DE COMBATE"
+    },
+    {
+      "code": "30911",
+      "name": "FABRICAÇÃO DE MOTOCICLETAS",
+      "label": "30911 - FABRICAÇÃO DE MOTOCICLETAS"
+    },
+    {
+      "code": "30920",
+      "name": "FABRICAÇÃO DE BICICLETAS E TRICICLOS NÃO MOTORIZADOS",
+      "label": "30920 - FABRICAÇÃO DE BICICLETAS E TRICICLOS NÃO MOTORIZADOS"
+    },
+    {
+      "code": "31012",
+      "name": "FABRICAÇÃO DE MÓVEIS COM PREDOMINÂNCIA DE MADEIRA",
+      "label": "31012 - FABRICAÇÃO DE MÓVEIS COM PREDOMINÂNCIA DE MADEIRA"
+    },
+    {
+      "code": "31021",
+      "name": "FABRICAÇÃO DE MÓVEIS COM PREDOMINÂNCIA DE METAL",
+      "label": "31021 - FABRICAÇÃO DE MÓVEIS COM PREDOMINÂNCIA DE METAL"
+    },
+    {
+      "code": "31039",
+      "name": "FABRICAÇÃO DE MÓVEIS DE OUTROS MATERIAIS, EXCETO MADEIRA E METAL",
+      "label": "31039 - FABRICAÇÃO DE MÓVEIS DE OUTROS MATERIAIS, EXCETO MADEIRA E METAL"
+    },
+    {
+      "code": "31047",
+      "name": "FABRICAÇÃO DE COLCHÕES",
+      "label": "31047 - FABRICAÇÃO DE COLCHÕES"
+    },
+    {
+      "code": "32116",
+      "name": "LAPIDAÇÃO DE GEMAS E FABRICAÇÃO DE ARTEFATOS DE OURIVESARIA E JOALHERIA",
+      "label": "32116 - LAPIDAÇÃO DE GEMAS E FABRICAÇÃO DE ARTEFATOS DE OURIVESARIA E JOALHERIA"
+    },
+    {
+      "code": "32124",
+      "name": "FABRICAÇÃO DE BIJUTERIAS E ARTEFATOS SEMELHANTES",
+      "label": "32124 - FABRICAÇÃO DE BIJUTERIAS E ARTEFATOS SEMELHANTES"
+    },
+    {
+      "code": "32205",
+      "name": "FABRICAÇÃO DE INSTRUMENTOS MUSICAIS",
+      "label": "32205 - FABRICAÇÃO DE INSTRUMENTOS MUSICAIS"
+    },
+    {
+      "code": "32302",
+      "name": "FABRICAÇÃO DE ARTEFATOS PARA PESCA E ESPORTE",
+      "label": "32302 - FABRICAÇÃO DE ARTEFATOS PARA PESCA E ESPORTE"
+    },
+    {
+      "code": "32400",
+      "name": "FABRICAÇÃO DE BRINQUEDOS E JOGOS RECREATIVOS",
+      "label": "32400 - FABRICAÇÃO DE BRINQUEDOS E JOGOS RECREATIVOS"
+    },
+    {
+      "code": "32507",
+      "name": "FABRICAÇÃO DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO E ODONTOLÓGICO E DE ARTIGOS ÓPTICOS",
+      "label": "32507 - FABRICAÇÃO DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO E ODONTOLÓGICO E DE ARTIGOS ÓPTICOS"
+    },
+    {
+      "code": "32922",
+      "name": "FABRICAÇÃO DE EQUIPAMENTOS E ACESSÓRIOS PARA SEGURANÇA E PROTEÇÃO PESSOAL E PROFISSIONAL",
+      "label": "32922 - FABRICAÇÃO DE EQUIPAMENTOS E ACESSÓRIOS PARA SEGURANÇA E PROTEÇÃO PESSOAL E PROFISSIONAL"
+    },
+    {
+      "code": "32990",
+      "name": "FABRICAÇÃO DE PRODUTOS DIVERSOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "32990 - FABRICAÇÃO DE PRODUTOS DIVERSOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "33112",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS, EXCETO PARA VEÍCULOS",
+      "label": "33112 - MANUTENÇÃO E REPARAÇÃO DE TANQUES, RESERVATÓRIOS METÁLICOS E CALDEIRAS, EXCETO PARA VEÍCULOS"
+    },
+    {
+      "code": "33121",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE EQUIPAMENTOS ELETRÔNICOS E ÓPTICOS",
+      "label": "33121 - MANUTENÇÃO E REPARAÇÃO DE EQUIPAMENTOS ELETRÔNICOS E ÓPTICOS"
+    },
+    {
+      "code": "33139",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS ELÉTRICOS",
+      "label": "33139 - MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS ELÉTRICOS"
+    },
+    {
+      "code": "33147",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS DA INDÚSTRIA MECÂNICA",
+      "label": "33147 - MANUTENÇÃO E REPARAÇÃO DE MÁQUINAS E EQUIPAMENTOS DA INDÚSTRIA MECÂNICA"
+    },
+    {
+      "code": "33155",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS FERROVIÁRIOS",
+      "label": "33155 - MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS FERROVIÁRIOS"
+    },
+    {
+      "code": "33163",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE AERONAVES",
+      "label": "33163 - MANUTENÇÃO E REPARAÇÃO DE AERONAVES"
+    },
+    {
+      "code": "47571",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE PEÇAS E ACESSÓRIOS PARA APARELHOS ELETROELETRÔNICOS PARA USO DOMÉSTICO, EXCETO INFORMÁTICA E COMUNICAÇÃO",
+      "label": "47571 - COMÉRCIO VAREJISTA ESPECIALIZADO DE PEÇAS E ACESSÓRIOS PARA APARELHOS ELETROELETRÔNICOS PARA USO DOMÉSTICO, EXCETO INFORMÁTICA E COMUNICAÇÃO"
+    },
+    {
+      "code": "33171",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE EMBARCAÇÕES",
+      "label": "33171 - MANUTENÇÃO E REPARAÇÃO DE EMBARCAÇÕES"
+    },
+    {
+      "code": "33198",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE EQUIPAMENTOS E PRODUTOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "33198 - MANUTENÇÃO E REPARAÇÃO DE EQUIPAMENTOS E PRODUTOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "33210",
+      "name": "INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS INDUSTRIAIS",
+      "label": "33210 - INSTALAÇÃO DE MÁQUINAS E EQUIPAMENTOS INDUSTRIAIS"
+    },
+    {
+      "code": "33295",
+      "name": "INSTALAÇÃO DE EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "33295 - INSTALAÇÃO DE EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "35115",
+      "name": "GERAÇÃO DE ENERGIA ELÉTRICA",
+      "label": "35115 - GERAÇÃO DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "35123",
+      "name": "TRANSMISSÃO DE ENERGIA ELÉTRICA",
+      "label": "35123 - TRANSMISSÃO DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "35131",
+      "name": "COMÉRCIO ATACADISTA DE ENERGIA ELÉTRICA",
+      "label": "35131 - COMÉRCIO ATACADISTA DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "35140",
+      "name": "DISTRIBUIÇÃO DE ENERGIA ELÉTRICA",
+      "label": "35140 - DISTRIBUIÇÃO DE ENERGIA ELÉTRICA"
+    },
+    {
+      "code": "38211",
+      "name": "TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS NÃO PERIGOSOS",
+      "label": "38211 - TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS NÃO PERIGOSOS"
+    },
+    {
+      "code": "50220",
+      "name": "TRANSPORTE POR NAVEGAÇÃO INTERIOR DE PASSAGEIROS EM LINHAS REGULARES",
+      "label": "50220 - TRANSPORTE POR NAVEGAÇÃO INTERIOR DE PASSAGEIROS EM LINHAS REGULARES"
+    },
+    {
+      "code": "35204",
+      "name": "PRODUÇÃO DE GÁS; PROCESSAMENTO DE GÁS NATURAL; DISTRIBUIÇÃO DE COMBUSTÍVEIS GASOSOS POR REDES URBANAS",
+      "label": "35204 - PRODUÇÃO DE GÁS; PROCESSAMENTO DE GÁS NATURAL; DISTRIBUIÇÃO DE COMBUSTÍVEIS GASOSOS POR REDES URBANAS"
+    },
+    {
+      "code": "35301",
+      "name": "PRODUÇÃO E DISTRIBUIÇÃO DE VAPOR, ÁGUA QUENTE E AR CONDICIONADO",
+      "label": "35301 - PRODUÇÃO E DISTRIBUIÇÃO DE VAPOR, ÁGUA QUENTE E AR CONDICIONADO"
+    },
+    {
+      "code": "36006",
+      "name": "CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA",
+      "label": "36006 - CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA"
+    },
+    {
+      "code": "37011",
+      "name": "GESTÃO DE REDES DE ESGOTO",
+      "label": "37011 - GESTÃO DE REDES DE ESGOTO"
+    },
+    {
+      "code": "37029",
+      "name": "ATIVIDADES RELACIONADAS A ESGOTO, EXCETO A GESTÃO DE REDES",
+      "label": "37029 - ATIVIDADES RELACIONADAS A ESGOTO, EXCETO A GESTÃO DE REDES"
+    },
+    {
+      "code": "38114",
+      "name": "COLETA DE RESÍDUOS NÃO PERIGOSOS",
+      "label": "38114 - COLETA DE RESÍDUOS NÃO PERIGOSOS"
+    },
+    {
+      "code": "38122",
+      "name": "COLETA DE RESÍDUOS PERIGOSOS",
+      "label": "38122 - COLETA DE RESÍDUOS PERIGOSOS"
+    },
+    {
+      "code": "58212",
+      "name": "EDIÇÃO INTEGRADA À IMPRESSÃO DE LIVROS",
+      "label": "58212 - EDIÇÃO INTEGRADA À IMPRESSÃO DE LIVROS"
+    },
+    {
+      "code": "38220",
+      "name": "TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS PERIGOSOS",
+      "label": "38220 - TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS PERIGOSOS"
+    },
+    {
+      "code": "38319",
+      "name": "RECUPERAÇÃO DE MATERIAIS METÁLICOS",
+      "label": "38319 - RECUPERAÇÃO DE MATERIAIS METÁLICOS"
+    },
+    {
+      "code": "38327",
+      "name": "RECUPERAÇÃO DE MATERIAIS PLÁSTICOS",
+      "label": "38327 - RECUPERAÇÃO DE MATERIAIS PLÁSTICOS"
+    },
+    {
+      "code": "38394",
+      "name": "RECUPERAÇÃO DE MATERIAIS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "38394 - RECUPERAÇÃO DE MATERIAIS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "39005",
+      "name": "DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS",
+      "label": "39005 - DESCONTAMINAÇÃO E OUTROS SERVIÇOS DE GESTÃO DE RESÍDUOS"
+    },
+    {
+      "code": "41107",
+      "name": "INCORPORAÇÃO DE EMPREENDIMENTOS IMOBILIÁRIOS",
+      "label": "41107 - INCORPORAÇÃO DE EMPREENDIMENTOS IMOBILIÁRIOS"
+    },
+    {
+      "code": "42235",
+      "name": "CONSTRUÇÃO DE REDES DE TRANSPORTES POR DUTOS, EXCETO PARA ÁGUA E ESGOTO",
+      "label": "42235 - CONSTRUÇÃO DE REDES DE TRANSPORTES POR DUTOS, EXCETO PARA ÁGUA E ESGOTO"
+    },
+    {
+      "code": "58221",
+      "name": "EDIÇÃO INTEGRADA À IMPRESSÃO DE JORNAIS",
+      "label": "58221 - EDIÇÃO INTEGRADA À IMPRESSÃO DE JORNAIS"
+    },
+    {
+      "code": "41204",
+      "name": "CONSTRUÇÃO DE EDIFÍCIOS",
+      "label": "41204 - CONSTRUÇÃO DE EDIFÍCIOS"
+    },
+    {
+      "code": "42111",
+      "name": "CONSTRUÇÃO DE RODOVIAS E FERROVIAS",
+      "label": "42111 - CONSTRUÇÃO DE RODOVIAS E FERROVIAS"
+    },
+    {
+      "code": "42120",
+      "name": "CONSTRUÇÃO DE OBRAS DE ARTE ESPECIAIS",
+      "label": "42120 - CONSTRUÇÃO DE OBRAS DE ARTE ESPECIAIS"
+    },
+    {
+      "code": "42138",
+      "name": "OBRAS DE URBANIZAÇÃO - RUAS, PRAÇAS E CALÇADAS",
+      "label": "42138 - OBRAS DE URBANIZAÇÃO - RUAS, PRAÇAS E CALÇADAS"
+    },
+    {
+      "code": "42219",
+      "name": "OBRAS PARA GERAÇÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA E PARA TELECOMUNICAÇÕES",
+      "label": "42219 - OBRAS PARA GERAÇÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA E PARA TELECOMUNICAÇÕES"
+    },
+    {
+      "code": "42227",
+      "name": "CONSTRUÇÃO DE REDES DE ABASTECIMENTO DE ÁGUA, COLETA DE ESGOTO E CONSTRUÇÕES CORRELATAS",
+      "label": "42227 - CONSTRUÇÃO DE REDES DE ABASTECIMENTO DE ÁGUA, COLETA DE ESGOTO E CONSTRUÇÕES CORRELATAS"
+    },
+    {
+      "code": "42910",
+      "name": "OBRAS PORTUÁRIAS, MARÍTIMAS E FLUVIAIS",
+      "label": "42910 - OBRAS PORTUÁRIAS, MARÍTIMAS E FLUVIAIS"
+    },
+    {
+      "code": "42928",
+      "name": "MONTAGEM DE INSTALAÇÕES INDUSTRIAIS E DE ESTRUTURAS METÁLICAS",
+      "label": "42928 - MONTAGEM DE INSTALAÇÕES INDUSTRIAIS E DE ESTRUTURAS METÁLICAS"
+    },
+    {
+      "code": "42995",
+      "name": "OBRAS DE ENGENHARIA CIVIL NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "42995 - OBRAS DE ENGENHARIA CIVIL NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "43118",
+      "name": "DEMOLIÇÃO E PREPARAÇÃO DE CANTEIROS DE OBRAS",
+      "label": "43118 - DEMOLIÇÃO E PREPARAÇÃO DE CANTEIROS DE OBRAS"
+    },
+    {
+      "code": "43126",
+      "name": "PERFURAÇÕES E SONDAGENS",
+      "label": "43126 - PERFURAÇÕES E SONDAGENS"
+    },
+    {
+      "code": "43134",
+      "name": "OBRAS DE TERRAPLENAGEM",
+      "label": "43134 - OBRAS DE TERRAPLENAGEM"
+    },
+    {
+      "code": "43193",
+      "name": "SERVIÇOS DE PREPARAÇÃO DO TERRENO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "43193 - SERVIÇOS DE PREPARAÇÃO DO TERRENO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "43215",
+      "name": "INSTALAÇÕES ELÉTRICAS",
+      "label": "43215 - INSTALAÇÕES ELÉTRICAS"
+    },
+    {
+      "code": "47229",
+      "name": "COMÉRCIO VAREJISTA DE CARNES E PESCADOS - AÇOUGUES E PEIXARIAS",
+      "label": "47229 - COMÉRCIO VAREJISTA DE CARNES E PESCADOS - AÇOUGUES E PEIXARIAS"
+    },
+    {
+      "code": "43223",
+      "name": "INSTALAÇÕES HIDRÁULICAS, DE SISTEMAS DE VENTILAÇÃO E REFRIGERAÇÃO",
+      "label": "43223 - INSTALAÇÕES HIDRÁULICAS, DE SISTEMAS DE VENTILAÇÃO E REFRIGERAÇÃO"
+    },
+    {
+      "code": "43291",
+      "name": "OBRAS DE INSTALAÇÕES EM CONSTRUÇÕES NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "43291 - OBRAS DE INSTALAÇÕES EM CONSTRUÇÕES NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "43304",
+      "name": "OBRAS DE ACABAMENTO",
+      "label": "43304 - OBRAS DE ACABAMENTO"
+    },
+    {
+      "code": "43916",
+      "name": "OBRAS DE FUNDAÇÕES",
+      "label": "43916 - OBRAS DE FUNDAÇÕES"
+    },
+    {
+      "code": "43991",
+      "name": "SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "43991 - SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "47237",
+      "name": "COMÉRCIO VAREJISTA DE BEBIDAS",
+      "label": "47237 - COMÉRCIO VAREJISTA DE BEBIDAS"
+    },
+    {
+      "code": "45111",
+      "name": "COMÉRCIO A VAREJO E POR ATACADO DE VEÍCULOS AUTOMOTORES",
+      "label": "45111 - COMÉRCIO A VAREJO E POR ATACADO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "45129",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE VEÍCULOS AUTOMOTORES",
+      "label": "45129 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "45200",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES",
+      "label": "45200 - MANUTENÇÃO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "45307",
+      "name": "COMÉRCIO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES",
+      "label": "45307 - COMÉRCIO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "45412",
+      "name": "COMÉRCIO POR ATACADO E A VAREJO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS",
+      "label": "45412 - COMÉRCIO POR ATACADO E A VAREJO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS"
+    },
+    {
+      "code": "45421",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS",
+      "label": "45421 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MOTOCICLETAS, PEÇAS E ACESSÓRIOS"
+    },
+    {
+      "code": "45439",
+      "name": "MANUTENÇÃO E REPARAÇÃO DE MOTOCICLETAS",
+      "label": "45439 - MANUTENÇÃO E REPARAÇÃO DE MOTOCICLETAS"
+    },
+    {
+      "code": "46117",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MATÉRIAS-PRIMAS AGRÍCOLAS E ANIMAIS VIVOS",
+      "label": "46117 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MATÉRIAS-PRIMAS AGRÍCOLAS E ANIMAIS VIVOS"
+    },
+    {
+      "code": "46125",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE COMBUSTÍVEIS, MINERAIS, PRODUTOS SIDERÚRGICOS E QUÍMICOS",
+      "label": "46125 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE COMBUSTÍVEIS, MINERAIS, PRODUTOS SIDERÚRGICOS E QUÍMICOS"
+    },
+    {
+      "code": "47245",
+      "name": "COMÉRCIO VAREJISTA DE HORTIFRUTIGRANJEIROS",
+      "label": "47245 - COMÉRCIO VAREJISTA DE HORTIFRUTIGRANJEIROS"
+    },
+    {
+      "code": "46133",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MADEIRA, MATERIAL DE CONSTRUÇÃO E FERRAGENS",
+      "label": "46133 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MADEIRA, MATERIAL DE CONSTRUÇÃO E FERRAGENS"
+    },
+    {
+      "code": "46141",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MÁQUINAS, EQUIPAMENTOS, EMBARCAÇÕES E AERONAVES",
+      "label": "46141 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MÁQUINAS, EQUIPAMENTOS, EMBARCAÇÕES E AERONAVES"
+    },
+    {
+      "code": "46150",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE ELETRODOMÉSTICOS, MÓVEIS E ARTIGOS DE USO DOMÉSTICO",
+      "label": "46150 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE ELETRODOMÉSTICOS, MÓVEIS E ARTIGOS DE USO DOMÉSTICO"
+    },
+    {
+      "code": "46168",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE TÊXTEIS, VESTUÁRIO, CALÇADOS E ARTIGOS DE VIAGEM",
+      "label": "46168 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE TÊXTEIS, VESTUÁRIO, CALÇADOS E ARTIGOS DE VIAGEM"
+    },
+    {
+      "code": "46176",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO",
+      "label": "46176 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE PRODUTOS ALIMENTÍCIOS, BEBIDAS E FUMO"
+    },
+    {
+      "code": "46184",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO ESPECIALIZADO EM PRODUTOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "46184 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO ESPECIALIZADO EM PRODUTOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "46192",
+      "name": "REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MERCADORIAS EM GERAL NÃO ESPECIALIZADO",
+      "label": "46192 - REPRESENTANTES COMERCIAIS E AGENTES DO COMÉRCIO DE MERCADORIAS EM GERAL NÃO ESPECIALIZADO"
+    },
+    {
+      "code": "46214",
+      "name": "COMÉRCIO ATACADISTA DE CAFÉ EM GRÃO",
+      "label": "46214 - COMÉRCIO ATACADISTA DE CAFÉ EM GRÃO"
+    },
+    {
+      "code": "46222",
+      "name": "COMÉRCIO ATACADISTA DE SOJA",
+      "label": "46222 - COMÉRCIO ATACADISTA DE SOJA"
+    },
+    {
+      "code": "46451",
+      "name": "COMÉRCIO ATACADISTA DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO, CIRÚRGICO, ORTOPÉDICO E ODONTOLÓGICO",
+      "label": "46451 - COMÉRCIO ATACADISTA DE INSTRUMENTOS E MATERIAIS PARA USO MÉDICO, CIRÚRGICO, ORTOPÉDICO E ODONTOLÓGICO"
+    },
+    {
+      "code": "47555",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE TECIDOS E ARTIGOS DE CAMA, MESA E BANHO",
+      "label": "47555 - COMÉRCIO VAREJISTA ESPECIALIZADO DE TECIDOS E ARTIGOS DE CAMA, MESA E BANHO"
+    },
+    {
+      "code": "46231",
+      "name": "COMÉRCIO ATACADISTA DE ANIMAIS VIVOS, ALIMENTOS PARA ANIMAIS E MATÉRIAS-PRIMAS AGRÍCOLAS, EXCETO CAFÉ E SOJA",
+      "label": "46231 - COMÉRCIO ATACADISTA DE ANIMAIS VIVOS, ALIMENTOS PARA ANIMAIS E MATÉRIAS-PRIMAS AGRÍCOLAS, EXCETO CAFÉ E SOJA"
+    },
+    {
+      "code": "46311",
+      "name": "COMÉRCIO ATACADISTA DE LEITE E LATICÍNIOS",
+      "label": "46311 - COMÉRCIO ATACADISTA DE LEITE E LATICÍNIOS"
+    },
+    {
+      "code": "46320",
+      "name": "COMÉRCIO ATACADISTA DE CEREAIS E LEGUMINOSAS BENEFICIADOS, FARINHAS, AMIDOS E FÉCULAS",
+      "label": "46320 - COMÉRCIO ATACADISTA DE CEREAIS E LEGUMINOSAS BENEFICIADOS, FARINHAS, AMIDOS E FÉCULAS"
+    },
+    {
+      "code": "46338",
+      "name": "COMÉRCIO ATACADISTA DE HORTIFRUTIGRANJEIROS",
+      "label": "46338 - COMÉRCIO ATACADISTA DE HORTIFRUTIGRANJEIROS"
+    },
+    {
+      "code": "46346",
+      "name": "COMÉRCIO ATACADISTA DE CARNES, PRODUTOS DA CARNE E PESCADO",
+      "label": "46346 - COMÉRCIO ATACADISTA DE CARNES, PRODUTOS DA CARNE E PESCADO"
+    },
+    {
+      "code": "46354",
+      "name": "COMÉRCIO ATACADISTA DE BEBIDAS",
+      "label": "46354 - COMÉRCIO ATACADISTA DE BEBIDAS"
+    },
+    {
+      "code": "46362",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS DO FUMO",
+      "label": "46362 - COMÉRCIO ATACADISTA DE PRODUTOS DO FUMO"
+    },
+    {
+      "code": "46371",
+      "name": "COMÉRCIO ATACADISTA ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "46371 - COMÉRCIO ATACADISTA ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "46397",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS ALIMENTÍCIOS EM GERAL",
+      "label": "46397 - COMÉRCIO ATACADISTA DE PRODUTOS ALIMENTÍCIOS EM GERAL"
+    },
+    {
+      "code": "46419",
+      "name": "COMÉRCIO ATACADISTA DE TECIDOS, ARTEFATOS DE TECIDOS E DE ARMARINHO",
+      "label": "46419 - COMÉRCIO ATACADISTA DE TECIDOS, ARTEFATOS DE TECIDOS E DE ARMARINHO"
+    },
+    {
+      "code": "46427",
+      "name": "COMÉRCIO ATACADISTA DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS",
+      "label": "46427 - COMÉRCIO ATACADISTA DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS"
+    },
+    {
+      "code": "46435",
+      "name": "COMÉRCIO ATACADISTA DE CALÇADOS E ARTIGOS DE VIAGEM",
+      "label": "46435 - COMÉRCIO ATACADISTA DE CALÇADOS E ARTIGOS DE VIAGEM"
+    },
+    {
+      "code": "46443",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS FARMACÊUTICOS PARA USO HUMANO E VETERINÁRIO",
+      "label": "46443 - COMÉRCIO ATACADISTA DE PRODUTOS FARMACÊUTICOS PARA USO HUMANO E VETERINÁRIO"
+    },
+    {
+      "code": "46478",
+      "name": "COMÉRCIO ATACADISTA DE ARTIGOS DE ESCRITÓRIO E DE PAPELARIA; LIVROS, JORNAIS E OUTRAS PUBLICAÇÕES",
+      "label": "46478 - COMÉRCIO ATACADISTA DE ARTIGOS DE ESCRITÓRIO E DE PAPELARIA; LIVROS, JORNAIS E OUTRAS PUBLICAÇÕES"
+    },
+    {
+      "code": "46494",
+      "name": "COMÉRCIO ATACADISTA DE EQUIPAMENTOS E ARTIGOS DE USO PESSOAL E DOMÉSTICO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "46494 - COMÉRCIO ATACADISTA DE EQUIPAMENTOS E ARTIGOS DE USO PESSOAL E DOMÉSTICO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "46516",
+      "name": "COMÉRCIO ATACADISTA DE COMPUTADORES, PERIFÉRICOS E SUPRIMENTOS DE INFORMÁTICA",
+      "label": "46516 - COMÉRCIO ATACADISTA DE COMPUTADORES, PERIFÉRICOS E SUPRIMENTOS DE INFORMÁTICA"
+    },
+    {
+      "code": "46524",
+      "name": "COMÉRCIO ATACADISTA DE COMPONENTES ELETRÔNICOS E EQUIPAMENTOS DE TELEFONIA E COMUNICAÇÃO",
+      "label": "46524 - COMÉRCIO ATACADISTA DE COMPONENTES ELETRÔNICOS E EQUIPAMENTOS DE TELEFONIA E COMUNICAÇÃO"
+    },
+    {
+      "code": "46613",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS PARA USO AGROPECUÁRIO; PARTES E PEÇAS",
+      "label": "46613 - COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS PARA USO AGROPECUÁRIO; PARTES E PEÇAS"
+    },
+    {
+      "code": "46621",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS, EQUIPAMENTOS PARA TERRAPLENAGEM, MINERAÇÃO E CONSTRUÇÃO; PARTES E PEÇAS",
+      "label": "46621 - COMÉRCIO ATACADISTA DE MÁQUINAS, EQUIPAMENTOS PARA TERRAPLENAGEM, MINERAÇÃO E CONSTRUÇÃO; PARTES E PEÇAS"
+    },
+    {
+      "code": "46630",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS E EQUIPAMENTOS PARA USO INDUSTRIAL; PARTES E PEÇAS",
+      "label": "46630 - COMÉRCIO ATACADISTA DE MÁQUINAS E EQUIPAMENTOS PARA USO INDUSTRIAL; PARTES E PEÇAS"
+    },
+    {
+      "code": "46648",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS PARA USO ODONTO-MÉDICO-HOSPITALAR; PARTES E PEÇAS",
+      "label": "46648 - COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS PARA USO ODONTO-MÉDICO-HOSPITALAR; PARTES E PEÇAS"
+    },
+    {
+      "code": "47563",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE INSTRUMENTOS MUSICAIS E ACESSÓRIOS",
+      "label": "47563 - COMÉRCIO VAREJISTA ESPECIALIZADO DE INSTRUMENTOS MUSICAIS E ACESSÓRIOS"
+    },
+    {
+      "code": "58239",
+      "name": "EDIÇÃO INTEGRADA À IMPRESSÃO DE REVISTAS",
+      "label": "58239 - EDIÇÃO INTEGRADA À IMPRESSÃO DE REVISTAS"
+    },
+    {
+      "code": "46656",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS E EQUIPAMENTOS PARA USO COMERCIAL; PARTES E PEÇAS",
+      "label": "46656 - COMÉRCIO ATACADISTA DE MÁQUINAS E EQUIPAMENTOS PARA USO COMERCIAL; PARTES E PEÇAS"
+    },
+    {
+      "code": "46699",
+      "name": "COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE; PARTES E PEÇAS",
+      "label": "46699 - COMÉRCIO ATACADISTA DE MÁQUINAS, APARELHOS E EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE; PARTES E PEÇAS"
+    },
+    {
+      "code": "46711",
+      "name": "COMÉRCIO ATACADISTA DE MADEIRA E PRODUTOS DERIVADOS",
+      "label": "46711 - COMÉRCIO ATACADISTA DE MADEIRA E PRODUTOS DERIVADOS"
+    },
+    {
+      "code": "46729",
+      "name": "COMÉRCIO ATACADISTA DE FERRAGENS E FERRAMENTAS",
+      "label": "46729 - COMÉRCIO ATACADISTA DE FERRAGENS E FERRAMENTAS"
+    },
+    {
+      "code": "46737",
+      "name": "COMÉRCIO ATACADISTA DE MATERIAL ELÉTRICO",
+      "label": "46737 - COMÉRCIO ATACADISTA DE MATERIAL ELÉTRICO"
+    },
+    {
+      "code": "46745",
+      "name": "COMÉRCIO ATACADISTA DE CIMENTO",
+      "label": "46745 - COMÉRCIO ATACADISTA DE CIMENTO"
+    },
+    {
+      "code": "46796",
+      "name": "COMÉRCIO ATACADISTA ESPECIALIZADO DE MATERIAIS DE CONSTRUÇÃO NÃO ESPECIFICADOS ANTERIORMENTE E DE MATERIAIS DE CONSTRUÇÃO EM GERAL",
+      "label": "46796 - COMÉRCIO ATACADISTA ESPECIALIZADO DE MATERIAIS DE CONSTRUÇÃO NÃO ESPECIFICADOS ANTERIORMENTE E DE MATERIAIS DE CONSTRUÇÃO EM GERAL"
+    },
+    {
+      "code": "46818",
+      "name": "COMÉRCIO ATACADISTA DE COMBUSTÍVEIS SÓLIDOS, LÍQUIDOS E GASOSOS, EXCETO GÁS NATURAL E GLP",
+      "label": "46818 - COMÉRCIO ATACADISTA DE COMBUSTÍVEIS SÓLIDOS, LÍQUIDOS E GASOSOS, EXCETO GÁS NATURAL E GLP"
+    },
+    {
+      "code": "46826",
+      "name": "COMÉRCIO ATACADISTA DE GÁS LIQUEFEITO DE PETRÓLEO (GLP)",
+      "label": "46826 - COMÉRCIO ATACADISTA DE GÁS LIQUEFEITO DE PETRÓLEO (GLP)"
+    },
+    {
+      "code": "46834",
+      "name": "COMÉRCIO ATACADISTA DE DEFENSIVOS AGRÍCOLAS, ADUBOS, FERTILIZANTES E CORRETIVOS DO SOLO",
+      "label": "46834 - COMÉRCIO ATACADISTA DE DEFENSIVOS AGRÍCOLAS, ADUBOS, FERTILIZANTES E CORRETIVOS DO SOLO"
+    },
+    {
+      "code": "46842",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS QUÍMICOS E PETROQUÍMICOS, EXCETO AGROQUÍMICOS",
+      "label": "46842 - COMÉRCIO ATACADISTA DE PRODUTOS QUÍMICOS E PETROQUÍMICOS, EXCETO AGROQUÍMICOS"
+    },
+    {
+      "code": "46851",
+      "name": "COMÉRCIO ATACADISTA DE PRODUTOS SIDERÚRGICOS E METALÚRGICOS, EXCETO PARA CONSTRUÇÃO",
+      "label": "46851 - COMÉRCIO ATACADISTA DE PRODUTOS SIDERÚRGICOS E METALÚRGICOS, EXCETO PARA CONSTRUÇÃO"
+    },
+    {
+      "code": "46869",
+      "name": "COMÉRCIO ATACADISTA DE PAPEL E PAPELÃO EM BRUTO E DE EMBALAGENS",
+      "label": "46869 - COMÉRCIO ATACADISTA DE PAPEL E PAPELÃO EM BRUTO E DE EMBALAGENS"
+    },
+    {
+      "code": "46877",
+      "name": "COMÉRCIO ATACADISTA DE RESÍDUOS E SUCATAS",
+      "label": "46877 - COMÉRCIO ATACADISTA DE RESÍDUOS E SUCATAS"
+    },
+    {
+      "code": "46893",
+      "name": "COMÉRCIO ATACADISTA ESPECIALIZADO DE OUTROS PRODUTOS INTERMEDIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "46893 - COMÉRCIO ATACADISTA ESPECIALIZADO DE OUTROS PRODUTOS INTERMEDIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "46915",
+      "name": "COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS",
+      "label": "46915 - COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS"
+    },
+    {
+      "code": "46923",
+      "name": "COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE INSUMOS AGROPECUÁRIOS",
+      "label": "46923 - COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE INSUMOS AGROPECUÁRIOS"
+    },
+    {
+      "code": "46931",
+      "name": "COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, SEM PREDOMINÂNCIA DE ALIMENTOS OU DE INSUMOS AGROPECUÁRIOS",
+      "label": "46931 - COMÉRCIO ATACADISTA DE MERCADORIAS EM GERAL, SEM PREDOMINÂNCIA DE ALIMENTOS OU DE INSUMOS AGROPECUÁRIOS"
+    },
+    {
+      "code": "47113",
+      "name": "COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS - HIPERMERCADOS E SUPERMERCADOS",
+      "label": "47113 - COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS - HIPERMERCADOS E SUPERMERCADOS"
+    },
+    {
+      "code": "47121",
+      "name": "COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS - MINIMERCADOS, MERCEARIAS E ARMAZÉNS",
+      "label": "47121 - COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, COM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS - MINIMERCADOS, MERCEARIAS E ARMAZÉNS"
+    },
+    {
+      "code": "47130",
+      "name": "COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, SEM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS",
+      "label": "47130 - COMÉRCIO VAREJISTA DE MERCADORIAS EM GERAL, SEM PREDOMINÂNCIA DE PRODUTOS ALIMENTÍCIOS"
+    },
+    {
+      "code": "47211",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS DE PADARIA, LATICÍNIO, DOCES, BALAS E SEMELHANTES",
+      "label": "47211 - COMÉRCIO VAREJISTA DE PRODUTOS DE PADARIA, LATICÍNIO, DOCES, BALAS E SEMELHANTES"
+    },
+    {
+      "code": "86909",
+      "name": "ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "86909 - ATIVIDADES DE ATENÇÃO À SAÚDE HUMANA NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "47296",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS ALIMENTÍCIOS EM GERAL OU ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE; PRODUTOS DO FUMO",
+      "label": "47296 - COMÉRCIO VAREJISTA DE PRODUTOS ALIMENTÍCIOS EM GERAL OU ESPECIALIZADO EM PRODUTOS ALIMENTÍCIOS NÃO ESPECIFICADOS ANTERIORMENTE; PRODUTOS DO FUMO"
+    },
+    {
+      "code": "47318",
+      "name": "COMÉRCIO VAREJISTA DE COMBUSTÍVEIS PARA VEÍCULOS AUTOMOTORES",
+      "label": "47318 - COMÉRCIO VAREJISTA DE COMBUSTÍVEIS PARA VEÍCULOS AUTOMOTORES"
+    },
+    {
+      "code": "47326",
+      "name": "COMÉRCIO VAREJISTA DE LUBRIFICANTES",
+      "label": "47326 - COMÉRCIO VAREJISTA DE LUBRIFICANTES"
+    },
+    {
+      "code": "47415",
+      "name": "COMÉRCIO VAREJISTA DE TINTAS E MATERIAIS PARA PINTURA",
+      "label": "47415 - COMÉRCIO VAREJISTA DE TINTAS E MATERIAIS PARA PINTURA"
+    },
+    {
+      "code": "47423",
+      "name": "COMÉRCIO VAREJISTA DE MATERIAL ELÉTRICO",
+      "label": "47423 - COMÉRCIO VAREJISTA DE MATERIAL ELÉTRICO"
+    },
+    {
+      "code": "47431",
+      "name": "COMÉRCIO VAREJISTA DE VIDROS",
+      "label": "47431 - COMÉRCIO VAREJISTA DE VIDROS"
+    },
+    {
+      "code": "47440",
+      "name": "COMÉRCIO VAREJISTA DE FERRAGENS, MADEIRA E MATERIAIS DE CONSTRUÇÃO",
+      "label": "47440 - COMÉRCIO VAREJISTA DE FERRAGENS, MADEIRA E MATERIAIS DE CONSTRUÇÃO"
+    },
+    {
+      "code": "47512",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE EQUIPAMENTOS E SUPRIMENTOS DE INFORMÁTICA",
+      "label": "47512 - COMÉRCIO VAREJISTA ESPECIALIZADO DE EQUIPAMENTOS E SUPRIMENTOS DE INFORMÁTICA"
+    },
+    {
+      "code": "47521",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE EQUIPAMENTOS DE TELEFONIA E COMUNICAÇÃO",
+      "label": "47521 - COMÉRCIO VAREJISTA ESPECIALIZADO DE EQUIPAMENTOS DE TELEFONIA E COMUNICAÇÃO"
+    },
+    {
+      "code": "47539",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE ELETRODOMÉSTICOS E EQUIPAMENTOS DE ÁUDIO E VÍDEO",
+      "label": "47539 - COMÉRCIO VAREJISTA ESPECIALIZADO DE ELETRODOMÉSTICOS E EQUIPAMENTOS DE ÁUDIO E VÍDEO"
+    },
+    {
+      "code": "47547",
+      "name": "COMÉRCIO VAREJISTA ESPECIALIZADO DE MÓVEIS, COLCHOARIA E ARTIGOS DE ILUMINAÇÃO",
+      "label": "47547 - COMÉRCIO VAREJISTA ESPECIALIZADO DE MÓVEIS, COLCHOARIA E ARTIGOS DE ILUMINAÇÃO"
+    },
+    {
+      "code": "47598",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS DE USO DOMÉSTICO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "47598 - COMÉRCIO VAREJISTA DE ARTIGOS DE USO DOMÉSTICO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "47610",
+      "name": "COMÉRCIO VAREJISTA DE LIVROS, JORNAIS, REVISTAS E PAPELARIA",
+      "label": "47610 - COMÉRCIO VAREJISTA DE LIVROS, JORNAIS, REVISTAS E PAPELARIA"
+    },
+    {
+      "code": "47628",
+      "name": "COMÉRCIO VAREJISTA DE DISCOS, CDS, DVDS E FITAS",
+      "label": "47628 - COMÉRCIO VAREJISTA DE DISCOS, CDS, DVDS E FITAS"
+    },
+    {
+      "code": "47636",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS RECREATIVOS E ESPORTIVOS",
+      "label": "47636 - COMÉRCIO VAREJISTA DE ARTIGOS RECREATIVOS E ESPORTIVOS"
+    },
+    {
+      "code": "47717",
+      "name": "COMÉRCIO VAREJISTA DE PRODUTOS FARMACÊUTICOS PARA USO HUMANO E VETERINÁRIO",
+      "label": "47717 - COMÉRCIO VAREJISTA DE PRODUTOS FARMACÊUTICOS PARA USO HUMANO E VETERINÁRIO"
+    },
+    {
+      "code": "47725",
+      "name": "COMÉRCIO VAREJISTA DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL",
+      "label": "47725 - COMÉRCIO VAREJISTA DE COSMÉTICOS, PRODUTOS DE PERFUMARIA E DE HIGIENE PESSOAL"
+    },
+    {
+      "code": "47733",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS MÉDICOS E ORTOPÉDICOS",
+      "label": "47733 - COMÉRCIO VAREJISTA DE ARTIGOS MÉDICOS E ORTOPÉDICOS"
+    },
+    {
+      "code": "47741",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS DE ÓPTICA",
+      "label": "47741 - COMÉRCIO VAREJISTA DE ARTIGOS DE ÓPTICA"
+    },
+    {
+      "code": "47814",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS",
+      "label": "47814 - COMÉRCIO VAREJISTA DE ARTIGOS DO VESTUÁRIO E ACESSÓRIOS"
+    },
+    {
+      "code": "47822",
+      "name": "COMÉRCIO VAREJISTA DE CALÇADOS E ARTIGOS DE VIAGEM",
+      "label": "47822 - COMÉRCIO VAREJISTA DE CALÇADOS E ARTIGOS DE VIAGEM"
+    },
+    {
+      "code": "47831",
+      "name": "COMÉRCIO VAREJISTA DE JOIAS E RELÓGIOS",
+      "label": "47831 - COMÉRCIO VAREJISTA DE JOIAS E RELÓGIOS"
+    },
+    {
+      "code": "47849",
+      "name": "COMÉRCIO VAREJISTA DE GÁS LIQUEFEITO DE PETRÓLEO (GLP)",
+      "label": "47849 - COMÉRCIO VAREJISTA DE GÁS LIQUEFEITO DE PETRÓLEO (GLP)"
+    },
+    {
+      "code": "47857",
+      "name": "COMÉRCIO VAREJISTA DE ARTIGOS USADOS",
+      "label": "47857 - COMÉRCIO VAREJISTA DE ARTIGOS USADOS"
+    },
+    {
+      "code": "50114",
+      "name": "TRANSPORTE MARÍTIMO DE CABOTAGEM",
+      "label": "50114 - TRANSPORTE MARÍTIMO DE CABOTAGEM"
+    },
+    {
+      "code": "50122",
+      "name": "TRANSPORTE MARÍTIMO DE LONGO CURSO",
+      "label": "50122 - TRANSPORTE MARÍTIMO DE LONGO CURSO"
+    },
+    {
+      "code": "47890",
+      "name": "COMÉRCIO VAREJISTA DE OUTROS PRODUTOS NOVOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "47890 - COMÉRCIO VAREJISTA DE OUTROS PRODUTOS NOVOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "47903",
+      "name": "COMÉRCIO AMBULANTE E OUTROS TIPOS DE COMÉRCIO VAREJISTA",
+      "label": "47903 - COMÉRCIO AMBULANTE E OUTROS TIPOS DE COMÉRCIO VAREJISTA"
+    },
+    {
+      "code": "49116",
+      "name": "TRANSPORTE FERROVIÁRIO DE CARGA",
+      "label": "49116 - TRANSPORTE FERROVIÁRIO DE CARGA"
+    },
+    {
+      "code": "49124",
+      "name": "TRANSPORTE METROFERROVIÁRIO DE PASSAGEIROS",
+      "label": "49124 - TRANSPORTE METROFERROVIÁRIO DE PASSAGEIROS"
+    },
+    {
+      "code": "49213",
+      "name": "TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, COM ITINERÁRIO FIXO, MUNICIPAL E EM REGIÃO METROPOLITANA",
+      "label": "49213 - TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, COM ITINERÁRIO FIXO, MUNICIPAL E EM REGIÃO METROPOLITANA"
+    },
+    {
+      "code": "49221",
+      "name": "TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, COM ITINERÁRIO FIXO, INTERMUNICIPAL, INTERESTADUAL E INTERNACIONAL",
+      "label": "49221 - TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, COM ITINERÁRIO FIXO, INTERMUNICIPAL, INTERESTADUAL E INTERNACIONAL"
+    },
+    {
+      "code": "49230",
+      "name": "TRANSPORTE RODOVIÁRIO DE TÁXI",
+      "label": "49230 - TRANSPORTE RODOVIÁRIO DE TÁXI"
+    },
+    {
+      "code": "49248",
+      "name": "TRANSPORTE ESCOLAR",
+      "label": "49248 - TRANSPORTE ESCOLAR"
+    },
+    {
+      "code": "49299",
+      "name": "TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, SOB REGIME DE FRETAMENTO, E OUTROS TRANSPORTES RODOVIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "49299 - TRANSPORTE RODOVIÁRIO COLETIVO DE PASSAGEIROS, SOB REGIME DE FRETAMENTO, E OUTROS TRANSPORTES RODOVIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "49302",
+      "name": "TRANSPORTE RODOVIÁRIO DE CARGA",
+      "label": "49302 - TRANSPORTE RODOVIÁRIO DE CARGA"
+    },
+    {
+      "code": "49400",
+      "name": "TRANSPORTE DUTOVIÁRIO",
+      "label": "49400 - TRANSPORTE DUTOVIÁRIO"
+    },
+    {
+      "code": "49507",
+      "name": "TRENS TURÍSTICOS, TELEFÉRICOS E SIMILARES",
+      "label": "49507 - TRENS TURÍSTICOS, TELEFÉRICOS E SIMILARES"
+    },
+    {
+      "code": "50211",
+      "name": "TRANSPORTE POR NAVEGAÇÃO INTERIOR DE CARGA",
+      "label": "50211 - TRANSPORTE POR NAVEGAÇÃO INTERIOR DE CARGA"
+    },
+    {
+      "code": "50301",
+      "name": "NAVEGAÇÃO DE APOIO",
+      "label": "50301 - NAVEGAÇÃO DE APOIO"
+    },
+    {
+      "code": "50912",
+      "name": "TRANSPORTE POR NAVEGAÇÃO DE TRAVESSIA",
+      "label": "50912 - TRANSPORTE POR NAVEGAÇÃO DE TRAVESSIA"
+    },
+    {
+      "code": "50998",
+      "name": "TRANSPORTES AQUAVIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "50998 - TRANSPORTES AQUAVIÁRIOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "51111",
+      "name": "TRANSPORTE AÉREO DE PASSAGEIROS REGULAR",
+      "label": "51111 - TRANSPORTE AÉREO DE PASSAGEIROS REGULAR"
+    },
+    {
+      "code": "51129",
+      "name": "TRANSPORTE AÉREO DE PASSAGEIROS NÃO REGULAR",
+      "label": "51129 - TRANSPORTE AÉREO DE PASSAGEIROS NÃO REGULAR"
+    },
+    {
+      "code": "51200",
+      "name": "TRANSPORTE AÉREO DE CARGA",
+      "label": "51200 - TRANSPORTE AÉREO DE CARGA"
+    },
+    {
+      "code": "51307",
+      "name": "TRANSPORTE ESPACIAL",
+      "label": "51307 - TRANSPORTE ESPACIAL"
+    },
+    {
+      "code": "52117",
+      "name": "ARMAZENAMENTO",
+      "label": "52117 - ARMAZENAMENTO"
+    },
+    {
+      "code": "52125",
+      "name": "CARGA E DESCARGA",
+      "label": "52125 - CARGA E DESCARGA"
+    },
+    {
+      "code": "52214",
+      "name": "CONCESSIONÁRIAS DE RODOVIAS, PONTES, TÚNEIS E SERVIÇOS RELACIONADOS",
+      "label": "52214 - CONCESSIONÁRIAS DE RODOVIAS, PONTES, TÚNEIS E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "52222",
+      "name": "TERMINAIS RODOVIÁRIOS E FERROVIÁRIOS",
+      "label": "52222 - TERMINAIS RODOVIÁRIOS E FERROVIÁRIOS"
+    },
+    {
+      "code": "52231",
+      "name": "ESTACIONAMENTO DE VEÍCULOS",
+      "label": "52231 - ESTACIONAMENTO DE VEÍCULOS"
+    },
+    {
+      "code": "52290",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES TERRESTRES NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "52290 - ATIVIDADES AUXILIARES DOS TRANSPORTES TERRESTRES NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "52311",
+      "name": "GESTÃO DE PORTOS E TERMINAIS",
+      "label": "52311 - GESTÃO DE PORTOS E TERMINAIS"
+    },
+    {
+      "code": "52320",
+      "name": "ATIVIDADES DE AGENCIAMENTO MARÍTIMO",
+      "label": "52320 - ATIVIDADES DE AGENCIAMENTO MARÍTIMO"
+    },
+    {
+      "code": "52397",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES AQUAVIÁRIOS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "52397 - ATIVIDADES AUXILIARES DOS TRANSPORTES AQUAVIÁRIOS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "52401",
+      "name": "ATIVIDADES AUXILIARES DOS TRANSPORTES AÉREOS",
+      "label": "52401 - ATIVIDADES AUXILIARES DOS TRANSPORTES AÉREOS"
+    },
+    {
+      "code": "52508",
+      "name": "ATIVIDADES RELACIONADAS À ORGANIZAÇÃO DO TRANSPORTE DE CARGA",
+      "label": "52508 - ATIVIDADES RELACIONADAS À ORGANIZAÇÃO DO TRANSPORTE DE CARGA"
+    },
+    {
+      "code": "53105",
+      "name": "ATIVIDADES DE CORREIO",
+      "label": "53105 - ATIVIDADES DE CORREIO"
+    },
+    {
+      "code": "53202",
+      "name": "ATIVIDADES DE MALOTE E DE ENTREGA",
+      "label": "53202 - ATIVIDADES DE MALOTE E DE ENTREGA"
+    },
+    {
+      "code": "55108",
+      "name": "HOTÉIS E SIMILARES",
+      "label": "55108 - HOTÉIS E SIMILARES"
+    },
+    {
+      "code": "55906",
+      "name": "OUTROS TIPOS DE ALOJAMENTO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "55906 - OUTROS TIPOS DE ALOJAMENTO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "56112",
+      "name": "RESTAURANTES E OUTROS ESTABELECIMENTOS DE SERVIÇOS DE ALIMENTAÇÃO E BEBIDAS",
+      "label": "56112 - RESTAURANTES E OUTROS ESTABELECIMENTOS DE SERVIÇOS DE ALIMENTAÇÃO E BEBIDAS"
+    },
+    {
+      "code": "56121",
+      "name": "SERVIÇOS AMBULANTES DE ALIMENTAÇÃO",
+      "label": "56121 - SERVIÇOS AMBULANTES DE ALIMENTAÇÃO"
+    },
+    {
+      "code": "56201",
+      "name": "SERVIÇOS DE CATERING, BUFÊ E OUTROS SERVIÇOS DE COMIDA PREPARADA",
+      "label": "56201 - SERVIÇOS DE CATERING, BUFÊ E OUTROS SERVIÇOS DE COMIDA PREPARADA"
+    },
+    {
+      "code": "58115",
+      "name": "EDIÇÃO DE LIVROS",
+      "label": "58115 - EDIÇÃO DE LIVROS"
+    },
+    {
+      "code": "58123",
+      "name": "EDIÇÃO DE JORNAIS",
+      "label": "58123 - EDIÇÃO DE JORNAIS"
+    },
+    {
+      "code": "58131",
+      "name": "EDIÇÃO DE REVISTAS",
+      "label": "58131 - EDIÇÃO DE REVISTAS"
+    },
+    {
+      "code": "58191",
+      "name": "EDIÇÃO DE CADASTROS, LISTAS E DE OUTROS PRODUTOS GRÁFICOS",
+      "label": "58191 - EDIÇÃO DE CADASTROS, LISTAS E DE OUTROS PRODUTOS GRÁFICOS"
+    },
+    {
+      "code": "58298",
+      "name": "EDIÇÃO INTEGRADA À IMPRESSÃO DE CADASTROS, LISTAS E DE OUTROS PRODUTOS GRÁFICOS",
+      "label": "58298 - EDIÇÃO INTEGRADA À IMPRESSÃO DE CADASTROS, LISTAS E DE OUTROS PRODUTOS GRÁFICOS"
+    },
+    {
+      "code": "59111",
+      "name": "ATIVIDADES DE PRODUÇÃO CINEMATOGRÁFICA, DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO",
+      "label": "59111 - ATIVIDADES DE PRODUÇÃO CINEMATOGRÁFICA, DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO"
+    },
+    {
+      "code": "59120",
+      "name": "ATIVIDADES DE PÓS-PRODUÇÃO CINEMATOGRÁFICA, DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO",
+      "label": "59120 - ATIVIDADES DE PÓS-PRODUÇÃO CINEMATOGRÁFICA, DE VÍDEOS E DE PROGRAMAS DE TELEVISÃO"
+    },
+    {
+      "code": "59138",
+      "name": "DISTRIBUIÇÃO CINEMATOGRÁFICA, DE VÍDEO E DE PROGRAMAS DE TELEVISÃO",
+      "label": "59138 - DISTRIBUIÇÃO CINEMATOGRÁFICA, DE VÍDEO E DE PROGRAMAS DE TELEVISÃO"
+    },
+    {
+      "code": "59146",
+      "name": "ATIVIDADES DE EXIBIÇÃO CINEMATOGRÁFICA",
+      "label": "59146 - ATIVIDADES DE EXIBIÇÃO CINEMATOGRÁFICA"
+    },
+    {
+      "code": "59201",
+      "name": "ATIVIDADES DE GRAVAÇÃO DE SOM E DE EDIÇÃO DE MÚSICA",
+      "label": "59201 - ATIVIDADES DE GRAVAÇÃO DE SOM E DE EDIÇÃO DE MÚSICA"
+    },
+    {
+      "code": "60101",
+      "name": "ATIVIDADES DE RÁDIO",
+      "label": "60101 - ATIVIDADES DE RÁDIO"
+    },
+    {
+      "code": "64239",
+      "name": "CAIXAS ECONÔMICAS",
+      "label": "64239 - CAIXAS ECONÔMICAS"
+    },
+    {
+      "code": "60217",
+      "name": "ATIVIDADES DE TELEVISÃO ABERTA",
+      "label": "60217 - ATIVIDADES DE TELEVISÃO ABERTA"
+    },
+    {
+      "code": "60225",
+      "name": "PROGRAMADORAS E ATIVIDADES RELACIONADAS À TELEVISÃO POR ASSINATURA",
+      "label": "60225 - PROGRAMADORAS E ATIVIDADES RELACIONADAS À TELEVISÃO POR ASSINATURA"
+    },
+    {
+      "code": "61108",
+      "name": "TELECOMUNICAÇÕES POR FIO",
+      "label": "61108 - TELECOMUNICAÇÕES POR FIO"
+    },
+    {
+      "code": "61205",
+      "name": "TELECOMUNICAÇÕES SEM FIO",
+      "label": "61205 - TELECOMUNICAÇÕES SEM FIO"
+    },
+    {
+      "code": "61302",
+      "name": "TELECOMUNICAÇÕES POR SATÉLITE",
+      "label": "61302 - TELECOMUNICAÇÕES POR SATÉLITE"
+    },
+    {
+      "code": "61418",
+      "name": "OPERADORAS DE TELEVISÃO POR ASSINATURA POR CABO",
+      "label": "61418 - OPERADORAS DE TELEVISÃO POR ASSINATURA POR CABO"
+    },
+    {
+      "code": "61426",
+      "name": "OPERADORAS DE TELEVISÃO POR ASSINATURA POR MICRO-ONDAS",
+      "label": "61426 - OPERADORAS DE TELEVISÃO POR ASSINATURA POR MICRO-ONDAS"
+    },
+    {
+      "code": "61434",
+      "name": "OPERADORAS DE TELEVISÃO POR ASSINATURA POR SATÉLITE",
+      "label": "61434 - OPERADORAS DE TELEVISÃO POR ASSINATURA POR SATÉLITE"
+    },
+    {
+      "code": "61906",
+      "name": "OUTRAS ATIVIDADES DE TELECOMUNICAÇÕES",
+      "label": "61906 - OUTRAS ATIVIDADES DE TELECOMUNICAÇÕES"
+    },
+    {
+      "code": "62015",
+      "name": "DESENVOLVIMENTO DE PROGRAMAS DE COMPUTADOR SOB ENCOMENDA",
+      "label": "62015 - DESENVOLVIMENTO DE PROGRAMAS DE COMPUTADOR SOB ENCOMENDA"
+    },
+    {
+      "code": "62023",
+      "name": "DESENVOLVIMENTO E LICENCIAMENTO DE PROGRAMAS DE COMPUTADOR CUSTOMIZÁVEIS",
+      "label": "62023 - DESENVOLVIMENTO E LICENCIAMENTO DE PROGRAMAS DE COMPUTADOR CUSTOMIZÁVEIS"
+    },
+    {
+      "code": "62031",
+      "name": "DESENVOLVIMENTO E LICENCIAMENTO DE PROGRAMAS DE COMPUTADOR NÃO CUSTOMIZÁVEIS",
+      "label": "62031 - DESENVOLVIMENTO E LICENCIAMENTO DE PROGRAMAS DE COMPUTADOR NÃO CUSTOMIZÁVEIS"
+    },
+    {
+      "code": "64221",
+      "name": "BANCOS MÚLTIPLOS, COM CARTEIRA COMERCIAL",
+      "label": "64221 - BANCOS MÚLTIPLOS, COM CARTEIRA COMERCIAL"
+    },
+    {
+      "code": "62040",
+      "name": "CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO",
+      "label": "62040 - CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO"
+    },
+    {
+      "code": "62091",
+      "name": "SUPORTE TÉCNICO, MANUTENÇÃO E OUTROS SERVIÇOS EM TECNOLOGIA DA INFORMAÇÃO",
+      "label": "62091 - SUPORTE TÉCNICO, MANUTENÇÃO E OUTROS SERVIÇOS EM TECNOLOGIA DA INFORMAÇÃO"
+    },
+    {
+      "code": "63119",
+      "name": "TRATAMENTO DE DADOS, PROVEDORES DE SERVIÇOS DE APLICAÇÃO E SERVIÇOS DE HOSPEDAGEM NA INTERNET",
+      "label": "63119 - TRATAMENTO DE DADOS, PROVEDORES DE SERVIÇOS DE APLICAÇÃO E SERVIÇOS DE HOSPEDAGEM NA INTERNET"
+    },
+    {
+      "code": "63194",
+      "name": "PORTAIS, PROVEDORES DE CONTEÚDO E OUTROS SERVIÇOS DE INFORMAÇÃO NA INTERNET",
+      "label": "63194 - PORTAIS, PROVEDORES DE CONTEÚDO E OUTROS SERVIÇOS DE INFORMAÇÃO NA INTERNET"
+    },
+    {
+      "code": "63917",
+      "name": "AGÊNCIAS DE NOTÍCIAS",
+      "label": "63917 - AGÊNCIAS DE NOTÍCIAS"
+    },
+    {
+      "code": "63992",
+      "name": "OUTRAS ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "63992 - OUTRAS ATIVIDADES DE PRESTAÇÃO DE SERVIÇOS DE INFORMAÇÃO NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "64107",
+      "name": "BANCO CENTRAL",
+      "label": "64107 - BANCO CENTRAL"
+    },
+    {
+      "code": "64212",
+      "name": "BANCOS COMERCIAIS",
+      "label": "64212 - BANCOS COMERCIAIS"
+    },
+    {
+      "code": "64247",
+      "name": "CRÉDITO COOPERATIVO",
+      "label": "64247 - CRÉDITO COOPERATIVO"
+    },
+    {
+      "code": "64310",
+      "name": "BANCOS MÚLTIPLOS, SEM CARTEIRA COMERCIAL",
+      "label": "64310 - BANCOS MÚLTIPLOS, SEM CARTEIRA COMERCIAL"
+    },
+    {
+      "code": "64328",
+      "name": "BANCOS DE INVESTIMENTO",
+      "label": "64328 - BANCOS DE INVESTIMENTO"
+    },
+    {
+      "code": "64336",
+      "name": "BANCOS DE DESENVOLVIMENTO",
+      "label": "64336 - BANCOS DE DESENVOLVIMENTO"
+    },
+    {
+      "code": "64344",
+      "name": "AGÊNCIAS DE FOMENTO",
+      "label": "64344 - AGÊNCIAS DE FOMENTO"
+    },
+    {
+      "code": "64352",
+      "name": "CRÉDITO IMOBILIÁRIO",
+      "label": "64352 - CRÉDITO IMOBILIÁRIO"
+    },
+    {
+      "code": "64361",
+      "name": "SOCIEDADES DE CRÉDITO, FINANCIAMENTO E INVESTIMENTO - FINANCEIRAS",
+      "label": "64361 - SOCIEDADES DE CRÉDITO, FINANCIAMENTO E INVESTIMENTO - FINANCEIRAS"
+    },
+    {
+      "code": "64379",
+      "name": "SOCIEDADES DE CRÉDITO AO MICROEMPREENDEDOR",
+      "label": "64379 - SOCIEDADES DE CRÉDITO AO MICROEMPREENDEDOR"
+    },
+    {
+      "code": "64387",
+      "name": "BANCOS DE CAMBIO E OUTRAS INSTITUIÇÕES DE INTERMEDIAÇÃO NÃO MONETÁRIA",
+      "label": "64387 - BANCOS DE CAMBIO E OUTRAS INSTITUIÇÕES DE INTERMEDIAÇÃO NÃO MONETÁRIA"
+    },
+    {
+      "code": "64409",
+      "name": "ARRENDAMENTO MERCANTIL",
+      "label": "64409 - ARRENDAMENTO MERCANTIL"
+    },
+    {
+      "code": "64506",
+      "name": "SOCIEDADES DE CAPITALIZAÇÃO",
+      "label": "64506 - SOCIEDADES DE CAPITALIZAÇÃO"
+    },
+    {
+      "code": "64611",
+      "name": "HOLDINGS DE INSTITUIÇÕES FINANCEIRAS",
+      "label": "64611 - HOLDINGS DE INSTITUIÇÕES FINANCEIRAS"
+    },
+    {
+      "code": "64620",
+      "name": "HOLDINGS DE INSTITUIÇÕES NÃO FINANCEIRAS",
+      "label": "64620 - HOLDINGS DE INSTITUIÇÕES NÃO FINANCEIRAS"
+    },
+    {
+      "code": "64638",
+      "name": "OUTRAS SOCIEDADES DE PARTICIPAÇÃO, EXCETO HOLDINGS",
+      "label": "64638 - OUTRAS SOCIEDADES DE PARTICIPAÇÃO, EXCETO HOLDINGS"
+    },
+    {
+      "code": "64701",
+      "name": "FUNDOS DE INVESTIMENTO",
+      "label": "64701 - FUNDOS DE INVESTIMENTO"
+    },
+    {
+      "code": "64913",
+      "name": "SOCIEDADES DE FOMENTO MERCANTIL - FACTORING",
+      "label": "64913 - SOCIEDADES DE FOMENTO MERCANTIL - FACTORING"
+    },
+    {
+      "code": "64921",
+      "name": "SECURITIZAÇÃO DE CRÉDITOS",
+      "label": "64921 - SECURITIZAÇÃO DE CRÉDITOS"
+    },
+    {
+      "code": "64930",
+      "name": "ADMINISTRAÇÃO DE CONSÓRCIOS PARA AQUISIÇÃO DE BENS E DIREITOS",
+      "label": "64930 - ADMINISTRAÇÃO DE CONSÓRCIOS PARA AQUISIÇÃO DE BENS E DIREITOS"
+    },
+    {
+      "code": "64999",
+      "name": "OUTRAS ATIVIDADES DE SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "64999 - OUTRAS ATIVIDADES DE SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "65111",
+      "name": "SEGUROS DE VIDA",
+      "label": "65111 - SEGUROS DE VIDA"
+    },
+    {
+      "code": "65120",
+      "name": "SEGUROS NÃO VIDA",
+      "label": "65120 - SEGUROS NÃO VIDA"
+    },
+    {
+      "code": "65201",
+      "name": "SEGUROS-SAÚDE",
+      "label": "65201 - SEGUROS-SAÚDE"
+    },
+    {
+      "code": "65308",
+      "name": "RESSEGUROS",
+      "label": "65308 - RESSEGUROS"
+    },
+    {
+      "code": "65413",
+      "name": "PREVIDÊNCIA COMPLEMENTAR FECHADA",
+      "label": "65413 - PREVIDÊNCIA COMPLEMENTAR FECHADA"
+    },
+    {
+      "code": "65421",
+      "name": "PREVIDÊNCIA COMPLEMENTAR ABERTA",
+      "label": "65421 - PREVIDÊNCIA COMPLEMENTAR ABERTA"
+    },
+    {
+      "code": "65502",
+      "name": "PLANOS DE SAÚDE",
+      "label": "65502 - PLANOS DE SAÚDE"
+    },
+    {
+      "code": "66118",
+      "name": "ADMINISTRAÇÃO DE BOLSAS E MERCADOS DE BALCÃO ORGANIZADOS",
+      "label": "66118 - ADMINISTRAÇÃO DE BOLSAS E MERCADOS DE BALCÃO ORGANIZADOS"
+    },
+    {
+      "code": "66126",
+      "name": "ATIVIDADES DE INTERMEDIÁRIOS EM TRANSAÇÕES DE TÍTULOS, VALORES MOBILIÁRIOS E MERCADORIAS",
+      "label": "66126 - ATIVIDADES DE INTERMEDIÁRIOS EM TRANSAÇÕES DE TÍTULOS, VALORES MOBILIÁRIOS E MERCADORIAS"
+    },
+    {
+      "code": "66134",
+      "name": "ADMINISTRAÇÃO DE CARTÕES DE CRÉDITO",
+      "label": "66134 - ADMINISTRAÇÃO DE CARTÕES DE CRÉDITO"
+    },
+    {
+      "code": "66193",
+      "name": "ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "66193 - ATIVIDADES AUXILIARES DOS SERVIÇOS FINANCEIROS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "66215",
+      "name": "AVALIAÇÃO DE RISCOS E PERDAS",
+      "label": "66215 - AVALIAÇÃO DE RISCOS E PERDAS"
+    },
+    {
+      "code": "66223",
+      "name": "CORRETORES E AGENTES DE SEGUROS, DE PLANOS DE PREVIDÊNCIA COMPLEMENTAR E DE SAÚDE",
+      "label": "66223 - CORRETORES E AGENTES DE SEGUROS, DE PLANOS DE PREVIDÊNCIA COMPLEMENTAR E DE SAÚDE"
+    },
+    {
+      "code": "66291",
+      "name": "ATIVIDADES AUXILIARES DOS SEGUROS, DA PREVIDÊNCIA COMPLEMENTAR E DOS PLANOS DE SAÚDE NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "66291 - ATIVIDADES AUXILIARES DOS SEGUROS, DA PREVIDÊNCIA COMPLEMENTAR E DOS PLANOS DE SAÚDE NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "66304",
+      "name": "ATIVIDADES DE ADMINISTRAÇÃO DE FUNDOS POR CONTRATO OU COMISSÃO",
+      "label": "66304 - ATIVIDADES DE ADMINISTRAÇÃO DE FUNDOS POR CONTRATO OU COMISSÃO"
+    },
+    {
+      "code": "68102",
+      "name": "ATIVIDADES IMOBILIÁRIAS DE IMÓVEIS PRÓPRIOS",
+      "label": "68102 - ATIVIDADES IMOBILIÁRIAS DE IMÓVEIS PRÓPRIOS"
+    },
+    {
+      "code": "68218",
+      "name": "INTERMEDIAÇÃO NA COMPRA, VENDA E ALUGUEL DE IMÓVEIS",
+      "label": "68218 - INTERMEDIAÇÃO NA COMPRA, VENDA E ALUGUEL DE IMÓVEIS"
+    },
+    {
+      "code": "68226",
+      "name": "GESTÃO E ADMINISTRAÇÃO DA PROPRIEDADE IMOBILIÁRIA",
+      "label": "68226 - GESTÃO E ADMINISTRAÇÃO DA PROPRIEDADE IMOBILIÁRIA"
+    },
+    {
+      "code": "69117",
+      "name": "ATIVIDADES JURÍDICAS, EXCETO CARTÓRIOS",
+      "label": "69117 - ATIVIDADES JURÍDICAS, EXCETO CARTÓRIOS"
+    },
+    {
+      "code": "69125",
+      "name": "CARTÓRIOS",
+      "label": "69125 - CARTÓRIOS"
+    },
+    {
+      "code": "69206",
+      "name": "ATIVIDADES DE CONTABILIDADE, CONSULTORIA E AUDITORIA CONTÁBIL E TRIBUTÁRIA",
+      "label": "69206 - ATIVIDADES DE CONTABILIDADE, CONSULTORIA E AUDITORIA CONTÁBIL E TRIBUTÁRIA"
+    },
+    {
+      "code": "70107",
+      "name": "SEDES DE EMPRESAS E UNIDADES ADMINISTRATIVAS LOCAIS",
+      "label": "70107 - SEDES DE EMPRESAS E UNIDADES ADMINISTRATIVAS LOCAIS"
+    },
+    {
+      "code": "70204",
+      "name": "ATIVIDADES DE CONSULTORIA EM GESTÃO EMPRESARIAL",
+      "label": "70204 - ATIVIDADES DE CONSULTORIA EM GESTÃO EMPRESARIAL"
+    },
+    {
+      "code": "71111",
+      "name": "SERVIÇOS DE ARQUITETURA",
+      "label": "71111 - SERVIÇOS DE ARQUITETURA"
+    },
+    {
+      "code": "71120",
+      "name": "SERVIÇOS DE ENGENHARIA",
+      "label": "71120 - SERVIÇOS DE ENGENHARIA"
+    },
+    {
+      "code": "71197",
+      "name": "ATIVIDADES TÉCNICAS RELACIONADAS À ARQUITETURA E ENGENHARIA",
+      "label": "71197 - ATIVIDADES TÉCNICAS RELACIONADAS À ARQUITETURA E ENGENHARIA"
+    },
+    {
+      "code": "71201",
+      "name": "TESTES E ANÁLISES TÉCNICAS",
+      "label": "71201 - TESTES E ANÁLISES TÉCNICAS"
+    },
+    {
+      "code": "72100",
+      "name": "PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS FÍSICAS E NATURAIS",
+      "label": "72100 - PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS FÍSICAS E NATURAIS"
+    },
+    {
+      "code": "72207",
+      "name": "PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS SOCIAIS E HUMANAS",
+      "label": "72207 - PESQUISA E DESENVOLVIMENTO EXPERIMENTAL EM CIÊNCIAS SOCIAIS E HUMANAS"
+    },
+    {
+      "code": "73114",
+      "name": "AGÊNCIAS DE PUBLICIDADE",
+      "label": "73114 - AGÊNCIAS DE PUBLICIDADE"
+    },
+    {
+      "code": "73122",
+      "name": "AGENCIAMENTO DE ESPAÇOS PARA PUBLICIDADE, EXCETO EM VEÍCULOS DE COMUNICAÇÃO",
+      "label": "73122 - AGENCIAMENTO DE ESPAÇOS PARA PUBLICIDADE, EXCETO EM VEÍCULOS DE COMUNICAÇÃO"
+    },
+    {
+      "code": "73190",
+      "name": "ATIVIDADES DE PUBLICIDADE NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "73190 - ATIVIDADES DE PUBLICIDADE NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "73203",
+      "name": "PESQUISAS DE MERCADO E DE OPINIÃO PÚBLICA",
+      "label": "73203 - PESQUISAS DE MERCADO E DE OPINIÃO PÚBLICA"
+    },
+    {
+      "code": "74102",
+      "name": "DESIGN E DECORAÇÃO DE INTERIORES",
+      "label": "74102 - DESIGN E DECORAÇÃO DE INTERIORES"
+    },
+    {
+      "code": "74200",
+      "name": "ATIVIDADES FOTOGRÁFICAS E SIMILARES",
+      "label": "74200 - ATIVIDADES FOTOGRÁFICAS E SIMILARES"
+    },
+    {
+      "code": "74901",
+      "name": "ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "74901 - ATIVIDADES PROFISSIONAIS, CIENTÍFICAS E TÉCNICAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "75001",
+      "name": "ATIVIDADES VETERINÁRIAS",
+      "label": "75001 - ATIVIDADES VETERINÁRIAS"
+    },
+    {
+      "code": "77110",
+      "name": "LOCAÇÃO DE AUTOMÓVEIS SEM CONDUTOR",
+      "label": "77110 - LOCAÇÃO DE AUTOMÓVEIS SEM CONDUTOR"
+    },
+    {
+      "code": "82300",
+      "name": "ATIVIDADES DE ORGANIZAÇÃO DE EVENTOS, EXCETO CULTURAIS E ESPORTIVOS",
+      "label": "82300 - ATIVIDADES DE ORGANIZAÇÃO DE EVENTOS, EXCETO CULTURAIS E ESPORTIVOS"
+    },
+    {
+      "code": "77195",
+      "name": "LOCAÇÃO DE MEIOS DE TRANSPORTE, EXCETO AUTOMÓVEIS, SEM CONDUTOR",
+      "label": "77195 - LOCAÇÃO DE MEIOS DE TRANSPORTE, EXCETO AUTOMÓVEIS, SEM CONDUTOR"
+    },
+    {
+      "code": "77217",
+      "name": "ALUGUEL DE EQUIPAMENTOS RECREATIVOS E ESPORTIVOS",
+      "label": "77217 - ALUGUEL DE EQUIPAMENTOS RECREATIVOS E ESPORTIVOS"
+    },
+    {
+      "code": "77225",
+      "name": "ALUGUEL DE FITAS DE VÍDEO, DVDS E SIMILARES",
+      "label": "77225 - ALUGUEL DE FITAS DE VÍDEO, DVDS E SIMILARES"
+    },
+    {
+      "code": "77233",
+      "name": "ALUGUEL DE OBJETOS DO VESTUÁRIO, JOIAS E ACESSÓRIOS",
+      "label": "77233 - ALUGUEL DE OBJETOS DO VESTUÁRIO, JOIAS E ACESSÓRIOS"
+    },
+    {
+      "code": "77292",
+      "name": "ALUGUEL DE OBJETOS PESSOAIS E DOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "77292 - ALUGUEL DE OBJETOS PESSOAIS E DOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "77314",
+      "name": "ALUGUEL DE MÁQUINAS E EQUIPAMENTOS AGRÍCOLAS SEM OPERADOR",
+      "label": "77314 - ALUGUEL DE MÁQUINAS E EQUIPAMENTOS AGRÍCOLAS SEM OPERADOR"
+    },
+    {
+      "code": "77322",
+      "name": "ALUGUEL DE MÁQUINAS E EQUIPAMENTOS PARA CONSTRUÇÃO SEM OPERADOR",
+      "label": "77322 - ALUGUEL DE MÁQUINAS E EQUIPAMENTOS PARA CONSTRUÇÃO SEM OPERADOR"
+    },
+    {
+      "code": "77331",
+      "name": "ALUGUEL DE MÁQUINAS E EQUIPAMENTOS PARA ESCRITÓRIOS",
+      "label": "77331 - ALUGUEL DE MÁQUINAS E EQUIPAMENTOS PARA ESCRITÓRIOS"
+    },
+    {
+      "code": "77390",
+      "name": "ALUGUEL DE MÁQUINAS E EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "77390 - ALUGUEL DE MÁQUINAS E EQUIPAMENTOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "82911",
+      "name": "ATIVIDADES DE COBRANÇAS E INFORMAÇÕES CADASTRAIS",
+      "label": "82911 - ATIVIDADES DE COBRANÇAS E INFORMAÇÕES CADASTRAIS"
+    },
+    {
+      "code": "77403",
+      "name": "GESTÃO DE ATIVOS INTANGÍVEIS NÃO FINANCEIROS",
+      "label": "77403 - GESTÃO DE ATIVOS INTANGÍVEIS NÃO FINANCEIROS"
+    },
+    {
+      "code": "78108",
+      "name": "SELEÇÃO E AGENCIAMENTO DE MÃO DE OBRA",
+      "label": "78108 - SELEÇÃO E AGENCIAMENTO DE MÃO DE OBRA"
+    },
+    {
+      "code": "78205",
+      "name": "LOCAÇÃO DE MÃO DE OBRA TEMPORÁRIA",
+      "label": "78205 - LOCAÇÃO DE MÃO DE OBRA TEMPORÁRIA"
+    },
+    {
+      "code": "78302",
+      "name": "FORNECIMENTO E GESTÃO DE RECURSOS HUMANOS PARA TERCEIROS",
+      "label": "78302 - FORNECIMENTO E GESTÃO DE RECURSOS HUMANOS PARA TERCEIROS"
+    },
+    {
+      "code": "79112",
+      "name": "AGÊNCIAS DE VIAGENS",
+      "label": "79112 - AGÊNCIAS DE VIAGENS"
+    },
+    {
+      "code": "79121",
+      "name": "OPERADORES TURÍSTICOS",
+      "label": "79121 - OPERADORES TURÍSTICOS"
+    },
+    {
+      "code": "79902",
+      "name": "SERVIÇOS DE RESERVAS E OUTROS SERVIÇOS DE TURISMO NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "79902 - SERVIÇOS DE RESERVAS E OUTROS SERVIÇOS DE TURISMO NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "80111",
+      "name": "ATIVIDADES DE VIGILÂNCIA E SEGURANÇA PRIVADA",
+      "label": "80111 - ATIVIDADES DE VIGILÂNCIA E SEGURANÇA PRIVADA"
+    },
+    {
+      "code": "80129",
+      "name": "ATIVIDADES DE TRANSPORTE DE VALORES",
+      "label": "80129 - ATIVIDADES DE TRANSPORTE DE VALORES"
+    },
+    {
+      "code": "80200",
+      "name": "ATIVIDADES DE MONITORAMENTO DE SISTEMAS DE SEGURANÇA",
+      "label": "80200 - ATIVIDADES DE MONITORAMENTO DE SISTEMAS DE SEGURANÇA"
+    },
+    {
+      "code": "80307",
+      "name": "ATIVIDADES DE INVESTIGAÇÃO PARTICULAR",
+      "label": "80307 - ATIVIDADES DE INVESTIGAÇÃO PARTICULAR"
+    },
+    {
+      "code": "81117",
+      "name": "SERVIÇOS COMBINADOS PARA APOIO A EDIFÍCIOS, EXCETO CONDOMÍNIOS PREDIAIS",
+      "label": "81117 - SERVIÇOS COMBINADOS PARA APOIO A EDIFÍCIOS, EXCETO CONDOMÍNIOS PREDIAIS"
+    },
+    {
+      "code": "81125",
+      "name": "CONDOMÍNIOS PREDIAIS",
+      "label": "81125 - CONDOMÍNIOS PREDIAIS"
+    },
+    {
+      "code": "81214",
+      "name": "LIMPEZA EM PRÉDIOS E EM DOMICÍLIOS",
+      "label": "81214 - LIMPEZA EM PRÉDIOS E EM DOMICÍLIOS"
+    },
+    {
+      "code": "81222",
+      "name": "IMUNIZAÇÃO E CONTROLE DE PRAGAS URBANAS",
+      "label": "81222 - IMUNIZAÇÃO E CONTROLE DE PRAGAS URBANAS"
+    },
+    {
+      "code": "81290",
+      "name": "ATIVIDADES DE LIMPEZA NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "81290 - ATIVIDADES DE LIMPEZA NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "81303",
+      "name": "ATIVIDADES PAISAGÍSTICAS",
+      "label": "81303 - ATIVIDADES PAISAGÍSTICAS"
+    },
+    {
+      "code": "82113",
+      "name": "SERVIÇOS COMBINADOS DE ESCRITÓRIO E APOIO ADMINISTRATIVO",
+      "label": "82113 - SERVIÇOS COMBINADOS DE ESCRITÓRIO E APOIO ADMINISTRATIVO"
+    },
+    {
+      "code": "82199",
+      "name": "FOTOCÓPIAS, PREPARAÇÃO DE DOCUMENTOS E OUTROS SERVIÇOS ESPECIALIZADOS DE APOIO ADMINISTRATIVO",
+      "label": "82199 - FOTOCÓPIAS, PREPARAÇÃO DE DOCUMENTOS E OUTROS SERVIÇOS ESPECIALIZADOS DE APOIO ADMINISTRATIVO"
+    },
+    {
+      "code": "82202",
+      "name": "ATIVIDADES DE TELEATENDIMENTO",
+      "label": "82202 - ATIVIDADES DE TELEATENDIMENTO"
+    },
+    {
+      "code": "82920",
+      "name": "ENVASAMENTO E EMPACOTAMENTO SOB CONTRATO",
+      "label": "82920 - ENVASAMENTO E EMPACOTAMENTO SOB CONTRATO"
+    },
+    {
+      "code": "82997",
+      "name": "ATIVIDADES DE SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "82997 - ATIVIDADES DE SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "84116",
+      "name": "ADMINISTRAÇÃO PÚBLICA EM GERAL",
+      "label": "84116 - ADMINISTRAÇÃO PÚBLICA EM GERAL"
+    },
+    {
+      "code": "84124",
+      "name": "REGULAÇÃO DAS ATIVIDADES DE SAÚDE, EDUCAÇÃO, SERVIÇOS CULTURAIS E OUTROS SERVIÇOS SOCIAIS",
+      "label": "84124 - REGULAÇÃO DAS ATIVIDADES DE SAÚDE, EDUCAÇÃO, SERVIÇOS CULTURAIS E OUTROS SERVIÇOS SOCIAIS"
+    },
+    {
+      "code": "84132",
+      "name": "REGULAÇÃO DAS ATIVIDADES ECONÔMICAS",
+      "label": "84132 - REGULAÇÃO DAS ATIVIDADES ECONÔMICAS"
+    },
+    {
+      "code": "84213",
+      "name": "RELAÇÕES EXTERIORES",
+      "label": "84213 - RELAÇÕES EXTERIORES"
+    },
+    {
+      "code": "85333",
+      "name": "EDUCAÇÃO SUPERIOR - PÓS-GRADUAÇÃO E EXTENSÃO",
+      "label": "85333 - EDUCAÇÃO SUPERIOR - PÓS-GRADUAÇÃO E EXTENSÃO"
+    },
+    {
+      "code": "84221",
+      "name": "DEFESA",
+      "label": "84221 - DEFESA"
+    },
+    {
+      "code": "84230",
+      "name": "JUSTIÇA",
+      "label": "84230 - JUSTIÇA"
+    },
+    {
+      "code": "84248",
+      "name": "SEGURANÇA E ORDEM PÚBLICA",
+      "label": "84248 - SEGURANÇA E ORDEM PÚBLICA"
+    },
+    {
+      "code": "84256",
+      "name": "DEFESA CIVIL",
+      "label": "84256 - DEFESA CIVIL"
+    },
+    {
+      "code": "84302",
+      "name": "SEGURIDADE SOCIAL OBRIGATÓRIA",
+      "label": "84302 - SEGURIDADE SOCIAL OBRIGATÓRIA"
+    },
+    {
+      "code": "85112",
+      "name": "EDUCAÇÃO INFANTIL - CRECHE",
+      "label": "85112 - EDUCAÇÃO INFANTIL - CRECHE"
+    },
+    {
+      "code": "85121",
+      "name": "EDUCAÇÃO INFANTIL - PRÉ-ESCOLA",
+      "label": "85121 - EDUCAÇÃO INFANTIL - PRÉ-ESCOLA"
+    },
+    {
+      "code": "85139",
+      "name": "ENSINO FUNDAMENTAL",
+      "label": "85139 - ENSINO FUNDAMENTAL"
+    },
+    {
+      "code": "85201",
+      "name": "ENSINO MÉDIO",
+      "label": "85201 - ENSINO MÉDIO"
+    },
+    {
+      "code": "85317",
+      "name": "EDUCAÇÃO SUPERIOR - GRADUAÇÃO",
+      "label": "85317 - EDUCAÇÃO SUPERIOR - GRADUAÇÃO"
+    },
+    {
+      "code": "85325",
+      "name": "EDUCAÇÃO SUPERIOR - GRADUAÇÃO E PÓS-GRADUAÇÃO",
+      "label": "85325 - EDUCAÇÃO SUPERIOR - GRADUAÇÃO E PÓS-GRADUAÇÃO"
+    },
+    {
+      "code": "85414",
+      "name": "EDUCAÇÃO PROFISSIONAL DE NÍVEL TÉCNICO",
+      "label": "85414 - EDUCAÇÃO PROFISSIONAL DE NÍVEL TÉCNICO"
+    },
+    {
+      "code": "85422",
+      "name": "EDUCAÇÃO PROFISSIONAL DE NÍVEL TECNOLÓGICO",
+      "label": "85422 - EDUCAÇÃO PROFISSIONAL DE NÍVEL TECNOLÓGICO"
+    },
+    {
+      "code": "85503",
+      "name": "ATIVIDADES DE APOIO À EDUCAÇÃO",
+      "label": "85503 - ATIVIDADES DE APOIO À EDUCAÇÃO"
+    },
+    {
+      "code": "85911",
+      "name": "ENSINO DE ESPORTES",
+      "label": "85911 - ENSINO DE ESPORTES"
+    },
+    {
+      "code": "85929",
+      "name": "ENSINO DE ARTE E CULTURA",
+      "label": "85929 - ENSINO DE ARTE E CULTURA"
+    },
+    {
+      "code": "85937",
+      "name": "ENSINO DE IDIOMAS",
+      "label": "85937 - ENSINO DE IDIOMAS"
+    },
+    {
+      "code": "85996",
+      "name": "ATIVIDADES DE ENSINO NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "85996 - ATIVIDADES DE ENSINO NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "86101",
+      "name": "ATIVIDADES DE ATENDIMENTO HOSPITALAR",
+      "label": "86101 - ATIVIDADES DE ATENDIMENTO HOSPITALAR"
+    },
+    {
+      "code": "86216",
+      "name": "SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS",
+      "label": "86216 - SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS"
+    },
+    {
+      "code": "86224",
+      "name": "SERVIÇOS DE REMOÇÃO DE PACIENTES, EXCETO OS SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS",
+      "label": "86224 - SERVIÇOS DE REMOÇÃO DE PACIENTES, EXCETO OS SERVIÇOS MÓVEIS DE ATENDIMENTO A URGÊNCIAS"
+    },
+    {
+      "code": "86305",
+      "name": "ATIVIDADES DE ATENÇÃO AMBULATORIAL EXECUTADAS POR MÉDICOS E ODONTÓLOGOS",
+      "label": "86305 - ATIVIDADES DE ATENÇÃO AMBULATORIAL EXECUTADAS POR MÉDICOS E ODONTÓLOGOS"
+    },
+    {
+      "code": "86402",
+      "name": "ATIVIDADES DE SERVIÇOS DE COMPLEMENTAÇÃO DIAGNÓSTICA E TERAPÊUTICA",
+      "label": "86402 - ATIVIDADES DE SERVIÇOS DE COMPLEMENTAÇÃO DIAGNÓSTICA E TERAPÊUTICA"
+    },
+    {
+      "code": "86500",
+      "name": "ATIVIDADES DE PROFISSIONAIS DA ÁREA DE SAÚDE, EXCETO MÉDICOS E ODONTÓLOGOS",
+      "label": "86500 - ATIVIDADES DE PROFISSIONAIS DA ÁREA DE SAÚDE, EXCETO MÉDICOS E ODONTÓLOGOS"
+    },
+    {
+      "code": "86607",
+      "name": "ATIVIDADES DE APOIO À GESTÃO DE SAÚDE",
+      "label": "86607 - ATIVIDADES DE APOIO À GESTÃO DE SAÚDE"
+    },
+    {
+      "code": "87115",
+      "name": "ATIVIDADES DE ASSISTÊNCIA A IDOSOS, DEFICIENTES FÍSICOS, IMUNODEPRIMIDOS E CONVALESCENTES PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES",
+      "label": "87115 - ATIVIDADES DE ASSISTÊNCIA A IDOSOS, DEFICIENTES FÍSICOS, IMUNODEPRIMIDOS E CONVALESCENTES PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES"
+    },
+    {
+      "code": "87123",
+      "name": "ATIVIDADES DE FORNECIMENTO DE INFRAESTRUTURA DE APOIO E ASSISTÊNCIA A PACIENTE NO DOMICÍLIO",
+      "label": "87123 - ATIVIDADES DE FORNECIMENTO DE INFRAESTRUTURA DE APOIO E ASSISTÊNCIA A PACIENTE NO DOMICÍLIO"
+    },
+    {
+      "code": "87204",
+      "name": "ATIVIDADES DE ASSISTÊNCIA PSICOSSOCIAL E À SAÚDE A PORTADORES DE DISTÚRBIOS PSÍQUICOS, DEFICIÊNCIA MENTAL E DEPENDÊNCIA QUÍMICA",
+      "label": "87204 - ATIVIDADES DE ASSISTÊNCIA PSICOSSOCIAL E À SAÚDE A PORTADORES DE DISTÚRBIOS PSÍQUICOS, DEFICIÊNCIA MENTAL E DEPENDÊNCIA QUÍMICA"
+    },
+    {
+      "code": "87301",
+      "name": "ATIVIDADES DE ASSISTÊNCIA SOCIAL PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES",
+      "label": "87301 - ATIVIDADES DE ASSISTÊNCIA SOCIAL PRESTADAS EM RESIDÊNCIAS COLETIVAS E PARTICULARES"
+    },
+    {
+      "code": "88006",
+      "name": "SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO",
+      "label": "88006 - SERVIÇOS DE ASSISTÊNCIA SOCIAL SEM ALOJAMENTO"
+    },
+    {
+      "code": "90019",
+      "name": "ARTES CÊNICAS, ESPETÁCULOS E ATIVIDADES COMPLEMENTARES",
+      "label": "90019 - ARTES CÊNICAS, ESPETÁCULOS E ATIVIDADES COMPLEMENTARES"
+    },
+    {
+      "code": "90027",
+      "name": "CRIAÇÃO ARTÍSTICA",
+      "label": "90027 - CRIAÇÃO ARTÍSTICA"
+    },
+    {
+      "code": "90035",
+      "name": "GESTÃO DE ESPAÇOS PARA ARTES CÊNICAS, ESPETÁCULOS E OUTRAS ATIVIDADES ARTÍSTICAS",
+      "label": "90035 - GESTÃO DE ESPAÇOS PARA ARTES CÊNICAS, ESPETÁCULOS E OUTRAS ATIVIDADES ARTÍSTICAS"
+    },
+    {
+      "code": "91015",
+      "name": "ATIVIDADES DE BIBLIOTECAS E ARQUIVOS",
+      "label": "91015 - ATIVIDADES DE BIBLIOTECAS E ARQUIVOS"
+    },
+    {
+      "code": "91023",
+      "name": "ATIVIDADES DE MUSEUS E DE EXPLORAÇÃO, RESTAURAÇÃO ARTÍSTICA E CONSERVAÇÃO DE LUGARES E PRÉDIOS HISTÓRICOS E ATRAÇÕES SIMILARES",
+      "label": "91023 - ATIVIDADES DE MUSEUS E DE EXPLORAÇÃO, RESTAURAÇÃO ARTÍSTICA E CONSERVAÇÃO DE LUGARES E PRÉDIOS HISTÓRICOS E ATRAÇÕES SIMILARES"
+    },
+    {
+      "code": "91031",
+      "name": "ATIVIDADES DE JARDINS BOTÂNICOS, ZOOLÓGICOS, PARQUES NACIONAIS, RESERVAS ECOLÓGICAS E ÁREAS DE PROTEÇÃO AMBIENTAL",
+      "label": "91031 - ATIVIDADES DE JARDINS BOTÂNICOS, ZOOLÓGICOS, PARQUES NACIONAIS, RESERVAS ECOLÓGICAS E ÁREAS DE PROTEÇÃO AMBIENTAL"
+    },
+    {
+      "code": "92003",
+      "name": "ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS",
+      "label": "92003 - ATIVIDADES DE EXPLORAÇÃO DE JOGOS DE AZAR E APOSTAS"
+    },
+    {
+      "code": "93115",
+      "name": "GESTÃO DE INSTALAÇÕES DE ESPORTES",
+      "label": "93115 - GESTÃO DE INSTALAÇÕES DE ESPORTES"
+    },
+    {
+      "code": "93123",
+      "name": "CLUBES SOCIAIS, ESPORTIVOS E SIMILARES",
+      "label": "93123 - CLUBES SOCIAIS, ESPORTIVOS E SIMILARES"
+    },
+    {
+      "code": "93131",
+      "name": "ATIVIDADES DE CONDICIONAMENTO FÍSICO",
+      "label": "93131 - ATIVIDADES DE CONDICIONAMENTO FÍSICO"
+    },
+    {
+      "code": "93191",
+      "name": "ATIVIDADES ESPORTIVAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "93191 - ATIVIDADES ESPORTIVAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "93212",
+      "name": "PARQUES DE DIVERSÃO E PARQUES TEMÁTICOS",
+      "label": "93212 - PARQUES DE DIVERSÃO E PARQUES TEMÁTICOS"
+    },
+    {
+      "code": "95118",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE COMPUTADORES E DE EQUIPAMENTOS PERIFÉRICOS",
+      "label": "95118 - REPARAÇÃO E MANUTENÇÃO DE COMPUTADORES E DE EQUIPAMENTOS PERIFÉRICOS"
+    },
+    {
+      "code": "95126",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE COMUNICAÇÃO",
+      "label": "95126 - REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS DE COMUNICAÇÃO"
+    },
+    {
+      "code": "93298",
+      "name": "ATIVIDADES DE RECREAÇÃO E LAZER NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "93298 - ATIVIDADES DE RECREAÇÃO E LAZER NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "94111",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PATRONAIS E EMPRESARIAIS",
+      "label": "94111 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PATRONAIS E EMPRESARIAIS"
+    },
+    {
+      "code": "94120",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PROFISSIONAIS",
+      "label": "94120 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS PROFISSIONAIS"
+    },
+    {
+      "code": "94201",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES SINDICAIS",
+      "label": "94201 - ATIVIDADES DE ORGANIZAÇÕES SINDICAIS"
+    },
+    {
+      "code": "94308",
+      "name": "ATIVIDADES DE ASSOCIAÇÕES DE DEFESA DE DIREITOS SOCIAIS",
+      "label": "94308 - ATIVIDADES DE ASSOCIAÇÕES DE DEFESA DE DIREITOS SOCIAIS"
+    },
+    {
+      "code": "94910",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES RELIGIOSAS",
+      "label": "94910 - ATIVIDADES DE ORGANIZAÇÕES RELIGIOSAS"
+    },
+    {
+      "code": "94928",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES POLÍTICAS",
+      "label": "94928 - ATIVIDADES DE ORGANIZAÇÕES POLÍTICAS"
+    },
+    {
+      "code": "94936",
+      "name": "ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS LIGADAS À CULTURA E À ARTE",
+      "label": "94936 - ATIVIDADES DE ORGANIZAÇÕES ASSOCIATIVAS LIGADAS À CULTURA E À ARTE"
+    },
+    {
+      "code": "94995",
+      "name": "ATIVIDADES ASSOCIATIVAS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "94995 - ATIVIDADES ASSOCIATIVAS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "95215",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS ELETROELETRÔNICOS DE USO PESSOAL E DOMÉSTICO",
+      "label": "95215 - REPARAÇÃO E MANUTENÇÃO DE EQUIPAMENTOS ELETROELETRÔNICOS DE USO PESSOAL E DOMÉSTICO"
+    },
+    {
+      "code": "95291",
+      "name": "REPARAÇÃO E MANUTENÇÃO DE OBJETOS E EQUIPAMENTOS PESSOAIS E DOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE",
+      "label": "95291 - REPARAÇÃO E MANUTENÇÃO DE OBJETOS E EQUIPAMENTOS PESSOAIS E DOMÉSTICOS NÃO ESPECIFICADOS ANTERIORMENTE"
+    },
+    {
+      "code": "96017",
+      "name": "LAVANDERIAS, TINTURARIAS E TOALHEIROS",
+      "label": "96017 - LAVANDERIAS, TINTURARIAS E TOALHEIROS"
+    },
+    {
+      "code": "96025",
+      "name": "CABELEIREIROS E OUTRAS ATIVIDADES DE TRATAMENTO DE BELEZA",
+      "label": "96025 - CABELEIREIROS E OUTRAS ATIVIDADES DE TRATAMENTO DE BELEZA"
+    },
+    {
+      "code": "96033",
+      "name": "ATIVIDADES FUNERÁRIAS E SERVIÇOS RELACIONADOS",
+      "label": "96033 - ATIVIDADES FUNERÁRIAS E SERVIÇOS RELACIONADOS"
+    },
+    {
+      "code": "96092",
+      "name": "ATIVIDADES DE SERVIÇOS PESSOAIS NÃO ESPECIFICADAS ANTERIORMENTE",
+      "label": "96092 - ATIVIDADES DE SERVIÇOS PESSOAIS NÃO ESPECIFICADAS ANTERIORMENTE"
+    },
+    {
+      "code": "97005",
+      "name": "SERVIÇOS DOMÉSTICOS",
+      "label": "97005 - SERVIÇOS DOMÉSTICOS"
+    },
+    {
+      "code": "99008",
+      "name": "ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS",
+      "label": "99008 - ORGANISMOS INTERNACIONAIS E OUTRAS INSTITUIÇÕES EXTRATERRITORIAIS"
+    }
+  ]
+}

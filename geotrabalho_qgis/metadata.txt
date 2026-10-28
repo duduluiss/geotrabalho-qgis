@@ -1,0 +1,35 @@
+[general]
+name=GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)
+qgisMinimumVersion=3.28
+qgisMaximumVersion=4.99
+supportsQt6=True
+description=Consulta, conecta e espacializa dados do Ministério do Trabalho e Emprego (RAIS e CAGED via DardoWeb) por município no QGIS com download automático da malha do IBGE, filtros detalhados de CNAE (Pecuária, Laticínios, etc.) e mapas de especialização setorial e saldo de vagas.
+about=Plugin desenvolvido para QGIS 4 e QGIS 3 por Luís Eduardo Araújo de Souza. Conecta diretamente à plataforma DardoWeb (bi.trabalho.gov.br) para consultar estoques de empregos formais (RAIS Vínculos), estabelecimentos ativos e porte de empresas (RAIS Estabelecimentos) e fluxo de contratações/demissões (CAGED). Suporta ano corrente 2025 até séries históricas de 2002, filtragem detalhada por atividades específicas da CNAE (Seção, Divisão, Grupo e Classe - ex: pecuária, produção de laticínios), converte os nomes para o código IBGE oficial de 7 dígitos, baixa a malha municipal pela API de Malhas v3 do IBGE e aplica automaticamente simbologias de Predominância Setorial CNAE, Saldo Divergente do CAGED e Mapas Graduados de Atividades Específicas.
+version=1.2.0
+author=Luís Eduardo Araújo de Souza
+email=luisaraujodesouza.geo@gmail.com
+category=Vector
+icon=icon.png
+tags=rais,caged,trabalho,mte,emprego,empresas,cnae,pecuaria,laticinios,sexo,genero,ibge,brasil,economia
+homepage=https://github.com/duduluiss/geotrabalho-qgis
+repository=https://github.com/duduluiss/geotrabalho-qgis
+tracker=https://github.com/duduluiss/geotrabalho-qgis/issues
+experimental=False
+deprecated=False
+changelog=
+ 1.2.0:
+  - Suporte a filtros setoriais da CNAE combinados com qualquer dimensão (Sexo Trabalhador, Tamanho do Estabelecimento, Faixa Etária, etc.)
+  - Injeção automática de seleções nativas (YZ/YC) no servidor DardoWeb para cruzamentos multivariados
+  - Compatibilização e comutação automática para séries históricas até 2005 (CNAE 95 e Grau de Instrução 1985-2005)
+  - Janela ampliada e responsiva evitando rolagem lateral e cortes de texto
+  - Catálogo completo estruturado com 21 seções, 87 divisões, 285 grupos e 673 classes e códigos oficiais do IBGE
+ - 1.1.1:
+  - Correção de 'buracos' na malha municipal (100%% dos polígonos municipais preservados, com atribuição de 0 vagas para cidades sem atividade ou ausentes no DardoWeb)
+  - Resolução aprimorada de grafias com hífens e apóstrofos (ex: Grão-Pará, Herval d'Oeste)
+  - Correção do código IBGE de Santiago do Sul (SC)
+ 1.1.0:
+  - Adicionado suporte nativo e pré-seleção do ano 2025 (ano corrente) e roteamento automático de cubos para séries históricas até 2002
+  - Menus dropdown dinâmicos encadeados para os 4 níveis CNAE 2.0: Seção (21), Divisão (87), Grupo (273) e Classe (673)
+  - Cálculo automático de Total Consolidado da Atividade Filtrada (VINC_FILTR) e Percentual sobre a Economia Municipal (PCT_FILTR)
+ 1.0.0:
+  - Versão inicial com conexão DardoWeb, mapeamento IBGE 7 dígitos, API de Malhas IBGE v3 e mapas de predominância e saldo CAGED
