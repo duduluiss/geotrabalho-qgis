@@ -108,7 +108,7 @@ def package_and_sync():
         for root, dirs, files in os.walk(plugin_folder):
             dirs[:] = [d for d in dirs if d != "__pycache__" and not d.startswith(".")]
             for file in files:
-                if file.endswith((".pyc", ".pyo")):
+                if file.endswith((".pyc", ".pyo")) or file.startswith("."):
                     continue
                 abs_path = os.path.join(root, file)
                 rel_path = os.path.relpath(abs_path, PROJECT_ROOT)

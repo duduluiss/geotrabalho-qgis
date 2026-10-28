@@ -429,9 +429,8 @@ class DardoWebClient:
                     ("YCUF", f'"{uf_num}":NOME;{uf_num} - {uf_nome}'),
                 ])
 
-        # Se a coluna de saída NÃO é uma dimensão CNAE (ex: Sexo Trabalhador, Porte, etc.),
-        # e o usuário especificou um filtro de atividade CNAE, injeta a seleção no servidor DardoWeb
-        if not is_cnae_col and cnae_var and cnae_code:
+        # Se o usuário especificou um filtro de atividade CNAE, injeta a seleção no servidor DardoWeb
+        if cnae_var and cnae_code:
             form_params.extend([
                 (f"YZ{cnae_var}", "0"),
                 (f"YC{cnae_var}", f'"{cnae_code}":NOME;{cnae_code}'),
@@ -491,19 +490,42 @@ class DardoWebClient:
         if not raw_headers:
             raw_headers = ["Total"]
 
-        # Análise do filtro específico de atividade
+        # Análise do filtro específico de atividade (suporta '01555 - CRIAÇÃO DE AVES', 'Aves', etc.)
         filter_terms: List[str] = []
+        filter_codes: List[str] = []
         if filtro_atividade and filtro_atividade.strip():
-            filter_terms = [normalize_text(t) for t in filtro_atividade.split(",") if t.strip()]
+            raw_parts = [t.strip() for t in filtro_atividade.split(",") if t.strip()]
+            for part in raw_parts:
+                norm_full = normalize_text(part)
+                filter_terms.append(norm_full)
+                m_code = re.match(r"^([A-Za-z0-9\.\-]+)\s*[\-\:]\s*(.*)$", part)
+                if m_code:
+                    clean_code = re.sub(r"[^A-Za-z0-9]", "", m_code.group(1)).lower()
+                    clean_desc = normalize_text(m_code.group(2))
+                    if clean_code:
+                        filter_codes.append(clean_code)
+                    if clean_desc:
+                        filter_terms.append(clean_desc)
 
         # Mapeia colunas que coincidem com o filtro
         matched_col_indices: List[Tuple[int, str]] = []
-        if filter_terms:
+        if filter_terms or filter_codes:
             for idx, h in enumerate(raw_headers):
                 if h.lower() in ("total", "total geral"):
                     continue
                 h_norm = normalize_text(h)
-                if any(term in h_norm for term in filter_terms):
+                h_digits = "".join(re.findall(r"\d+", h))
+                matched = False
+                for term in filter_terms:
+                    if term and (term in h_norm or h_norm in term):
+                        matched = True
+                        break
+                if not matched and filter_codes:
+                    for c in filter_codes:
+                        if c and (c in h_norm or (h_digits and c == h_digits)):
+                            matched = True
+                            break
+                if matched:
                     matched_col_indices.append((idx, h))
 
         has_active_filter = len(matched_col_indices) > 0

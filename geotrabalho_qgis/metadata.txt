@@ -5,7 +5,7 @@ qgisMaximumVersion=4.99
 supportsQt6=True
 description=Consulta, conecta e espacializa dados do Ministério do Trabalho e Emprego (RAIS e CAGED via DardoWeb) por município no QGIS com download automático da malha do IBGE, filtros detalhados de CNAE (Pecuária, Laticínios, etc.) e mapas de especialização setorial e saldo de vagas.
 about=Plugin desenvolvido para QGIS 4 e QGIS 3 por Luís Eduardo Araújo de Souza. Conecta diretamente à plataforma DardoWeb (bi.trabalho.gov.br) para consultar estoques de empregos formais (RAIS Vínculos), estabelecimentos ativos e porte de empresas (RAIS Estabelecimentos) e fluxo de contratações/demissões (CAGED). Suporta ano corrente 2025 até séries históricas de 2002, filtragem detalhada por atividades específicas da CNAE (Seção, Divisão, Grupo e Classe - ex: pecuária, produção de laticínios), converte os nomes para o código IBGE oficial de 7 dígitos, baixa a malha municipal pela API de Malhas v3 do IBGE e aplica automaticamente simbologias de Predominância Setorial CNAE, Saldo Divergente do CAGED e Mapas Graduados de Atividades Específicas.
-version=1.2.1
+version=1.2.2
 author=Luís Eduardo Araújo de Souza
 email=luisaraujodesouza.geo@gmail.com
 category=Vector
@@ -17,6 +17,8 @@ tracker=https://github.com/duduluiss/geotrabalho-qgis/issues
 experimental=False
 deprecated=False
 changelog=
+ 1.2.2:
+  - Remoção de arquivos de configuração para obter status 'Validated' integral no QGIS Hub
  1.2.1:
   - Correção de falso positivo de segurança do scanner detect-secrets do QGIS Hub
   - Inclusão do baseline oficial de segurança (.secrets.baseline)

@@ -4,7 +4,7 @@
 **Repositório / Repository:** [https://github.com/duduluiss/geotrabalho-qgis](https://github.com/duduluiss/geotrabalho-qgis)  
 **Compatibilidade / Compatibility:** QGIS 3.28+ & QGIS 4.x (`PyQt5` / `PyQt6`, `supportsQt6=True`)  
 **Licença / License:** GNU GPL v2+ / v3  
-**Versão / Version:** 1.2.1  
+**Versão / Version:** 1.2.2  
 
 ---
 
@@ -12,7 +12,7 @@
 
 O **GeoTrabalho - Espacializador RAIS/CAGED** é um complemento para o QGIS projetado para conectar, consultar e espacializar automaticamente dados de emprego formal, empresas e dinâmica econômica do Ministério do Trabalho e Emprego (MTE) via **DardoWeb (bi.trabalho.gov.br)**.
 
-### Principais Recursos (v1.2.1)
+### Principais Recursos (v1.2.2)
 1. **Conexão e Consulta Online Automática**:
    - Conecta-se diretamente ao DardoWeb com usuário e senha públicos (`basico` / `12345678`) ou credenciais próprias.
    - Permite consultar **RAIS Vínculos** (trabalhadores, salários, escolaridade), **RAIS Estabelecimentos** (empresas ativas, porte, distribuição territorial) e **CAGED** (fluxo mensal de contratações, demissões e saldo).
