@@ -30,8 +30,8 @@ REPO_OWNER = "duduluiss"
 REPO_NAME = "geotrabalho-qgis"
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 ZIP_FILENAME = "geotrabalho_qgis.zip"
-RELEASE_TAG = "v1.2.0"
-RELEASE_TITLE = "v1.2.0 - GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)"
+RELEASE_TAG = "v1.2.1"
+RELEASE_TITLE = "v1.2.1 - GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)"
 
 
 def _http_json(
