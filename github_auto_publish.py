@@ -30,8 +30,8 @@ REPO_OWNER = "duduluiss"
 REPO_NAME = "geotrabalho-qgis"
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 ZIP_FILENAME = "geotrabalho_qgis.zip"
-RELEASE_TAG = "v1.2.1"
-RELEASE_TITLE = "v1.2.1 - GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)"
+RELEASE_TAG = "v1.2.3"
+RELEASE_TITLE = "v1.2.3 - GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)"
 
 
 def _http_json(
@@ -245,7 +245,7 @@ def publish_to_github(token: str) -> None:
         method="POST",
         token=token,
         data={
-            "message": "Release v1.2.0 - GeoTrabalho - Espacializador RAIS/CAGED (QGIS 3 & QGIS 4)",
+            "message": "Release v1.2.3 - GeoTrabalho - Espacializador RAIS/CAGED (QGIS 3 & QGIS 4)",
             "tree": tree_data["sha"],
             "parents": [base_commit_sha],
         },
@@ -279,8 +279,10 @@ def publish_to_github(token: str) -> None:
                 "target_commitish": "main",
                 "name": RELEASE_TITLE,
                 "body": (
-                    "Versão 1.2.0 oficial do **GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)** para QGIS 3.28+ e QGIS 4.x (`PyQt6`).\n\n"
-                    "### Destaques da Versão 1.2.0:\n"
+                    "Versão 1.2.3 oficial do **GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)** para QGIS 3.28+ e QGIS 4.x (`PyQt6`).\n\n"
+                    "### Destaques da Versão 1.2.3:
+- **Guia em Inglês (QGIS Hub Compliance)**: Resumo e instruções de uso em inglês no metadata.txt e documentação para aprovação oficial no QGIS Plugin Hub.
+- **Parser Local com Frameset**: Suporte aprimorado para páginas HTML do DardoWeb salvas diretamente do navegador.\n"
                     "- **Cruzamento Multidimensional**: Filtre qualquer dimensão (ex: Sexo Trabalhador) por atividades específicas da CNAE (ex: Pecuária, Laticínios).\n"
                     "- **Séries Históricas até 2002**: Suporte a dados até 2005 com CNAE 95 e comutação automática.\n"
                     "- **Interface Responsiva**: Janela ampliada e adaptada a monitores Full HD sem rolagem lateral.\n"

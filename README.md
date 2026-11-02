@@ -4,7 +4,36 @@
 **Repositório / Repository:** [https://github.com/duduluiss/geotrabalho-qgis](https://github.com/duduluiss/geotrabalho-qgis)  
 **Compatibilidade / Compatibility:** QGIS 3.28+ & QGIS 4.x (`PyQt5` / `PyQt6`, `supportsQt6=True`)  
 **Licença / License:** GNU GPL v2+ / v3  
-**Versão / Version:** 1.2.2  
+**Versão / Version:** 1.2.3  
+
+---
+
+## 🌐 Overview & Usage (English — For QGIS Plugin Users & Reviewers)
+
+**GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)** is a QGIS 3 & QGIS 4 (`supportsQt6=True`) plugin for querying, spatialising, and mapping official labor market and firm microdata from Brazil's Ministry of Labor and Employment (MTE - RAIS / CAGED / DardoWeb).
+
+### 🚀 Plugin Usage / How to Use
+1. **Launch the Plugin**:
+   - Click the **GeoTrabalho** icon in the QGIS toolbar or navigate to **Complementos / Plugins -> GeoTrabalho -> Espacializador RAIS/CAGED**.
+2. **Select Data Source**:
+   - **Conexão Online DardoWeb (Recommended)**: Directly queries the MTE OLAP server with public credentials (`basico` / `12345678`) or your own login.
+   - **Arquivo Local (.html)**: Parses previously exported DardoWeb web tables saved on your computer (including single tables or full browser pages with framesets).
+3. **Choose the Database (Base de Dados)**:
+   - **RAIS Vínculos**: Formal employment stocks, wage levels, demographics, and educational attainment.
+   - **RAIS Estabelecimentos**: Active business establishments and enterprise size distribution.
+   - **CAGED**: Monthly job turnover (admissions, dismissals, and net job creation/loss balance).
+4. **Select Reference Period & Territory**:
+   - **Ano**: Choose the reference year (current year 2025 down to historical archives from 2002).
+   - **Abrangência / UF**: Select a specific Brazilian State (e.g., `SC`, `SP`, `MG`) or the entire country (`BR`).
+5. **Configure Cross-Tabulation & Sector Filters**:
+   - **Coluna de Cruzamento**: Group data by CNAE 2.0 Economic Section/Division/Class, Worker Gender, Establishment Size, Age Group, or aggregate Municipality Totals.
+   - **Filtro Setorial / CNAE (Optional)**: Filter demographic cross-tabulations (e.g., gender or firm size) by specific economic activities (such as Cattle Farming, Meat Processing, Footwear, Dairy, etc.).
+6. **Choose Spatial Basis (Base Cartográfica)**:
+   - **Baixar Malha do IBGE automaticamente (Recommended)**: Automatically downloads and caches official municipal polygon meshes via the IBGE API v3.
+   - **Unir a uma camada vetorial existente no projeto**: Joins data to an existing vector layer using the 7-digit IBGE code.
+7. **Execute & Visualise**:
+   - Click **Executar Consulta e Espacializar**.
+   - The plugin queries the server, resolves 7-digit IBGE geocodes for all municipalities, handles missing/zero-job municipalities to prevent polygon gaps, and loads an automatically symbolized layer into the QGIS map canvas.
 
 ---
 
@@ -12,7 +41,7 @@
 
 O **GeoTrabalho - Espacializador RAIS/CAGED** é um complemento para o QGIS projetado para conectar, consultar e espacializar automaticamente dados de emprego formal, empresas e dinâmica econômica do Ministério do Trabalho e Emprego (MTE) via **DardoWeb (bi.trabalho.gov.br)**.
 
-### Principais Recursos (v1.2.2)
+### Principais Recursos (v1.2.3)
 1. **Conexão e Consulta Online Automática**:
    - Conecta-se diretamente ao DardoWeb com usuário e senha públicos (`basico` / `12345678`) ou credenciais próprias.
    - Permite consultar **RAIS Vínculos** (trabalhadores, salários, escolaridade), **RAIS Estabelecimentos** (empresas ativas, porte, distribuição territorial) e **CAGED** (fluxo mensal de contratações, demissões e saldo).
@@ -40,20 +69,5 @@ O **GeoTrabalho - Espacializador RAIS/CAGED** é um complemento para o QGIS proj
    - **Graduado por Quantis / Atividade Filtrada**: mapas coropléticos de volume de empregos na atividade selecionada.
 9. **Interface Responsiva**:
    - Janela otimizada com largura estendida ($920\text{px}$) e proporções calibradas para visualização confortável de todos os campos sem rolagem lateral.
-10. **Importação de Arquivos Locais**:
-   - Suporte a tabelas salvas manualmente em formato HTML pelo DardoWeb.
-
----
-
-## 🌐 Overview (English — For QGIS Plugin Reviewers)
-
-**GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)** is a QGIS 3 & QGIS 4 (`supportsQt6=True`) plugin for spatializing official labor market and firm microdata from Brazil's Ministry of Labor (MTE - RAIS / CAGED / DardoWeb).
-
-- Connects directly to the online OLAP engine (`bi.trabalho.gov.br`) using public or custom credentials.
-- Full support for 2025 current data and historical cube routing back to 2002 with automatic classification back-porting (CNAE 95 and historical schooling grades).
-- Multi-dimensional cross-tabulation: filter demographic dimensions (such as Worker Gender / Establishment Size) by specific economic activities (Livestock, Footwear, Dairy, etc.) via native OLAP server injection.
-- Complete built-in catalog of 21 sections, 87 divisions, 285 groups, and 673 classes with official IBGE codes.
-- Zero-gap mesh preservation: retains all municipal polygons, filling empty/unreported areas with 0 to prevent holes.
-- Automates geocoding to 7-digit IBGE municipal codes for all 5,571 municipalities.
-- Automatically downloads official municipal vector geometries via IBGE v3 Mesh API.
-- Applies specialized labor market cartography (gender predominance, activity choropleths, sector dominance, bipolar employment net flows).
+10. **Importação de Arquivos Locais Flexível**:
+    - Suporte a tabelas salvas manualmente em formato HTML pelo DardoWeb, incluindo arquivos completos salvos pelo navegador com `<frameset>`.

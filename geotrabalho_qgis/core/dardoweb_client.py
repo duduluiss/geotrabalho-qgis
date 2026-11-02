@@ -479,7 +479,7 @@ class DardoWebClient:
         """
         # Extrai os cabeçalhos de coluna a partir das tags <TH ID=zw...>
         raw_headers: List[str] = []
-        for m in re.finditer(r'<TH\s+ID=zw\d+[^>]*>([\s\S]*?)</TH>', html_content, re.I):
+        for m in re.finditer(r'<TH\b[^>]*\bid=["\']?zw\d+["\']?[^>]*>([\s\S]*?)</TH>', html_content, re.I):
             raw_h = m.group(1)
             if "<br>" in raw_h.lower():
                 raw_h = raw_h.split("<br>", 1)[1]
@@ -677,12 +677,15 @@ class DardoWebClient:
         )
 
     def parse_local_file(self, file_path: str, filtro_atividade: Optional[str] = None) -> DardoAggregationResult:
-        """Lê arquivo salvo localmente do DardoWeb (.html, .htm)."""
+        """
+        Lê arquivo salvo localmente do DardoWeb (.html, .htm).
+        Suporta tanto tabelas diretas quanto páginas completas do navegador salvas com <frameset>.
+        """
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
 
         content = ""
-        for enc in ("utf-8", "utf-8-sig", "iso-8859-1"):
+        for enc in ("utf-8", "utf-8-sig", "iso-8859-1", "windows-1252"):
             try:
                 with open(file_path, "r", encoding=enc) as f:
                     content = f.read()
@@ -691,6 +694,24 @@ class DardoWebClient:
                 continue
 
         base_name = os.path.splitext(os.path.basename(file_path))[0]
+
+        # Se for uma página completa do navegador com frameset, resolve o arquivo da tabela
+        if "<frame" in content.lower():
+            m_frame = re.search(r'<frame[^>]*\bname=["\']?tabela["\']?[^>]*\bsrc=["\']([^"\'>]+)["\']', content, re.I)
+            if not m_frame:
+                m_frame = re.search(r'<frame[^>]*\bsrc=["\']([^"\'>]*t\.html?)[^"\']*["\']', content, re.I)
+            if m_frame:
+                rel_src = m_frame.group(1).replace("/", os.sep)
+                frame_path = os.path.normpath(os.path.join(os.path.dirname(file_path), rel_src))
+                if os.path.exists(frame_path):
+                    for enc in ("utf-8", "utf-8-sig", "iso-8859-1", "windows-1252"):
+                        try:
+                            with open(frame_path, "r", encoding=enc) as f_frame:
+                                content = f_frame.read()
+                            break
+                        except UnicodeDecodeError:
+                            continue
+
         if "<table" in content.lower():
             return self.parse_dardo_html(content, base_name=base_name, filtro_atividade=filtro_atividade)
         else:
