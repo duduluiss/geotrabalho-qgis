@@ -16,7 +16,10 @@ def _reload_submodules() -> None:
         "geotrabalho_qgis.core.municipality_mapper",
         "geotrabalho_qgis.core.ibge_api",
         "geotrabalho_qgis.core.dardoweb_client",
+        "geotrabalho_qgis.core.analytics_engine",
+        "geotrabalho_qgis.core.report_renderer",
         "geotrabalho_qgis.core.layer_builder",
+        "geotrabalho_qgis.core.background_job",
         "geotrabalho_qgis.gui.main_dialog",
         "geotrabalho_qgis.plugin",
     ]

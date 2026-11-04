@@ -36,6 +36,7 @@ class MunicipalityMapper:
         self.by_uf_name: Dict[str, Dict[str, str]] = {}
         self.by_ibge: Dict[str, Dict[str, str]] = {}
         self.by_ibge6: Dict[str, Dict[str, str]] = {}
+        self.regional_by_ibge: Dict[str, Dict[str, str]] = {}
         self._load(json_path)
 
     @classmethod
@@ -66,6 +67,25 @@ class MunicipalityMapper:
                 self.by_ibge[ibge_code] = entry
                 if len(ibge_code) >= 6:
                     self.by_ibge6[ibge_code[:6]] = entry
+
+        meso_path = os.path.join(os.path.dirname(json_path), "ibge_mesorregioes_br.json")
+        if os.path.exists(meso_path):
+            try:
+                with open(meso_path, "r", encoding="utf-8") as mf:
+                    self.regional_by_ibge = json.load(mf)
+            except Exception as exc:
+                LOGGER.warning("Falha ao carregar ibge_mesorregioes_br.json: %s", exc)
+
+    def get_regional_info(self, cd_ibge: str) -> Dict[str, str]:
+        """Retorna {'meso', 'micro', 'interm', 'uf', 'nome'} para qualquer município do Brasil (7 ou 6 dígitos)."""
+        code = self.format_ibge_code(cd_ibge)
+        if code in self.regional_by_ibge:
+            return self.regional_by_ibge[code]
+        if len(code) >= 6 and code[:6] in self.by_ibge6:
+            c7 = self.by_ibge6[code[:6]]["ibge"]
+            if c7 in self.regional_by_ibge:
+                return self.regional_by_ibge[c7]
+        return {"meso": "Outras", "micro": "Outras", "interm": "Outras", "uf": "", "nome": ""}
 
     @staticmethod
     def format_ibge_code(raw_code) -> str:

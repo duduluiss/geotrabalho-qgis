@@ -11,17 +11,23 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from qgis.core import (
     QgsCategorizedSymbolRenderer,
+    QgsCentroidFillSymbolLayer,
     QgsCoordinateReferenceSystem,
     QgsFeature,
+    QgsFeatureRequest,
     QgsField,
     QgsFields,
     QgsFillSymbol,
     QgsGeometry,
     QgsGraduatedSymbolRenderer,
+    QgsMarkerSymbol,
     QgsProject,
     QgsProperty,
     QgsRendererCategory,
     QgsRendererRange,
+    QgsSimpleFillSymbolLayer,
+    QgsSimpleMarkerSymbolLayer,
+    QgsSingleSymbolRenderer,
     QgsVectorFileWriter,
     QgsVectorLayer,
     QgsWkbTypes,
@@ -90,20 +96,34 @@ class GeoTrabalhoLayerBuilder:
         cls,
         result: DardoAggregationResult,
         layer_name: str = "GeoTrabalho_Municipios",
-        qualidade: str = "intermediaria",
+        qualidade: str = "auto",
         keep_unmatched_polygons: bool = True,
         progress_callback: Optional[Callable[[int, str], None]] = None,
+        geojson_path: Optional[str] = None,
     ) -> QgsVectorLayer:
-        client = IbgeMalhasClient()
-        geojson_path = client.fetch_geojson_for_ufs(
-            result.detected_ufs,
-            qualidade=qualidade,
-            progress_callback=progress_callback,
-        )
+        """
+        Monta a camada a partir da malha do IBGE. Se `geojson_path` já tiver sido obtido
+        (ex.: baixado em segundo plano), nenhum acesso à rede é feito aqui.
+        """
+        if not geojson_path:
+            client = IbgeMalhasClient()
+            geojson_path = client.fetch_geojson_for_ufs(
+                result.detected_ufs,
+                qualidade=qualidade,
+                progress_callback=progress_callback,
+            )
 
         ibge_layer = QgsVectorLayer(geojson_path, "ibge_malha_temp", "ogr")
         if not ibge_layer.isValid():
-            raise RuntimeError(f"Falha ao carregar malha do IBGE: {geojson_path}")
+            # Arquivo de cache corrompido (download interrompido): remove para forçar novo download
+            try:
+                os.remove(geojson_path)
+            except OSError:
+                pass
+            raise RuntimeError(
+                "Falha ao carregar a malha do IBGE (arquivo de cache inválido foi removido). "
+                "Execute novamente para baixar a malha."
+            )
 
         return cls.build_layer_from_existing_layer(
             result=result,
@@ -150,7 +170,10 @@ class GeoTrabalhoLayerBuilder:
             new_feat.setGeometry(src_feat.geometry())
 
             if rec is not None:
-                attrs = [rec.get(name) for name, _ in result.field_specs]
+                attrs = [
+                    rec.get(name, 0.0 if ftype == "float" else (0 if ftype == "int" else ""))
+                    for name, ftype in result.field_specs
+                ]
             else:
                 info = mapper.by_ibge.get(clean_code, {})
                 nm_official = info.get("nome", "")
@@ -319,6 +342,212 @@ class GeoTrabalhoLayerBuilder:
         layer.triggerRepaint()
 
     @classmethod
+    def build_centroid_point_layer(
+        cls,
+        poly_layer: QgsVectorLayer,
+        target_field: str,
+        layer_name: str = "GeoTrabalho_Circulos",
+    ) -> QgsVectorLayer:
+        """
+        Gera uma camada de pontos (Point) com exatamente 1 centroide por município que possua valor > 0.
+        Para feições multipart (municípios com ilhas/enclaves, ex: Florianópolis), seleciona
+        obrigatoriamente o sub-polígono de maior área superficial antes de extrair o pointOnSurface.
+        Isso elimina duplicação de centroides em ilhas e garante posicionamento representativo.
+        """
+        crs_authid = poly_layer.crs().authid() or "EPSG:4674"
+        pt_layer = QgsVectorLayer(f"Point?crs={crs_authid}", layer_name, "memory")
+        pr = pt_layer.dataProvider()
+        pr.addAttributes(poly_layer.fields().toList())
+        pt_layer.updateFields()
+
+        idx = poly_layer.fields().indexFromName(target_field)
+        new_features: List[QgsFeature] = []
+
+        for feat in poly_layer.getFeatures():
+            # Filtra apenas municípios com valores positivos
+            if idx >= 0:
+                val = feat[idx]
+                if val is None:
+                    continue
+                try:
+                    fval = float(val)
+                    if fval <= 0:
+                        continue
+                except (ValueError, TypeError):
+                    continue
+
+            geom = feat.geometry()
+            if not geom or geom.isEmpty():
+                continue
+
+            if geom.isMultipart():
+                parts = geom.asGeometryCollection()
+                if parts:
+                    main_part = max(parts, key=lambda p: p.area())
+                    pt_geom = main_part.pointOnSurface()
+                else:
+                    pt_geom = geom.pointOnSurface()
+            else:
+                pt_geom = geom.pointOnSurface()
+
+            pt_feat = QgsFeature(pt_layer.fields())
+            pt_feat.setGeometry(pt_geom)
+            pt_feat.setAttributes(feat.attributes())
+            new_features.append(pt_feat)
+
+        pr.addFeatures(new_features)
+        pt_layer.updateExtents()
+        return pt_layer
+
+    @classmethod
+    def apply_base_polygon_symbology(cls, poly_layer: QgsVectorLayer) -> None:
+        """
+        Aplica estilo de mapa base neutro e elegante nos polígonos dos municípios.
+        Permite que a camada de círculos proporcionais sobreposta seja visualizada
+        com máxima clareza cartográfica, sem poluição visual.
+        """
+        poly_sym = QgsFillSymbol()
+        bg = QgsSimpleFillSymbolLayer()
+        bg.setFillColor(QColor("#f8fafc"))    # Slate 50 ultra suave
+        bg.setStrokeColor(QColor("#cbd5e1"))  # Slate 300 sutil
+        bg.setStrokeWidth(0.18)
+        poly_sym.changeSymbolLayer(0, bg)
+
+        poly_layer.setRenderer(QgsSingleSymbolRenderer(poly_sym))
+        poly_layer.triggerRepaint()
+
+    @classmethod
+    def apply_proportional_circles_symbology(
+        cls,
+        pt_layer: QgsVectorLayer,
+        target_field: str = "TOTAL_GERAL",
+        color_scheme: str = "ruby",
+        num_classes: int = 5,
+    ) -> None:
+        """
+        Aplica a técnica cartográfica de Círculos Proporcionais / Símbolos Pontuais Graduados.
+        Esta função atua em uma camada de pontos (Point), onde cada ponto representa um município.
+
+        Garantias cartográficas:
+        1. Ordenação Decrescente (OrderBy target_field DESC): os círculos maiores são desenhados
+           primeiro no fundo, e os círculos menores são desenhados por cima, evitando que cidades
+           grandes engulam cidades vizinhas menores.
+        2. Borda branca e semitransparência (alpha 160-235): permite ler perfeitamente as sobreposições.
+        3. Nunca é cortado ou mordido por polígonos vizinhos, pois os pontos ficam em camada sobreposta.
+        """
+        idx = pt_layer.fields().indexFromName(target_field)
+        if idx < 0:
+            return
+
+        pos_vals: List[float] = []
+        for feat in pt_layer.getFeatures():
+            v = feat[idx]
+            if v is not None:
+                try:
+                    fv = float(v)
+                    if fv > 0:
+                        pos_vals.append(fv)
+                except (ValueError, TypeError):
+                    pass
+
+        if not pos_vals:
+            return
+
+        pos_vals.sort()
+
+        if color_scheme == "blue":
+            # Azul Petróleo / Cobalto
+            rgba_steps = [
+                "37,99,235,160",
+                "29,78,216,180",
+                "30,64,175,200",
+                "30,58,138,220",
+                "15,23,42,235",
+            ]
+        elif color_scheme == "green":
+            # Verde Floresta / Esmeralda
+            rgba_steps = [
+                "22,163,74,160",
+                "21,128,61,180",
+                "22,101,52,200",
+                "20,83,45,220",
+                "6,78,59,235",
+            ]
+        elif color_scheme == "amber":
+            # Âmbar / Laranja
+            rgba_steps = [
+                "245,158,11,165",
+                "217,119,6,185",
+                "180,83,9,205",
+                "146,64,14,225",
+                "120,53,15,240",
+            ]
+        else:
+            # Carmesim / Rubi clássico (Padrão para cartografia de trabalho e indústria)
+            rgba_steps = [
+                "239,68,68,160",   # Vermelho suave
+                "220,38,38,180",   # Vermelho
+                "185,28,28,200",   # Carmesim
+                "153,27,27,220",   # Vinho
+                "127,29,29,235",   # Vinho profundo
+            ]
+
+        # Diâmetros progressivos dos círculos em milímetros (3.5mm a 21.0mm)
+        size_steps = [3.5, 6.5, 10.5, 15.0, 21.0]
+
+        min_pos = pos_vals[0]
+        max_pos = pos_vals[-1]
+        k = min(num_classes, len(pos_vals))
+
+        breaks = [min_pos]
+        for c_idx in range(1, k):
+            q_pos = int(round((c_idx / k) * (len(pos_vals) - 1)))
+            b_val = pos_vals[q_pos]
+            if b_val <= breaks[-1]:
+                b_val = breaks[-1] + (max_pos - min_pos) / k
+            breaks.append(min(max_pos, b_val))
+        breaks.append(max_pos)
+
+        is_integer_range = all(v.is_integer() for v in breaks)
+        ranges: List[QgsRendererRange] = []
+
+        for i in range(k):
+            low = breaks[i]
+            high = breaks[i + 1]
+            sz = size_steps[min(i, len(size_steps) - 1)]
+            rgba = rgba_steps[min(i, len(rgba_steps) - 1)]
+
+            sym = QgsMarkerSymbol.createSimple({
+                "name": "circle",
+                "color": rgba,
+                "outline_color": "#ffffff",
+                "outline_width": "0.35",
+                "size": str(sz),
+            })
+
+            if is_integer_range:
+                lbl = f"{int(round(low)):,} a {int(round(high)):,}".replace(",", ".")
+            else:
+                lbl = f"{low:,.1f} a {high:,.1f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            ranges.append(QgsRendererRange(low, high, sym, lbl))
+
+        renderer = QgsGraduatedSymbolRenderer(target_field, ranges)
+        # Ordenação decrescente: desenha os maiores círculos primeiro (fundo) e os menores por cima
+        renderer.setOrderBy(QgsFeatureRequest.OrderBy([
+            QgsFeatureRequest.OrderByClause(target_field, ascending=False)
+        ]))
+        renderer.setOrderByEnabled(True)
+
+        pt_layer.setRenderer(renderer)
+        pt_layer.triggerRepaint()
+
+
+
+
+
+
+
+    @classmethod
     def apply_activity_filter_symbology(
         cls,
         layer: QgsVectorLayer,
@@ -370,3 +599,9 @@ class GeoTrabalhoLayerBuilder:
         renderer = QgsGraduatedSymbolRenderer(target_field, ranges)
         layer.setRenderer(renderer)
         layer.triggerRepaint()
+
+
+
+
+
+

@@ -3,33 +3,37 @@ name=GeoTrabalho - Espacializador RAIS/CAGED (DardoWeb)
 qgisMinimumVersion=3.28
 qgisMaximumVersion=4.99
 supportsQt6=True
-description=Directly query, spatialise and map Brazilian labour market data (RAIS and CAGED via MTE DardoWeb) by municipality in QGIS with automatic IBGE mesh download and CNAE economic sector filters.
-about=Connects QGIS directly to Brazil's Ministry of Labour and Employment (MTE) DardoWeb platform (bi.trabalho.gov.br) to query and spatialise formal employment statistics (RAIS) and monthly job turnover (CAGED) by municipality across Brazil.
+description=Directly query, spatialise, map and generate historical series tables and charts from Brazilian labour market data (RAIS and CAGED via MTE DardoWeb) by municipality and IBGE Mesoregion in QGIS.
+about=Connects QGIS directly to Brazil's Ministry of Labour and Employment (MTE) DardoWeb platform (bi.trabalho.gov.br) to query, spatialise, and generate multi-year analytical tables and high-resolution charts for formal employment (RAIS) and job turnover (CAGED) across all 5,571 Brazilian municipalities and 137 IBGE Mesoregions.
  .
  USAGE:
  1. Open the plugin from the QGIS toolbar icon or 'Plugins -> GeoTrabalho'.
- 2. Select the Data Source: 'Conexão Online DardoWeb' for direct web queries, or 'Arquivo Local (.html)' to load a saved DardoWeb table.
- 3. Choose the Database: RAIS Employment (Vínculos), RAIS Establishments (Active firms), or CAGED (Hiring/Firing flow).
- 4. Select the Year (current 2025 down to 2002) and State (UF) or all Brazil.
- 5. (Optional) Choose a cross-tabulation dimension (CNAE Economic Sector, Worker Gender, Firm Size, Age Group, Education, or Municipality Totals).
- 6. (Optional) Apply a specific CNAE activity filter (Section, Division, Group, or Class, e.g. Cattle Farming, Meat Processing, Dairy, Footwear).
- 7. Select the Spatial Basis: automatically download official municipal boundary polygons from the IBGE API v3 or join to an existing vector layer.
- 8. Click 'Executar Consulta e Espacializar' to generate an automatically styled thematic layer (CNAE Sector Predominance, Graduated Choropleth, or Divergent CAGED Balance).
+ 2. Tab 1 ('1. Configuracao e Espacializacao'): Select Online DardoWeb or Local HTML, choose RAIS Vinculos, RAIS Estabelecimentos or CAGED, pick Year (2025 down to 2002), State (UF), Cross-tabulation (CNAE, Gender, Firm Size, Age, Education, Nationality, Wage Bracket, Job Tenure, Legal Nature, CBO) and optional CNAE sector filter, then click 'Consultar e Gerar Camada no QGIS'.
+ 3. Tab 2 ('2. Relatorios, Tabelas e Graficos - Serie Historica'): Choose UF, multiple years (e.g. 2010, 2015, 2020, 2025), CNAE activity filter, Top N ranking size, IBGE Regionalization (Mesoregion, Intermediate Region, or Microregion), and check the desired analytical modules (Spatial Dynamics & Top N Ranking, Worker Demographic/Migration Profile, Wages & Gender Pay Gap, Industrial Firm Size & Job Tenure).
+ 4. Click 'Gerar Tabelas Prontas (PNG/CSV) e Graficos da Serie Historica' to automatically export publication-ready 300 DPI PNG tables, CSV spreadsheets, high-resolution charts, and an interactive HTML report.
  .
  [PORTUGUÊS]:
- Plugin desenvolvido para QGIS 4 e QGIS 3 por Luís Eduardo Araújo de Souza. Conecta diretamente à plataforma DardoWeb (bi.trabalho.gov.br) para consultar estoques de empregos formais (RAIS Vínculos), estabelecimentos ativos e porte de empresas (RAIS Estabelecimentos) e fluxo de contratações/demissões (CAGED). Suporta ano corrente 2025 até séries históricas de 2002, filtragem detalhada por atividades específicas da CNAE (Seção, Divisão, Grupo e Classe), converte os nomes para o código IBGE oficial de 7 dígitos, baixa a malha municipal pela API de Malhas v3 do IBGE e aplica automaticamente simbologias de Predominância Setorial CNAE, Saldo Divergente do CAGED e Mapas Graduados de Atividades Específicas.
-version=1.2.3
+ Plugin desenvolvido para QGIS 4 e QGIS 3 por Luís Eduardo Araújo de Souza. Conecta diretamente à plataforma DardoWeb (bi.trabalho.gov.br) para consultar e espacializar estoques de empregos formais (RAIS Vínculos), estabelecimentos ativos (RAIS Estabelecimentos) e movimentação (CAGED), além de gerar automaticamente relatórios multitemporais, tabelas acadêmicas prontas (Top N municípios com variação percentual, Subtotal, Total Estadual, Quadro Global de Evolução, Porte Médio vínc./planta e Síntese por Mesorregião IBGE para todo o Brasil) e gráficos analíticos em alta resolução (300 DPI) abrangendo vínculo, porte, sexo, escolaridade, faixa etária, imigração (nacionalidade), salários (em SM e R$), hiato salarial de gênero e rotatividade.
+version=1.3.0
 author=Luís Eduardo Araújo de Souza
 email=luisaraujodesouza.geo@gmail.com
 category=Vector
 icon=icon.png
-tags=rais,caged,trabalho,mte,employment,jobs,labour,cnae,companies,ibge,brazil,economy
+tags=rais,caged,trabalho,mte,employment,jobs,labour,cnae,companies,ibge,brazil,economy,charts,mesorregiao
 homepage=https://github.com/duduluiss/geotrabalho-qgis
 repository=https://github.com/duduluiss/geotrabalho-qgis
 tracker=https://github.com/duduluiss/geotrabalho-qgis/issues
 experimental=False
 deprecated=False
 changelog=
+ 1.3.0:
+  - Nova aba '2. Relatorios, Tabelas e Graficos (Serie Historica)' com geracao automatica de tabelas prontas (PNG 300 DPI, CSV e HTML) e graficos multitemporais
+  - Dicionario nacional integrado com todas as 137 Mesorregioes, Regioes Intermediarias e Microrregioes do IBGE para todos os 5.571 municipios brasileiros
+  - Tabelas automaticas de Ranking Top N Municipios (Vinculos e Estabelecimentos) com calculo de Variacao %%, Subtotal Top N (%%) e Total Estadual (100%%)
+  - Quadro de Evolucao Global, Porte Medio (Vinc./Estab.) e painel duplo de graficos por Mesorregiao IBGE (%% Vinculos vs. %% Estabelecimentos e Porte Medio com linha da Media Estadual)
+  - Novos modulos de graficos e tabelas para Perfil Demografico/Imigracao (Sexo, Escolaridade, Faixa Etaria, Nacionalidade), Remuneracao (Salario Medio em SM, Faixas Salariais, Hiato de Genero) e Estrutura Industrial (Faixas de Porte ate 1.000+ vinculos e Tempo de Emprego)
+  - Nova tecnica cartografica de Circulos Proporcionais no Centroide (Graduados) com camada base neutra + pontos ordenados por volume (maiores ao fundo, menores no topo), centroide unico em municipios multipart e 4 paletas elegantes
+  - Otimizacao do download de malhas do IBGE por Grandes Regioes para evitar timeout nacional e cache atomico permanente
  1.2.3:
   - Add English description of plugin usage in metadata.txt and documentation for QGIS Hub guidelines
   - Enhanced parsing for saved HTML tables with frameset and quote-delimited headers
@@ -43,15 +47,9 @@ changelog=
   - Suporte a filtros setoriais da CNAE combinados com qualquer dimensão (Sexo Trabalhador, Tamanho do Estabelecimento, Faixa Etária, etc.)
   - Injeção automática de seleções nativas (YZ/YC) no servidor DardoWeb para cruzamentos multivariados
   - Compatibilização e comutação automática para séries históricas até 2005 (CNAE 95 e Grau de Instrução 1985-2005)
-  - Janela ampliada e responsiva evitando rolagem lateral e cortes de texto
-  - Catálogo completo estruturado com 21 seções, 87 divisões, 285 grupos e 673 classes e códigos oficiais do IBGE
  1.1.1:
-  - Correção de 'buracos' na malha municipal (100%% dos polígonos municipais preservados, com atribuição de 0 vagas para cidades sem atividade ou ausentes no DardoWeb)
-  - Resolução aprimorada de grafias com hífens e apóstrofos (ex: Grão-Pará, Herval d'Oeste)
-  - Correção do código IBGE de Santiago do Sul (SC)
+  - Correção de 'buracos' na malha municipal (100%% dos polígonos municipais preservados)
  1.1.0:
-  - Adicionado suporte nativo e pré-seleção do ano 2025 (ano corrente) e roteamento automático de cubos para séries históricas até 2002
-  - Menus dropdown dinâmicos encadeados para os 4 níveis CNAE 2.0: Seção (21), Divisão (87), Grupo (273) e Classe (673)
-  - Cálculo automático de Total Consolidado da Atividade Filtrada (VINC_FILTR) e Percentual sobre a Economia Municipal (PCT_FILTR)
+  - Adicionado suporte nativo e pré-seleção do ano 2025 e roteamento automático de cubos para séries históricas até 2002
  1.0.0:
   - Versão inicial com conexão DardoWeb, mapeamento IBGE 7 dígitos, API de Malhas IBGE v3 e mapas de predominância e saldo CAGED
