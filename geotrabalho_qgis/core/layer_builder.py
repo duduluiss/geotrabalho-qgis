@@ -118,8 +118,8 @@ class GeoTrabalhoLayerBuilder:
             # Arquivo de cache corrompido (download interrompido): remove para forçar novo download
             try:
                 os.remove(geojson_path)
-            except OSError:
-                pass
+            except OSError as exc:
+                LOGGER.debug("Nao foi possivel remover arquivo corrompido %s: %s", geojson_path, exc)
             raise RuntimeError(
                 "Falha ao carregar a malha do IBGE (arquivo de cache inválido foi removido). "
                 "Execute novamente para baixar a malha."
@@ -296,7 +296,7 @@ class GeoTrabalhoLayerBuilder:
                 try:
                     vals.append(float(v))
                 except (ValueError, TypeError):
-                    pass
+                    continue
 
         if not vals:
             return
@@ -448,7 +448,7 @@ class GeoTrabalhoLayerBuilder:
                     if fv > 0:
                         pos_vals.append(fv)
                 except (ValueError, TypeError):
-                    pass
+                    continue
 
         if not pos_vals:
             return

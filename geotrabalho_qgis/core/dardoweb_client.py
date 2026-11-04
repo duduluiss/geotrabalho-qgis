@@ -106,8 +106,8 @@ def get_cube_config(base_cubo: str, ano: str) -> Dict[str, str]:
     ano_int = 2025
     try:
         ano_int = int(str(ano).strip())
-    except ValueError:
-        pass
+    except ValueError as exc:
+        LOGGER.debug("Ano invalido '%s', adotando 2025: %s", ano, exc)
 
     if base_cubo == "rais_vinculos":
         if ano_int >= 2022:
@@ -224,13 +224,13 @@ class DardoWebClient:
                 if raw[:2] == b"\x1f\x8b" or "gzip" in content_enc:
                     try:
                         raw = gzip.decompress(raw)
-                    except Exception:
-                        pass
+                    except (gzip.BadGzipFile, OSError) as exc:
+                        LOGGER.debug("Falha na descompressao gzip do payload: %s", exc)
                 elif "deflate" in content_enc:
                     try:
                         raw = zlib.decompress(raw)
-                    except Exception:
-                        pass
+                    except zlib.error as exc:
+                        LOGGER.debug("Falha na descompressao deflate do payload: %s", exc)
                 loc = resp.getheader("Location")
                 return resp.status, loc, raw
             except TimeoutError:
@@ -352,8 +352,8 @@ class DardoWebClient:
         ano_int = 2025
         try:
             ano_int = int(str(ano).strip())
-        except ValueError:
-            pass
+        except ValueError as exc:
+            LOGGER.debug("Ano invalido '%s', adotando 2025: %s", ano, exc)
 
         col_efetiva = coluna_cruzamento if coluna_cruzamento else "---------Não---------"
         is_cnae_col = any(c in col_efetiva for c in ("CNAE 2.0", "CNAE 95"))
