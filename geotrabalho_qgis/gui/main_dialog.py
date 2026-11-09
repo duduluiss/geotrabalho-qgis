@@ -47,6 +47,7 @@ from ..core.background_job import BackgroundJob
 from ..core.dardoweb_client import DardoWebClient
 from ..core.ibge_api import IbgeMalhasClient
 from ..core.layer_builder import GeoTrabalhoLayerBuilder
+from ..core.municipality_mapper import MunicipalityMapper, MACRORREGIOES, UF_TO_MACRO
 from ..core.report_renderer import export_full_report_bundle
 
 LOGGER = logging.getLogger("GeoTrabalho")
@@ -114,6 +115,16 @@ REPORT_CATEGORIES: List[Tuple[str, List[Tuple[str, str, Dict[str, Any]]]]] = [
                 "esp_concentracao_cr",
                 "Concentração Espacial (CR4, Top 10 e Demais)",
                 {"default_out": "chart"},
+            ),
+            (
+                "esp_quociente_locacional",
+                "Quociente Locacional - QL (Pólos e Especialização Regional)",
+                {"has_topn": True, "has_rank_style": True, "default_out": "both"},
+            ),
+            (
+                "esp_massa_salarial",
+                "Massa Salarial Estimada (Vínculos x Remuneração Média em R$)",
+                {"has_topn": True, "has_rank_style": True, "default_out": "both"},
             ),
         ],
     ),
@@ -271,9 +282,11 @@ class GeoTrabalhoDialog(QDialog):
         self.iface = iface
         self.client = DardoWebClient()
         self.analytics_engine = GeoTrabalhoAnalyticsEngine(self.client)
+        self.mapper = MunicipalityMapper.instance()
         self._layer_map: Dict[str, QgsVectorLayer] = {}
         self._cnae_catalog = load_cnae_catalog()
         self._last_report_export: Optional[Dict[str, Any]] = None
+        self._last_regional_export: Optional[Dict[str, Any]] = None
         self._preview_items: List[Tuple[str, str]] = []
         self._year_checkboxes: Dict[str, QCheckBox] = {}
         self._subtab_lists: List[QListWidget] = []
@@ -284,8 +297,11 @@ class GeoTrabalhoDialog(QDialog):
         self.setWindowTitle("GeoTrabalho - Espacializador e Relatórios RAIS/CAGED (DardoWeb / MTE)")
         self._setup_ui()
         self._populate_project_layers()
+        self._on_escopo_changed()
         self._on_filtro_nivel_changed()
         self._on_rep_filtro_nivel_changed()
+        self._on_reg_escopo_changed()
+        self._on_reg_filtro_nivel_changed()
         self._update_contextual_options()
         self._adjust_to_screen()
 
@@ -381,21 +397,58 @@ class GeoTrabalhoDialog(QDialog):
         self.cmb_ano.currentIndexChanged.connect(self._on_ano_changed)
         grid_online.addWidget(self.cmb_ano, 1, 1)
 
-        grid_online.addWidget(QLabel("UF:"), 1, 2)
+        grid_online.addWidget(QLabel("Escopo Territorial:"), 1, 2)
+        self.cmb_escopo = QComboBox()
+        self.cmb_escopo.addItem("Estado (Apenas UF)", "uf")
+        self.cmb_escopo.addItem("Mesorregião (IBGE)", "meso")
+        self.cmb_escopo.addItem("Macrorregião (IBGE)", "macro")
+        self.cmb_escopo.addItem("Brasil Inteiro (Todas as UFs)", "brasil")
+        self.cmb_escopo.currentIndexChanged.connect(self._on_escopo_changed)
+        grid_online.addWidget(self.cmb_escopo, 1, 3)
+
+        self.lbl_recorte = QLabel("UF:")
+        grid_online.addWidget(self.lbl_recorte, 2, 0)
+
+        self.wid_recorte = QWidget()
+        lay_recorte = QHBoxLayout(self.wid_recorte)
+        lay_recorte.setContentsMargins(0, 0, 0, 0)
+        lay_recorte.setSpacing(4)
+
         self.cmb_uf = QComboBox()
-        self.cmb_uf.addItem("TODAS (Brasil)", "BR")
         for u in sorted(BRAZIL_UFS):
             self.cmb_uf.addItem(u, u)
         self.cmb_uf.setCurrentText("SC")
-        grid_online.addWidget(self.cmb_uf, 1, 3)
+        self.cmb_uf.currentIndexChanged.connect(self._on_uf_changed)
+        lay_recorte.addWidget(self.cmb_uf)
+
+        self.cmb_macro = QComboBox()
+        for m in self.mapper.get_macrorregioes():
+            self.cmb_macro.addItem(m, m)
+        self.cmb_macro.setCurrentText("Sul")
+        self.cmb_macro.currentIndexChanged.connect(self._on_macro_changed)
+        self.cmb_macro.setVisible(False)
+        lay_recorte.addWidget(self.cmb_macro)
+
+        self.lbl_scope_info = QLabel("")
+        self.lbl_scope_info.setStyleSheet("color: #64748b; font-size: 11px;")
+        self.lbl_scope_info.setVisible(False)
+        lay_recorte.addWidget(self.lbl_scope_info)
+
+        grid_online.addWidget(self.wid_recorte, 2, 1)
+
+        self.lbl_meso = QLabel("Mesorregião:")
+        grid_online.addWidget(self.lbl_meso, 2, 2)
+        self.cmb_meso = QComboBox()
+        self.cmb_meso.setToolTip("Opcional: filtre apenas os municípios pertencentes a uma mesorregião do IBGE")
+        grid_online.addWidget(self.cmb_meso, 2, 3)
 
         self.lbl_ano_info = QLabel("")
         self.lbl_ano_info.setWordWrap(True)
         self.lbl_ano_info.setStyleSheet("color: #b45309; font-size: 11px; font-weight: bold; padding: 2px;")
         self.lbl_ano_info.setVisible(False)
-        grid_online.addWidget(self.lbl_ano_info, 2, 0, 1, 4)
+        grid_online.addWidget(self.lbl_ano_info, 3, 0, 1, 4)
 
-        grid_online.addWidget(QLabel("Cruzamento:"), 3, 0)
+        grid_online.addWidget(QLabel("Cruzamento:"), 4, 0)
         self.cmb_coluna = QComboBox()
         self.cmb_coluna.addItem("CNAE 2.0 Seção (21 Grandes Setores)", ("CNAE 2.0 Seção", "secoes"))
         self.cmb_coluna.addItem("CNAE 2.0 Divisão (87 Ramos)", ("CNAE 2.0 Div", "divisoes"))
@@ -412,9 +465,9 @@ class GeoTrabalhoDialog(QDialog):
         self.cmb_coluna.addItem("CBO 2002 Grande Grupo Ocupacional", ("CBO 2002 Gr Grupo", "cbo_gr"))
         self.cmb_coluna.addItem("Apenas Total por Município (Sem cruzamento)", ("---------Não---------", "none"))
         self.cmb_coluna.currentIndexChanged.connect(self._on_coluna_changed)
-        grid_online.addWidget(self.cmb_coluna, 3, 1, 1, 3)
+        grid_online.addWidget(self.cmb_coluna, 4, 1, 1, 3)
 
-        grid_online.addWidget(QLabel("Indicador:"), 4, 0)
+        grid_online.addWidget(QLabel("Indicador:"), 5, 0)
         self.cmb_indicador = QComboBox()
         self.cmb_indicador.addItem("Quantidade (Vínculos ou Empresas)", ("->Frequência", "Soma"))
         self.cmb_indicador.addItem("Remuneração Média em Reais (R$)", ("Vl Remun Média Nom", "Média"))
@@ -422,9 +475,9 @@ class GeoTrabalhoDialog(QDialog):
         self.cmb_indicador.addItem("Massa Salarial Total em Reais (Soma R$)", ("Vl Remun Média Nom", "Soma"))
         self.cmb_indicador.addItem("Tempo Médio de Emprego (Meses)", ("Tempo Emprego", "Média"))
         self.cmb_indicador.addItem("Idade Média dos Trabalhadores (Anos)", ("Idade", "Média"))
-        grid_online.addWidget(self.cmb_indicador, 4, 1, 1, 3)
+        grid_online.addWidget(self.cmb_indicador, 5, 1, 1, 3)
 
-        grid_online.addWidget(QLabel("Filtro CNAE:"), 5, 0)
+        grid_online.addWidget(QLabel("Filtro CNAE:"), 6, 0)
         self.cmb_filtro_nivel = QComboBox()
         self.cmb_filtro_nivel.addItem("[Toda a Economia (Sem filtro)]", "none")
         self.cmb_filtro_nivel.addItem("Seção CNAE (21 Grandes Setores)", "secoes")
@@ -432,12 +485,12 @@ class GeoTrabalhoDialog(QDialog):
         self.cmb_filtro_nivel.addItem("Grupo CNAE (285 Grupos)", "grupos")
         self.cmb_filtro_nivel.addItem("Classe CNAE (673 Classes)", "classes")
         self.cmb_filtro_nivel.currentIndexChanged.connect(self._on_filtro_nivel_changed)
-        grid_online.addWidget(self.cmb_filtro_nivel, 5, 1, 1, 3)
+        grid_online.addWidget(self.cmb_filtro_nivel, 6, 1, 1, 3)
 
-        grid_online.addWidget(QLabel("Atividade:"), 6, 0)
+        grid_online.addWidget(QLabel("Atividade:"), 7, 0)
         self.cmb_atividade = QComboBox()
         self._setup_searchable_combo(self.cmb_atividade)
-        grid_online.addWidget(self.cmb_atividade, 6, 1, 1, 3)
+        grid_online.addWidget(self.cmb_atividade, 7, 1, 1, 3)
         grid_online.setColumnStretch(1, 1)
         grid_online.setColumnStretch(3, 1)
 
@@ -501,6 +554,7 @@ class GeoTrabalhoDialog(QDialog):
         row_symb.addWidget(QLabel("Simbologia:"))
         self.cmb_symbology = QComboBox()
         self.cmb_symbology.addItem("Automática (Atividade Filtrada ou Predominância)", "auto")
+        self.cmb_symbology.addItem("Quociente Locacional - QL (Pólos e Especialização Regional)", "ql")
         self.cmb_symbology.addItem("Círculos Proporcionais no Centroide (Vermelho Carmesim)", "proportional_circles")
         self.cmb_symbology.addItem("Círculos Proporcionais no Centroide (Azul Petróleo)", "proportional_circles_blue")
         self.cmb_symbology.addItem("Círculos Proporcionais no Centroide (Verde Floresta)", "proportional_circles_green")
@@ -525,7 +579,12 @@ class GeoTrabalhoDialog(QDialog):
         self._build_reports_tab()
 
         # =============================================================
-        # ABA 3: Log de Execução
+        # ABA 3: Análise Regional e Especialização
+        # =============================================================
+        self._build_regional_analysis_tab()
+
+        # =============================================================
+        # ABA 4: Log de Execução
         # =============================================================
         log_page = QWidget()
         vbox_log = QVBoxLayout(log_page)
@@ -533,7 +592,7 @@ class GeoTrabalhoDialog(QDialog):
         self.txt_log = QTextEdit()
         self.txt_log.setReadOnly(True)
         vbox_log.addWidget(self.txt_log)
-        self.tabs.addTab(log_page, "3. Log de Execução")
+        self.tabs.addTab(log_page, "4. Log de Execução")
 
         # Rodapé compacto
         footer = QHBoxLayout()
@@ -872,6 +931,708 @@ class GeoTrabalhoDialog(QDialog):
         rep_scroll.setWidget(rep_page)
         self.tabs.addTab(rep_scroll, "2. Relatórios, Tabelas e Gráficos")
 
+    # ------------------------------------------------------------------
+    # Handlers de Escala Territorial e Mesorregiões (Aba 1)
+    # ------------------------------------------------------------------
+    def _on_escopo_changed(self) -> None:
+        if not hasattr(self, "cmb_escopo"):
+            return
+        escopo = self.cmb_escopo.currentData()
+        if escopo == "uf":
+            self.lbl_recorte.setText("UF:")
+            self.cmb_uf.setVisible(True)
+            self.cmb_macro.setVisible(False)
+            self.lbl_scope_info.setVisible(False)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(False)
+            self.cmb_meso.clear()
+            self.cmb_meso.addItem("[Apenas a UF inteira (Sem filtro de mesorregião)]", "")
+            self.cmb_meso.setEnabled(False)
+        elif escopo == "meso":
+            self.lbl_recorte.setText("UF da Mesorregião:")
+            self.cmb_uf.setVisible(True)
+            self.cmb_macro.setVisible(False)
+            self.lbl_scope_info.setVisible(False)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(True)
+            self.cmb_meso.setEnabled(True)
+            self._update_mesorregioes_combo()
+        elif escopo == "macro":
+            self.lbl_recorte.setText("Macrorregião:")
+            self.cmb_uf.setVisible(False)
+            self.cmb_macro.setVisible(True)
+            self.lbl_scope_info.setVisible(True)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(True)
+            self.cmb_meso.setEnabled(True)
+            self._on_macro_changed()
+        else:  # brasil
+            self.lbl_recorte.setText("Abrangência:")
+            self.cmb_uf.setVisible(False)
+            self.cmb_macro.setVisible(False)
+            self.lbl_scope_info.setVisible(True)
+            self.lbl_scope_info.setText("Brasil (27 UFs)")
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(False)
+            self.cmb_meso.clear()
+            self.cmb_meso.addItem("[Todo o Território Nacional]", "")
+            self.cmb_meso.setEnabled(False)
+
+    def _on_uf_changed(self) -> None:
+        if hasattr(self, "cmb_escopo") and self.cmb_escopo.currentData() in ("uf", "meso"):
+            self._update_mesorregioes_combo()
+
+    def _on_macro_changed(self) -> None:
+        if not hasattr(self, "cmb_macro"):
+            return
+        macro = self.cmb_macro.currentData()
+        ufs = MunicipalityMapper.get_ufs_for_macro(macro)
+        self.lbl_scope_info.setText(f"({', '.join(ufs)})")
+        if hasattr(self, "cmb_escopo") and self.cmb_escopo.currentData() == "macro":
+            self._update_mesorregioes_combo()
+
+    def _update_mesorregioes_combo(self) -> None:
+        if not hasattr(self, "cmb_meso"):
+            return
+        self.cmb_meso.clear()
+        escopo = self.cmb_escopo.currentData() if hasattr(self, "cmb_escopo") else "uf"
+        if escopo == "uf":
+            self.cmb_meso.addItem("[Apenas a UF inteira (Sem filtro de mesorregião)]", "")
+            self.cmb_meso.setEnabled(False)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(False)
+        elif escopo == "meso":
+            uf = self.cmb_uf.currentData() if hasattr(self, "cmb_uf") else "SC"
+            mesos = self.mapper.get_mesorregioes_for_uf(uf)
+            for m in mesos:
+                self.cmb_meso.addItem(m, m)
+            self.cmb_meso.setEnabled(True)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(True)
+        elif escopo == "macro":
+            macro = self.cmb_macro.currentData() if hasattr(self, "cmb_macro") else "Sul"
+            self.cmb_meso.addItem(f"[Toda a Região {macro} (Sem filtro de mesorregião)]", "")
+            for m in self.mapper.get_mesorregioes_for_macro(macro):
+                self.cmb_meso.addItem(m, m)
+            self.cmb_meso.setEnabled(True)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(True)
+        else:
+            self.cmb_meso.addItem("[Todas as Mesorregiões do País]", "")
+            self.cmb_meso.setEnabled(False)
+            if hasattr(self, "lbl_meso"):
+                self.lbl_meso.setEnabled(False)
+
+    # ------------------------------------------------------------------
+    # ABA 3: Análise Regional e Especialização Produtiva (QL e Massa Salarial)
+    # ------------------------------------------------------------------
+    def _build_regional_analysis_tab(self) -> None:
+        """Constrói a Aba 3 dedicada à Análise Regional e Especialização Produtiva (QL, Massa Salarial e Pólos)."""
+        reg_scroll = QScrollArea()
+        reg_scroll.setWidgetResizable(True)
+        reg_scroll.setFrameShape(QFrame.Shape.NoFrame if hasattr(QFrame, "Shape") else QFrame.NoFrame)
+
+        reg_page = QWidget()
+        reg_layout = QVBoxLayout(reg_page)
+        reg_layout.setContentsMargins(6, 6, 6, 6)
+        reg_layout.setSpacing(8)
+
+        # 1. Recorte Territorial e Abrangência Regional
+        grp_geo = QGroupBox("1. Recorte Territorial e Abrangência")
+        grid_geo = QGridLayout(grp_geo)
+        grid_geo.setContentsMargins(8, 6, 8, 6)
+        grid_geo.setHorizontalSpacing(8)
+        grid_geo.setVerticalSpacing(5)
+
+        grid_geo.addWidget(QLabel("Escopo Territorial:"), 0, 0)
+        self.cmb_reg_escopo = QComboBox()
+        self.cmb_reg_escopo.addItem("Estado (Apenas UF)", "uf")
+        self.cmb_reg_escopo.addItem("Mesorregião (IBGE)", "meso")
+        self.cmb_reg_escopo.addItem("Macrorregião (IBGE)", "macro")
+        self.cmb_reg_escopo.addItem("Brasil Inteiro (Todas as UFs)", "brasil")
+        self.cmb_reg_escopo.currentIndexChanged.connect(self._on_reg_escopo_changed)
+        grid_geo.addWidget(self.cmb_reg_escopo, 0, 1)
+
+        btn_reg_sync = make_compact_button("Copiar da Aba 1")
+        btn_reg_sync.setToolTip("Importa a escala territorial, recorte e atividade configurados na Aba 1")
+        btn_reg_sync.clicked.connect(self._sync_regional_from_tab1)
+        grid_geo.addWidget(btn_reg_sync, 0, 2)
+
+        self.lbl_reg_recorte = QLabel("UF:")
+        grid_geo.addWidget(self.lbl_reg_recorte, 1, 0)
+
+        self.wid_reg_recorte = QWidget()
+        lay_reg_rec = QHBoxLayout(self.wid_reg_recorte)
+        lay_reg_rec.setContentsMargins(0, 0, 0, 0)
+        lay_reg_rec.setSpacing(4)
+
+        self.cmb_reg_uf = QComboBox()
+        for u in sorted(BRAZIL_UFS):
+            self.cmb_reg_uf.addItem(u, u)
+        self.cmb_reg_uf.setCurrentText("SC")
+        self.cmb_reg_uf.currentIndexChanged.connect(self._on_reg_uf_changed)
+        lay_reg_rec.addWidget(self.cmb_reg_uf)
+
+        self.cmb_reg_macro = QComboBox()
+        for m in self.mapper.get_macrorregioes():
+            self.cmb_reg_macro.addItem(m, m)
+        self.cmb_reg_macro.setCurrentText("Sul")
+        self.cmb_reg_macro.currentIndexChanged.connect(self._on_reg_macro_changed)
+        self.cmb_reg_macro.setVisible(False)
+        lay_reg_rec.addWidget(self.cmb_reg_macro)
+
+        self.lbl_reg_scope_info = QLabel("")
+        self.lbl_reg_scope_info.setStyleSheet("color: #64748b; font-size: 11px;")
+        self.lbl_reg_scope_info.setVisible(False)
+        lay_reg_rec.addWidget(self.lbl_reg_scope_info)
+
+        grid_geo.addWidget(self.wid_reg_recorte, 1, 1, 1, 2)
+
+        self.lbl_reg_meso = QLabel("Mesorregião (IBGE):")
+        grid_geo.addWidget(self.lbl_reg_meso, 2, 0)
+        self.cmb_reg_meso = QComboBox()
+        self.cmb_reg_meso.setToolTip("Filtre uma mesorregião específica para zoom e análise local, ou analise todas")
+        grid_geo.addWidget(self.cmb_reg_meso, 2, 1, 1, 2)
+
+        reg_layout.addWidget(grp_geo)
+
+        # 2. Período e Atividade Econômica (CNAE)
+        grp_cnae = QGroupBox("2. Período e Atividade Econômica (CNAE)")
+        grid_cnae = QGridLayout(grp_cnae)
+        grid_cnae.setContentsMargins(8, 6, 8, 6)
+        grid_cnae.setHorizontalSpacing(8)
+        grid_cnae.setVerticalSpacing(5)
+
+        grid_cnae.addWidget(QLabel("Ano Base:"), 0, 0)
+        self.cmb_reg_ano = QComboBox()
+        for y in range(2025, 2001, -1):
+            self.cmb_reg_ano.addItem(str(y), str(y))
+        self.cmb_reg_ano.setCurrentText("2025")
+        grid_cnae.addWidget(self.cmb_reg_ano, 0, 1)
+
+        grid_cnae.addWidget(QLabel("Nível CNAE:"), 0, 2)
+        self.cmb_reg_filtro_nivel = QComboBox()
+        self.cmb_reg_filtro_nivel.addItem("Divisão CNAE (87 Ramos)", "divisoes")
+        self.cmb_reg_filtro_nivel.addItem("Seção CNAE (21 Grandes Setores)", "secoes")
+        self.cmb_reg_filtro_nivel.addItem("Grupo CNAE (285 Grupos)", "grupos")
+        self.cmb_reg_filtro_nivel.addItem("Classe CNAE (673 Classes)", "classes")
+        self.cmb_reg_filtro_nivel.currentIndexChanged.connect(self._on_reg_filtro_nivel_changed)
+        grid_cnae.addWidget(self.cmb_reg_filtro_nivel, 0, 3)
+
+        grid_cnae.addWidget(QLabel("Atividade Econômica:"), 1, 0)
+        self.cmb_reg_atividade = QComboBox()
+        self._setup_searchable_combo(self.cmb_reg_atividade)
+        grid_cnae.addWidget(self.cmb_reg_atividade, 1, 1, 1, 3)
+
+        reg_layout.addWidget(grp_cnae)
+
+        # 3. Indicador de Especialização e Parâmetros
+        grp_ind = QGroupBox("3. Indicadores de Geografia Econômica")
+        grid_ind = QGridLayout(grp_ind)
+        grid_ind.setContentsMargins(8, 6, 8, 6)
+        grid_ind.setHorizontalSpacing(8)
+        grid_ind.setVerticalSpacing(5)
+
+        grid_ind.addWidget(QLabel("Indicador:"), 0, 0)
+        self.cmb_reg_indicador = QComboBox()
+        self.cmb_reg_indicador.addItem("Quociente Locacional - QL (Pólos e Especialização)", "ql")
+        self.cmb_reg_indicador.addItem("Massa Salarial Estimada (Vínculos x Salário Médio em R$)", "massa")
+        self.cmb_reg_indicador.currentIndexChanged.connect(self._on_reg_indicador_changed)
+        grid_ind.addWidget(self.cmb_reg_indicador, 0, 1)
+
+        grid_ind.addWidget(QLabel("Tamanho do Ranking:"), 0, 2)
+        self.cmb_reg_topn = QComboBox()
+        self.cmb_reg_topn.addItem("Top 10 Municípios", 10)
+        self.cmb_reg_topn.addItem("Top 15 Municípios", 15)
+        self.cmb_reg_topn.addItem("Top 20 Municípios", 20)
+        self.cmb_reg_topn.addItem("Top 30 Municípios", 30)
+        self.cmb_reg_topn.addItem("Todos os Municípios", 0)
+        grid_ind.addWidget(self.cmb_reg_topn, 0, 3)
+
+        self.lbl_reg_info_banner = QLabel(
+            "<b>Quociente Locacional (QL):</b> Mensura a concentração relativa de um setor econômico no município "
+            "comparativamente ao padrão de referência. <br>"
+            "• <b>QL ≥ 2,00:</b> Altíssima Especialização / Pólo Consolidado (Verde Escuro)<br>"
+            "• <b>1,25 ≤ QL &lt; 2,00:</b> Especialização Significativa (Verde Claro)<br>"
+            "• <b>0,75 ≤ QL &lt; 1,25:</b> Concentração Equilibrada à Média (Amarelo / Neutro)<br>"
+            "• <b>QL &lt; 0,75:</b> Sub-representação / Déficit Local (Laranja / Vermelho)"
+        )
+        self.lbl_reg_info_banner.setWordWrap(True)
+        self.lbl_reg_info_banner.setStyleSheet(
+            "background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; "
+            "padding: 8px 12px; border-radius: 4px; font-size: 11px;"
+        )
+        grid_ind.addWidget(self.lbl_reg_info_banner, 1, 0, 1, 4)
+
+        reg_layout.addWidget(grp_ind)
+
+        # 4. Ações
+        grp_actions = QGroupBox("4. Execução e Exportação")
+        vbox_actions = QVBoxLayout(grp_actions)
+        vbox_actions.setContentsMargins(8, 8, 8, 8)
+        vbox_actions.setSpacing(6)
+
+        row_btns = QHBoxLayout()
+        row_btns.setSpacing(8)
+
+        self.btn_reg_run_layer = make_compact_button("Gerar Camada Analítica no QGIS", primary=True)
+        self.btn_reg_run_layer.setToolTip("Cria e estiliza a camada municipal no QGIS com a escala e cores de especialização")
+        self.btn_reg_run_layer.clicked.connect(self._on_reg_run_layer_clicked)
+        row_btns.addWidget(self.btn_reg_run_layer)
+
+        self.btn_reg_run_report = make_compact_button("Exportar Tabelas e Gráficos da Especialização")
+        self.btn_reg_run_report.setToolTip("Gera gráficos analíticos (300 DPI), tabelas e planilhas CSV")
+        self.btn_reg_run_report.clicked.connect(self._on_reg_run_report_clicked)
+        row_btns.addWidget(self.btn_reg_run_report)
+
+        self.btn_reg_open_dir = make_compact_button("Abrir Pasta")
+        self.btn_reg_open_dir.setToolTip("Abre a pasta onde os gráficos e tabelas foram gerados")
+        self.btn_reg_open_dir.clicked.connect(self._open_rep_out_dir)
+        self.btn_reg_open_dir.setEnabled(False)
+        row_btns.addWidget(self.btn_reg_open_dir)
+
+        vbox_actions.addLayout(row_btns)
+        reg_layout.addWidget(grp_actions)
+
+        # 5. Pré-visualização Integrada
+        grp_prev = QGroupBox("5. Pré-visualização do Resultado Regional")
+        vbox_prev = QVBoxLayout(grp_prev)
+        vbox_prev.setContentsMargins(6, 6, 6, 6)
+        vbox_prev.setSpacing(4)
+
+        self.lbl_reg_kpi = QLabel("Nenhum cálculo regional executado ainda.")
+        self.lbl_reg_kpi.setStyleSheet("font-weight: bold; color: #1e293b; font-size: 11px; padding: 2px;")
+        vbox_prev.addWidget(self.lbl_reg_kpi)
+
+        self.lbl_reg_preview = QLabel("O gráfico e o quadro analítico gerados serão pré-visualizados aqui.")
+        self.lbl_reg_preview.setAlignment(
+            Qt.AlignmentFlag.AlignCenter if hasattr(Qt, "AlignmentFlag") else Qt.AlignCenter
+        )
+        self.lbl_reg_preview.setStyleSheet("background-color: #ffffff; border: 1px solid #cbd5e1; padding: 8px; color: #475569;")
+        self.lbl_reg_preview.setMinimumHeight(180)
+
+        prev_scroll = QScrollArea()
+        prev_scroll.setWidgetResizable(True)
+        prev_scroll.setWidget(self.lbl_reg_preview)
+        vbox_prev.addWidget(prev_scroll, stretch=1)
+
+        reg_layout.addWidget(grp_prev, stretch=1)
+
+        reg_scroll.setWidget(reg_page)
+        self.tabs.addTab(reg_scroll, "3. Análise Regional e Especialização")
+
+    def _on_reg_escopo_changed(self) -> None:
+        if not hasattr(self, "cmb_reg_escopo"):
+            return
+        escopo = self.cmb_reg_escopo.currentData()
+        if escopo == "uf":
+            self.lbl_reg_recorte.setText("UF:")
+            self.cmb_reg_uf.setVisible(True)
+            self.cmb_reg_macro.setVisible(False)
+            self.lbl_reg_scope_info.setVisible(False)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(False)
+            self.cmb_reg_meso.clear()
+            self.cmb_reg_meso.addItem("[Apenas a UF inteira (Sem filtro de mesorregião)]", "")
+            self.cmb_reg_meso.setEnabled(False)
+        elif escopo == "meso":
+            self.lbl_reg_recorte.setText("UF da Mesorregião:")
+            self.cmb_reg_uf.setVisible(True)
+            self.cmb_reg_macro.setVisible(False)
+            self.lbl_reg_scope_info.setVisible(False)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(True)
+            self.cmb_reg_meso.setEnabled(True)
+            self._update_reg_mesorregioes_combo()
+        elif escopo == "macro":
+            self.lbl_reg_recorte.setText("Macrorregião:")
+            self.cmb_reg_uf.setVisible(False)
+            self.cmb_reg_macro.setVisible(True)
+            self.lbl_reg_scope_info.setVisible(True)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(True)
+            self.cmb_reg_meso.setEnabled(True)
+            self._on_reg_macro_changed()
+        else:  # brasil
+            self.lbl_reg_recorte.setText("Abrangência:")
+            self.cmb_reg_uf.setVisible(False)
+            self.cmb_reg_macro.setVisible(False)
+            self.lbl_reg_scope_info.setVisible(True)
+            self.lbl_reg_scope_info.setText("Brasil (27 UFs)")
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(False)
+            self.cmb_reg_meso.clear()
+            self.cmb_reg_meso.addItem("[Todo o Território Nacional]", "")
+            self.cmb_reg_meso.setEnabled(False)
+
+    def _on_reg_uf_changed(self) -> None:
+        if hasattr(self, "cmb_reg_escopo") and self.cmb_reg_escopo.currentData() in ("uf", "meso"):
+            self._update_reg_mesorregioes_combo()
+
+    def _on_reg_macro_changed(self) -> None:
+        if not hasattr(self, "cmb_reg_macro"):
+            return
+        macro = self.cmb_reg_macro.currentData()
+        ufs = MunicipalityMapper.get_ufs_for_macro(macro)
+        self.lbl_reg_scope_info.setText(f"({', '.join(ufs)})")
+        if hasattr(self, "cmb_reg_escopo") and self.cmb_reg_escopo.currentData() == "macro":
+            self._update_reg_mesorregioes_combo()
+
+    def _update_reg_mesorregioes_combo(self) -> None:
+        if not hasattr(self, "cmb_reg_meso"):
+            return
+        self.cmb_reg_meso.clear()
+        escopo = self.cmb_reg_escopo.currentData() if hasattr(self, "cmb_reg_escopo") else "uf"
+        if escopo == "uf":
+            self.cmb_reg_meso.addItem("[Apenas a UF inteira (Sem filtro de mesorregião)]", "")
+            self.cmb_reg_meso.setEnabled(False)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(False)
+        elif escopo == "meso":
+            uf = self.cmb_reg_uf.currentData() if hasattr(self, "cmb_reg_uf") else "SC"
+            for m in self.mapper.get_mesorregioes_for_uf(uf):
+                self.cmb_reg_meso.addItem(m, m)
+            self.cmb_reg_meso.setEnabled(True)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(True)
+        elif escopo == "macro":
+            macro = self.cmb_reg_macro.currentData() if hasattr(self, "cmb_reg_macro") else "Sul"
+            self.cmb_reg_meso.addItem(f"[Toda a Região {macro} (Sem filtro de mesorregião)]", "")
+            for m in self.mapper.get_mesorregioes_for_macro(macro):
+                self.cmb_reg_meso.addItem(m, m)
+            self.cmb_reg_meso.setEnabled(True)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(True)
+        else:
+            self.cmb_reg_meso.addItem("[Todas as Mesorregiões do País]", "")
+            self.cmb_reg_meso.setEnabled(False)
+            if hasattr(self, "lbl_reg_meso"):
+                self.lbl_reg_meso.setEnabled(False)
+
+    def _on_reg_filtro_nivel_changed(self) -> None:
+        if not hasattr(self, "cmb_reg_filtro_nivel"):
+            return
+        lvl_key = self.cmb_reg_filtro_nivel.currentData() or "divisoes"
+        self.cmb_reg_atividade.clear()
+        items = self._cnae_catalog.get(lvl_key, [])
+        for it in items:
+            lbl = it.get("label", it.get("name", ""))
+            self.cmb_reg_atividade.addItem(lbl, it)
+        if self.cmb_reg_atividade.count() > 0:
+            self.cmb_reg_atividade.setCurrentIndex(0)
+
+    def _on_reg_indicador_changed(self) -> None:
+        indic = self.cmb_reg_indicador.currentData()
+        if indic == "ql":
+            self.lbl_reg_info_banner.setText(
+                "<b>Quociente Locacional (QL):</b> Mensura a concentração relativa de um setor econômico no município "
+                "comparativamente ao padrão de referência. <br>"
+                "• <b>QL ≥ 2,00:</b> Altíssima Especialização / Pólo Consolidado (Verde Escuro)<br>"
+                "• <b>1,25 ≤ QL &lt; 2,00:</b> Especialização Significativa (Verde Claro)<br>"
+                "• <b>0,75 ≤ QL &lt; 1,25:</b> Concentração Equilibrada à Média (Amarelo / Neutro)<br>"
+                "• <b>QL &lt; 0,75:</b> Sub-representação / Déficit Local (Laranja / Vermelho)"
+            )
+            self.lbl_reg_info_banner.setStyleSheet(
+                "background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; "
+                "padding: 8px 12px; border-radius: 4px; font-size: 11px;"
+            )
+        else:
+            self.lbl_reg_info_banner.setText(
+                "<b>Massa Salarial Estimada (R$):</b> Calcula o volume total de recursos injetados na economia municipal "
+                "(Vínculos de Emprego Formal × Remuneração Média Mensal). "
+                "Permite identificar os principais centros de geração de renda do estado ou região."
+            )
+            self.lbl_reg_info_banner.setStyleSheet(
+                "background-color: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; "
+                "padding: 8px 12px; border-radius: 4px; font-size: 11px;"
+            )
+
+    def _sync_regional_from_tab1(self) -> None:
+        esc = self.cmb_escopo.currentData() if hasattr(self, "cmb_escopo") else "uf"
+        idx_esc = self.cmb_reg_escopo.findData(esc)
+        if idx_esc >= 0:
+            self.cmb_reg_escopo.setCurrentIndex(idx_esc)
+        if hasattr(self, "cmb_uf"):
+            self.cmb_reg_uf.setCurrentText(self.cmb_uf.currentText())
+        if hasattr(self, "cmb_macro"):
+            self.cmb_reg_macro.setCurrentText(self.cmb_macro.currentText())
+        meso_val = self.cmb_meso.currentData() if hasattr(self, "cmb_meso") else ""
+        if meso_val:
+            idx_m = self.cmb_reg_meso.findData(meso_val)
+            if idx_m >= 0:
+                self.cmb_reg_meso.setCurrentIndex(idx_m)
+        if hasattr(self, "cmb_ano"):
+            self.cmb_reg_ano.setCurrentText(self.cmb_ano.currentText())
+        lvl = self.cmb_filtro_nivel.currentData() if hasattr(self, "cmb_filtro_nivel") else "none"
+        if lvl and lvl != "none":
+            idx_l = self.cmb_reg_filtro_nivel.findData(lvl)
+            if idx_l >= 0:
+                self.cmb_reg_filtro_nivel.setCurrentIndex(idx_l)
+        if hasattr(self, "cmb_atividade"):
+            self.cmb_reg_atividade.setCurrentText(self.cmb_atividade.currentText())
+        self._log("Parâmetros copiados da Aba 1 para a Análise Regional!")
+
+    def _on_reg_run_layer_clicked(self) -> None:
+        escopo = self.cmb_reg_escopo.currentData()
+        if escopo == "macro":
+            macro_sel = self.cmb_reg_macro.currentData()
+            ufs_macro = MunicipalityMapper.get_ufs_for_macro(macro_sel)
+            uf_val = ",".join(ufs_macro)
+            escopo_tag = macro_sel
+            filtro_meso = self.cmb_reg_meso.currentData() or None
+        elif escopo == "brasil":
+            uf_val = "BR"
+            escopo_tag = "BR"
+            filtro_meso = None
+        elif escopo == "meso":
+            uf_val = self.cmb_reg_uf.currentData()
+            escopo_tag = uf_val
+            filtro_meso = self.cmb_reg_meso.currentData() or None
+        else:  # "uf" (Apenas UF)
+            uf_val = self.cmb_reg_uf.currentData()
+            escopo_tag = uf_val
+            filtro_meso = None
+
+        if filtro_meso == "":
+            filtro_meso = None
+
+        ano = self.cmb_reg_ano.currentData()
+        filtro_nivel = self.cmb_reg_filtro_nivel.currentData()
+        filtro_obj = self.cmb_reg_atividade.currentData()
+        filtro_codigo = None
+        filtro_texto = None
+        if isinstance(filtro_obj, dict):
+            filtro_codigo = filtro_obj.get("code")
+            filtro_texto = filtro_obj.get("label") or filtro_obj.get("name")
+        elif isinstance(filtro_obj, str) and filtro_obj:
+            filtro_texto = filtro_obj
+        else:
+            typed = self.cmb_reg_atividade.currentText().strip()
+            if typed:
+                filtro_texto = typed
+
+        indicador_mode = self.cmb_reg_indicador.currentData()
+
+        if indicador_mode == "ql":
+            symb = "ql"
+            indic = "->Frequência"
+            oper = "Soma"
+            col_cruz = "---------Não---------"
+        else:
+            symb = "proportional_circles_amber"
+            indic = "Vl Remun Média Nom"
+            oper = "Média"
+            col_cruz = "---------Não---------"
+
+        params = {
+            "source_mode": "online",
+            "spatial_mode": "ibge_api",
+            "cubo": "rais_vinculos",
+            "ano": ano,
+            "uf": uf_val,
+            "filtro_meso": filtro_meso,
+            "escopo_tag": escopo_tag,
+            "col": col_cruz,
+            "indic": indic,
+            "oper": oper,
+            "filtro_nivel": filtro_nivel,
+            "filtro_codigo": filtro_codigo,
+            "filtro_texto": filtro_texto,
+            "symbology": symb,
+            "is_caged": False,
+        }
+
+        client = self.client
+
+        def job(report) -> Dict[str, Any]:
+            if indicador_mode == "ql":
+                report(10, f"Consultando vínculos setoriais no DardoWeb ({escopo_tag} - {ano})...")
+                result = client.query_dardo(
+                    base_cubo="rais_vinculos",
+                    ano=params["ano"],
+                    uf=params["uf"],
+                    coluna_cruzamento=params["col"],
+                    indicador=params["indic"],
+                    filtro_atividade=params["filtro_texto"],
+                    filtro_cnae_nivel=params["filtro_nivel"],
+                    filtro_cnae_codigo=params["filtro_codigo"],
+                    operacao=params["oper"],
+                    prog_cb=report,
+                )
+            else:
+                # Massa Salarial Estimada: Vínculos x Remuneração Média
+                report(10, f"Consultando vínculos no setor ({escopo_tag} - {ano})...")
+                res_v = client.query_dardo(
+                    base_cubo="rais_vinculos",
+                    ano=params["ano"],
+                    uf=params["uf"],
+                    coluna_cruzamento="---------Não---------",
+                    indicador="->Frequência",
+                    filtro_atividade=params["filtro_texto"],
+                    filtro_cnae_nivel=params["filtro_nivel"],
+                    filtro_cnae_codigo=params["filtro_codigo"],
+                    operacao="Soma",
+                    prog_cb=report,
+                )
+                report(40, f"Consultando remuneração média nominal ({escopo_tag} - {ano})...")
+                res_sal = client.query_dardo(
+                    base_cubo="rais_vinculos",
+                    ano=params["ano"],
+                    uf=params["uf"],
+                    coluna_cruzamento="---------Não---------",
+                    indicador="Vl Remun Média Nom",
+                    filtro_atividade=params["filtro_texto"],
+                    filtro_cnae_nivel=params["filtro_nivel"],
+                    filtro_cnae_codigo=params["filtro_codigo"],
+                    operacao="Média",
+                    prog_cb=report,
+                )
+                sal_map = {r["CD_MUN_IBGE"]: float(r.get("TOTAL_GERAL") or 0.0) for r in res_sal.records}
+                tot_massa_regional = 0.0
+                for r in res_v.records:
+                    cd = r["CD_MUN_IBGE"]
+                    v = float(r.get("VINC_FILTR") if "VINC_FILTR" in r else r.get("TOTAL_GERAL", 0.0))
+                    sal = sal_map.get(cd, 0.0)
+                    massa_m = v * sal
+                    massa_a = massa_m * 13.333
+                    tot_massa_regional += massa_m
+                    r["VINC_SETOR"] = int(round(v))
+                    r["REMUN_MED"] = round(sal, 2)
+                    r["MASSA_MENS"] = round(massa_m, 2)
+                    r["MASSA_ANUAL"] = round(massa_a, 2)
+                    r["TOTAL_GERAL"] = round(massa_m, 2)
+
+                for r in res_v.records:
+                    mm = float(r.get("MASSA_MENS", 0.0))
+                    r["PCT_MASSA"] = round((mm / tot_massa_regional * 100.0), 3) if tot_massa_regional > 0 else 0.0
+
+                res_v.field_specs = [f for f in res_v.field_specs if f[0] not in ("VINC_SETOR", "REMUN_MED", "MASSA_MENS", "MASSA_ANUAL", "PCT_MASSA")]
+                res_v.field_specs.extend([
+                    ("VINC_SETOR", "int"),
+                    ("REMUN_MED", "float"),
+                    ("MASSA_MENS", "float"),
+                    ("MASSA_ANUAL", "float"),
+                    ("PCT_MASSA", "float"),
+                ])
+                result = res_v
+
+            tag_filtro = f"_{result.filter_applied[:10]}" if result.filter_applied else ""
+            tag_meso = f"_{filtro_meso[:12].replace(' ', '_')}" if filtro_meso else ""
+            # Evita duplicar o ano no sufixo caso result.base_name ja o contenha
+            layer_suffix = f"{escopo_tag}{tag_meso}{tag_filtro}_{indicador_mode.upper()}"
+
+            geojson_path = None
+            if result.records:
+                report(80, "Obtendo malha municipal do IBGE (cache local ou download)...")
+                geojson_path = IbgeMalhasClient().fetch_geojson_for_ufs(
+                    result.detected_ufs,
+                    qualidade="auto",
+                    progress_callback=report,
+                )
+            report(95, "Montando camada temática no QGIS...")
+            return {"result": result, "geojson_path": geojson_path, "layer_suffix": layer_suffix}
+
+        self._start_job(
+            job,
+            lambda payload: self._finish_layer(payload, params),
+            f"Gerando camada de especialização regional ({indicador_mode.upper()})...",
+        )
+
+    def _on_reg_run_report_clicked(self) -> None:
+        escopo = self.cmb_reg_escopo.currentData()
+        if escopo == "macro":
+            macro_sel = self.cmb_reg_macro.currentData()
+            ufs_macro = MunicipalityMapper.get_ufs_for_macro(macro_sel)
+            uf_val = ",".join(ufs_macro)
+            escopo_tag = macro_sel
+        elif escopo == "brasil":
+            uf_val = "BR"
+            escopo_tag = "BR"
+        else:
+            uf_val = self.cmb_reg_uf.currentData()
+            escopo_tag = uf_val
+
+        ano = self.cmb_reg_ano.currentData()
+        filtro_nivel = self.cmb_reg_filtro_nivel.currentData()
+        filtro_obj = self.cmb_reg_atividade.currentData()
+        filtro_codigo = None
+        filtro_texto = None
+        if isinstance(filtro_obj, dict):
+            filtro_codigo = filtro_obj.get("code")
+            filtro_texto = filtro_obj.get("label") or filtro_obj.get("name")
+        elif isinstance(filtro_obj, str) and filtro_obj:
+            filtro_texto = filtro_obj
+        else:
+            typed = self.cmb_reg_atividade.currentText().strip()
+            if typed:
+                filtro_texto = typed
+
+        indicador_mode = self.cmb_reg_indicador.currentData()
+        r_key = "esp_quociente_locacional" if indicador_mode == "ql" else "esp_massa_salarial"
+        top_n = int(self.cmb_reg_topn.currentData() or 10)
+
+        out_dir = self.txt_rep_out_dir.text().strip() if hasattr(self, "txt_rep_out_dir") else os.path.join(os.path.expanduser("~"), "GeoTrabalho_Relatorios")
+
+        engine = self.analytics_engine
+        rep_kwargs: Dict[str, Any] = dict(
+            report_key=r_key,
+            uf=uf_val,
+            years=[ano],
+            filtro_nivel=filtro_nivel,
+            filtro_codigo=filtro_codigo,
+            filtro_texto=filtro_texto,
+            top_n=top_n if top_n > 0 else 5570,
+            region_mode=str(self.cmb_opt_region.currentData() if hasattr(self, "cmb_opt_region") else "meso"),
+            chart_style="bars_abs",
+            rank_chart_style="bars",
+            wage_unit="BRL",
+        )
+
+        def job(report):
+            return engine.run_specific_report(prog_cb=report, **rep_kwargs)
+
+        def on_bundle_ready(bundle) -> None:
+            self.progress_bar.setValue(92)
+            self._log("Renderizando gráficos e tabelas da análise regional...")
+            export_info = export_full_report_bundle(
+                bundle,
+                out_dir,
+                include_tables=True,
+                include_charts=True,
+                include_html=True,
+            )
+            self._last_regional_export = export_info
+            self.btn_reg_open_dir.setEnabled(True)
+
+            preview_path = None
+            if export_info.get("chart_pngs"):
+                preview_path = export_info["chart_pngs"][0][1]
+            elif export_info.get("table_pngs"):
+                preview_path = export_info["table_pngs"][0][1]
+
+            if preview_path and os.path.exists(preview_path):
+                pix = QPixmap(preview_path)
+                if not pix.isNull():
+                    avail_w = max(560, self.lbl_reg_preview.width() - 20)
+                    scaled = pix.scaledToWidth(
+                        min(avail_w, 860),
+                        Qt.TransformationMode.SmoothTransformation if hasattr(Qt, "TransformationMode") else Qt.SmoothTransformation,
+                    )
+                    self.lbl_reg_preview.setPixmap(scaled)
+
+            self.lbl_reg_kpi.setText(
+                f"Relatório '{bundle.title}' gerado com sucesso! "
+                f"Arquivos salvos em: {os.path.basename(out_dir)}"
+            )
+            self.progress_bar.setValue(100)
+            self._log(f"Exportação regional concluída: {out_dir}")
+
+        self._start_job(
+            job,
+            on_bundle_ready,
+            f"Processando análise regional de {r_key}...",
+        )
+
     def _on_main_tab_changed(self, idx: int) -> None:
         if hasattr(self, "btn_run"):
             self.btn_run.setVisible(idx == 0)
@@ -1200,10 +1961,15 @@ class GeoTrabalhoDialog(QDialog):
             idx = self.cmb_symbology.findData("caged_divergent")
             if idx >= 0:
                 self.cmb_symbology.setCurrentIndex(idx)
+            if hasattr(self, "lbl_ano_info"):
+                self.lbl_ano_info.setText("Nota: A base CAGED no DardoWeb possui dados mensais consolidados até 2023. Para séries recentes (2024-2025), utilize a base RAIS Vínculos.")
+                self.lbl_ano_info.setVisible(True)
         else:
             idx = self.cmb_symbology.findData("auto")
             if idx >= 0:
                 self.cmb_symbology.setCurrentIndex(idx)
+            if hasattr(self, "lbl_ano_info"):
+                self.lbl_ano_info.setVisible(False)
 
     def _on_spatial_mode_changed(self) -> None:
         is_existing = self.cmb_spatial_mode.currentData() == "existing_layer"
@@ -1251,6 +2017,10 @@ class GeoTrabalhoDialog(QDialog):
     def _set_busy(self, busy: bool) -> None:
         self.btn_run.setEnabled(not busy)
         self.btn_generate_reports.setEnabled(not busy)
+        if hasattr(self, "btn_reg_run_layer"):
+            self.btn_reg_run_layer.setEnabled(not busy)
+        if hasattr(self, "btn_reg_run_report"):
+            self.btn_reg_run_report.setEnabled(not busy)
         self.btn_cancel_job.setVisible(busy)
         self.btn_cancel_job.setEnabled(busy)
 
@@ -1350,20 +2120,49 @@ class GeoTrabalhoDialog(QDialog):
             filtro_nivel = self.cmb_filtro_nivel.currentData() if hasattr(self, "cmb_filtro_nivel") else None
             filtro_codigo = None
             filtro_texto = None
-            if isinstance(filtro_obj, dict):
+            if not filtro_nivel or filtro_nivel == "none":
+                filtro_codigo = None
+                filtro_texto = None
+            elif isinstance(filtro_obj, dict):
                 filtro_codigo = filtro_obj.get("code")
                 filtro_texto = filtro_obj.get("label") or filtro_obj.get("name")
-            elif isinstance(filtro_obj, str) and filtro_obj:
+            elif isinstance(filtro_obj, str) and filtro_obj and not filtro_obj.startswith("["):
                 filtro_texto = filtro_obj
             else:
                 text_typed = self.cmb_atividade.currentText().strip()
-                if text_typed and not any(text_typed.startswith(prefix) for prefix in ("[Todas", "[Todos", "[Total", "[Ambos")):
+                if text_typed and not text_typed.startswith("["):
                     filtro_texto = text_typed
+
+            escopo = self.cmb_escopo.currentData() if hasattr(self, "cmb_escopo") else "uf"
+            if escopo == "macro":
+                macro_sel = self.cmb_macro.currentData()
+                ufs_macro = MunicipalityMapper.get_ufs_for_macro(macro_sel)
+                uf_val = ",".join(ufs_macro)
+                escopo_tag = macro_sel
+                filtro_meso = self.cmb_meso.currentData() if hasattr(self, "cmb_meso") else None
+            elif escopo == "brasil":
+                uf_val = "BR"
+                escopo_tag = "BR"
+                filtro_meso = None
+            elif escopo == "meso":
+                uf_val = self.cmb_uf.currentData()
+                escopo_tag = uf_val
+                filtro_meso = self.cmb_meso.currentData() if hasattr(self, "cmb_meso") else None
+            else:  # "uf" (Apenas UF)
+                uf_val = self.cmb_uf.currentData()
+                escopo_tag = uf_val
+                filtro_meso = None
+
+            if filtro_meso == "":
+                filtro_meso = None
 
             params.update({
                 "cubo": self.cmb_cubo.currentData(),
                 "ano": self.cmb_ano.currentData(),
-                "uf": self.cmb_uf.currentData(),
+                "escopo": escopo,
+                "uf": uf_val,
+                "filtro_meso": filtro_meso,
+                "escopo_tag": escopo_tag,
                 "col": col_spec[0] if isinstance(col_spec, tuple) else str(col_spec),
                 "indic": indic,
                 "oper": oper,
@@ -1374,10 +2173,12 @@ class GeoTrabalhoDialog(QDialog):
         else:
             fpath = self.txt_local_file.text().strip()
             filtro = self.cmb_local_atividade.currentData() or ""
-            if not filtro:
+            if not filtro or str(filtro).startswith("["):
                 text_typed = self.cmb_local_atividade.currentText().strip()
-                if not any(text_typed.startswith(prefix) for prefix in ("[Todas", "[Todos", "[Total", "[Ambos")):
+                if text_typed and not text_typed.startswith("["):
                     filtro = text_typed
+                else:
+                    filtro = ""
             if not fpath or not os.path.exists(fpath):
                 QMessageBox.warning(self, "Arquivo inválido", "Selecione um arquivo .html válido do DardoWeb.")
                 return
@@ -1411,8 +2212,10 @@ class GeoTrabalhoDialog(QDialog):
                     operacao=params["oper"],
                     prog_cb=report,
                 )
-                tag_filtro = f"_{result.filter_applied[:10]}" if result.filter_applied else ""
-                layer_suffix = f"{params['ano']}_{params['uf']}{tag_filtro}"
+                tag_filtro = f"_{result.filter_applied[:10].strip().replace(' ', '_')}" if (result.filter_applied and not result.filter_applied.startswith("[")) else ""
+                tag_meso = f"_{params['filtro_meso'][:12].replace(' ', '_')}" if params.get("filtro_meso") else ""
+                esc_tag = params.get("escopo_tag", params.get("uf", ""))
+                layer_suffix = f"{params['ano']}_{esc_tag}{tag_meso}{tag_filtro}"
             else:
                 report(20, f"Lendo arquivo: {os.path.basename(params['fpath'])}...")
                 result = client.parse_local_file(params["fpath"], filtro_atividade=params["filtro_local"])
@@ -1446,7 +2249,13 @@ class GeoTrabalhoDialog(QDialog):
         if result.filter_applied:
             self._log(f"Atividade selecionada '{result.filter_applied}': {len(result.matched_columns)} colunas identificadas.")
 
-        layer_name = f"GeoTrabalho_{result.base_name[:18]}_{payload['layer_suffix']}"
+        base_clean = result.base_name.replace(" ", "_")
+        ano_str = str(params.get("ano", ""))
+        suffix_clean = payload["layer_suffix"]
+        if ano_str and base_clean.endswith(ano_str) and suffix_clean.startswith(f"{ano_str}_"):
+            suffix_clean = suffix_clean[len(f"{ano_str}_"):]
+        layer_name = f"GeoTrabalho_{base_clean}_{suffix_clean}".strip("_")
+        filtro_meso = params.get("filtro_meso")
 
         if params["spatial_mode"] == "existing_layer":
             src_layer = self._layer_map.get(params["existing_layer_id"])
@@ -1458,6 +2267,7 @@ class GeoTrabalhoDialog(QDialog):
                 ibge_field=params["ibge_field"],
                 layer_name=layer_name,
                 keep_unmatched_polygons=True,
+                filtro_meso=filtro_meso,
             )
         else:
             out_layer = GeoTrabalhoLayerBuilder.build_layer_from_ibge_api(
@@ -1465,6 +2275,7 @@ class GeoTrabalhoDialog(QDialog):
                 layer_name=layer_name,
                 keep_unmatched_polygons=True,
                 geojson_path=payload["geojson_path"],
+                filtro_meso=filtro_meso,
             )
 
         symb = params["symbology"]
@@ -1518,6 +2329,8 @@ class GeoTrabalhoDialog(QDialog):
                 GeoTrabalhoLayerBuilder.apply_graduated_symbology(out_layer, target_field, "blue")
             elif symb == "caged_divergent":
                 GeoTrabalhoLayerBuilder.apply_divergent_caged_symbology(out_layer, "TOTAL_GERAL")
+            elif symb == "ql":
+                GeoTrabalhoLayerBuilder.apply_ql_symbology(out_layer, "QL")
 
             QgsProject.instance().addMapLayer(out_layer)
 

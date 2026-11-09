@@ -14,18 +14,25 @@ about=Connects QGIS directly to Brazil's Ministry of Labour and Employment (MTE)
  .
  [PORTUGUÊS]:
  Plugin desenvolvido para QGIS 4 e QGIS 3 por Luís Eduardo Araújo de Souza. Conecta diretamente à plataforma DardoWeb (bi.trabalho.gov.br) para consultar e espacializar estoques de empregos formais (RAIS Vínculos), estabelecimentos ativos (RAIS Estabelecimentos) e movimentação (CAGED), além de gerar automaticamente relatórios multitemporais, tabelas acadêmicas prontas (Top N municípios com variação percentual, Subtotal, Total Estadual, Quadro Global de Evolução, Porte Médio vínc./planta e Síntese por Mesorregião IBGE para todo o Brasil) e gráficos analíticos em alta resolução (300 DPI) abrangendo vínculo, porte, sexo, escolaridade, faixa etária, imigração (nacionalidade), salários (em SM e R$), hiato salarial de gênero e rotatividade.
-version=1.3.0
+version=1.4.0
 author=Luís Eduardo Araújo de Souza
 email=luisaraujodesouza.geo@gmail.com
 category=Vector
 icon=icon.png
-tags=rais,caged,trabalho,mte,employment,jobs,labour,cnae,companies,ibge,brazil,economy,charts,mesorregiao
+tags=rais,caged,trabalho,mte,employment,jobs,labour,cnae,companies,ibge,brazil,economy,charts,mesorregiao,macrorregiao,quociente_locacional,clusters
 homepage=https://github.com/duduluiss/geotrabalho-qgis
 repository=https://github.com/duduluiss/geotrabalho-qgis
 tracker=https://github.com/duduluiss/geotrabalho-qgis/issues
 experimental=False
 deprecated=False
 changelog=
+ 1.4.0:
+  - Recorte territorial avancado: suporte a Macrorregioes do IBGE (Norte, Nordeste, Sudeste, Sul, Centro-Oeste) e filtro por Mesorregiao (137 mesorregioes oficiais) na Aba 1 e modulos analiticos
+  - Nova aba '3. Analise Regional e Especializacao' para calculo direto de indicadores de Geografia Economica e Mercado de Trabalho
+  - Quociente Locacional (QL): identificacao automatica de polos e clusters setoriais (QL >= 2.0 altissima especializacao, 1.25 a 2.0 especializacao significativa, 0.75 a 1.25 equilibrado, < 0.75 deficit)
+  - Simbologia cartografica tematica padronizada de QL (escala divergente verde-amarelo-vermelho com realce de polos municipais)
+  - Indicador de Massa Salarial Estimada (Vinculos x Remuneracao Media em R$) com ranking dos maiores polos de injecao de renda municipal
+  - Geracao de relatorios, graficos 300 DPI e camadas vetoriais analiticas no QGIS com zoom automatico para a mesorregiao ou macrorregiao selecionada
  1.3.0:
   - Nova aba '2. Relatorios, Tabelas e Graficos (Serie Historica)' com geracao automatica de tabelas prontas (PNG 300 DPI, CSV e HTML) e graficos multitemporais
   - Dicionario nacional integrado com todas as 137 Mesorregioes, Regioes Intermediarias e Microrregioes do IBGE para todos os 5.571 municipios brasileiros

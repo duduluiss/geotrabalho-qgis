@@ -303,8 +303,11 @@ class DardoWebClient:
             return var_name, code_str, lbl
 
         if filtro_texto and filtro_texto.strip():
-            raw_norm = normalize_text(filtro_texto.strip())
-            if raw_norm not in ("todas", "toda a economia", "todas as 21 secoes", "todos", "none", ""):
+            raw_clean = filtro_texto.strip()
+            if raw_clean.startswith("["):
+                return None, None, None
+            raw_norm = normalize_text(raw_clean)
+            if raw_norm not in ("todas", "toda a economia", "todas as 21 secoes", "todos", "none", "", "toda a economia sem filtro setorial", "todas as atividades"):
                 for lvl in ("classes", "grupos", "divisoes", "secoes"):
                     for it in cat.get(lvl, []):
                         c_code = it.get("code", "").lower()
@@ -321,6 +324,57 @@ class DardoWebClient:
                             return level_map[lvl], it.get("code", ""), it.get("label", "")
 
         return None, None, None
+
+    def get_municipal_totals(
+        self,
+        base_cubo: str = "rais_vinculos",
+        ano: str = "2025",
+        uf: str = "SC",
+        prog_cb: Optional[Callable[[int, str], None]] = None,
+    ) -> Dict[str, float]:
+        """
+        Retorna o dicionario {cd_ibge: total_vinculos} de todos os setores da economia
+        para o cubo, ano e UF/regiao informados. Utiliza cache em disco para evitar
+        requisicoes redundantes ao servidor do MTE.
+        """
+        cache_dir = os.path.join(os.path.expanduser("~"), ".geotrabalho", "cache_totais")
+        os.makedirs(cache_dir, exist_ok=True)
+        uf_clean = uf.strip().upper() if uf else "BR"
+        safe_uf = re.sub(r"[^A-Za-z0-9_]", "_", uf_clean)
+        cache_file = os.path.join(cache_dir, f"totais_{base_cubo}_{ano}_{safe_uf}.json")
+
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, dict) and data:
+                    return {str(k): float(v) for k, v in data.items()}
+            except Exception as exc:
+                LOGGER.debug("Cache de totais corrompido, refazendo: %s", exc)
+
+        if prog_cb:
+            prog_cb(22, f"Obtendo totais municipais de referencia ({uf_clean} - {ano})...")
+
+        res = self.query_dardo(
+            base_cubo=base_cubo,
+            ano=ano,
+            uf=uf,
+            coluna_cruzamento="---------Não---------",
+            indicador="->Frequência",
+            filtro_atividade=None,
+            filtro_cnae_nivel=None,
+            filtro_cnae_codigo=None,
+            prog_cb=prog_cb,
+        )
+        totals = {r["CD_MUN_IBGE"]: float(r.get("TOTAL_GERAL") or 0.0) for r in res.records if r.get("CD_MUN_IBGE")}
+        if totals:
+            try:
+                with open(cache_file, "w", encoding="utf-8") as f:
+                    json.dump(totals, f, ensure_ascii=False)
+            except Exception as exc:
+                LOGGER.debug("Erro ao salvar cache de totais: %s", exc)
+
+        return totals
 
     def query_dardo(
         self,
@@ -449,9 +503,14 @@ class DardoWebClient:
                     ("YCVínculo Ativo 31/12", '"1":NOME;Sim'),
                 ])
         elif base_cubo == "caged":
+            if ano_int >= 2024:
+                raise ValueError(
+                    f"A base CAGED no DardoWeb possui dados consolidados até 2023. "
+                    f"Para o ano {ano}, selecione a base 'RAIS Vínculos' para estoque de emprego formal."
+                )
             form_params.extend([
-                ("YZAno Declarado", "0"),
-                ("YCAno Declarado", f'"{ano}":NOME;{ano}'),
+                ("YZCompetência Declarada", "0"),
+                ("YCCompetência Declarada", f'"{ano}12":NOME;Dez/{ano}'),
             ])
 
         uf_clean = uf.strip().upper() if uf else ""
@@ -540,12 +599,22 @@ class DardoWebClient:
             raise
 
         title_full = cfg["title"] if eff_indic == "->Frequência" else f"{cfg['title']} ({eff_indic})"
-        applied_server_cnae = bool(cnae_var and cnae_code and not is_cnae_col)
+        applied_server_cnae = bool(cnae_var and cnae_code)
+        totals_map: Optional[Dict[str, float]] = None
+        has_real_filter = applied_server_cnae or (filtro_atividade and not str(filtro_atividade).strip().startswith("["))
+        if base_cubo == "rais_vinculos" and has_real_filter and eff_indic == "->Frequência":
+            try:
+                totals_map = self.get_municipal_totals(base_cubo=base_cubo, ano=ano, uf=uf, prog_cb=prog_cb)
+            except Exception as exc:
+                LOGGER.warning("Nao foi possivel obter totais de referencia: %s", exc)
+
+        clean_filter_act = cnae_label or (filtro_atividade if (filtro_atividade and not str(filtro_atividade).strip().startswith("[")) else None)
         return self.parse_dardo_html(
             table_html,
             base_name=title_full,
-            filtro_atividade=cnae_label or filtro_atividade,
+            filtro_atividade=clean_filter_act,
             server_filtered=applied_server_cnae,
+            totals_map=totals_map,
         )
 
     def _query_national_by_batches(
@@ -638,6 +707,7 @@ class DardoWebClient:
         base_name: str = "DardoWeb",
         filtro_atividade: Optional[str] = None,
         server_filtered: bool = False,
+        totals_map: Optional[Dict[str, float]] = None,
     ) -> DardoAggregationResult:
         """
         Interpreta o código HTML gerado pelo DardoWeb e extrai colunas, municípios e métricas.
@@ -657,10 +727,12 @@ class DardoWebClient:
 
         filter_terms: List[str] = []
         filter_codes: List[str] = []
-        if filtro_atividade and filtro_atividade.strip():
+        if filtro_atividade and filtro_atividade.strip() and not filtro_atividade.strip().startswith("["):
             raw_parts = [t.strip() for t in filtro_atividade.split(",") if t.strip()]
             for part in raw_parts:
                 norm_full = normalize_text(part)
+                if norm_full in ("toda a economia", "todas as atividades", "toda a economia sem filtro setorial"):
+                    continue
                 filter_terms.append(norm_full)
                 m_code = re.match(r"^([A-Za-z0-9\.\-]+)\s*[\-\:]\s*(.*)$", part)
                 if m_code:
@@ -668,7 +740,7 @@ class DardoWebClient:
                     clean_desc = normalize_text(m_code.group(2))
                     if clean_code:
                         filter_codes.append(clean_code)
-                    if clean_desc:
+                    if clean_desc and clean_desc not in ("toda a economia", "todas as atividades"):
                         filter_terms.append(clean_desc)
 
         matched_col_indices: List[Tuple[int, str]] = []
@@ -692,8 +764,8 @@ class DardoWebClient:
                     matched_col_indices.append((idx, h))
 
         has_active_filter = len(matched_col_indices) > 0
-        server_side_filtered = bool(server_filtered or (filtro_atividade and filtro_atividade.strip() and not has_active_filter))
-        matched_names = [h for _, h in matched_col_indices] if has_active_filter else ([filtro_atividade] if server_side_filtered else [])
+        server_side_filtered = bool(server_filtered or (bool(filter_terms or filter_codes) and not has_active_filter))
+        matched_names = [h for _, h in matched_col_indices] if has_active_filter else ([filtro_atividade] if (server_side_filtered and filtro_atividade and not filtro_atividade.startswith("[")) else [])
 
         cols_to_keep: List[Tuple[int, str]] = []
         if has_active_filter:
@@ -761,10 +833,16 @@ class DardoWebClient:
             if uf_res:
                 detected_ufs.add(uf_res)
 
+            reg_info = self.mapper.get_regional_info(cd_ibge)
+            macro_nome = self.mapper.get_macrorregiao_for_uf(uf_res)
+
             row_dict: Dict[str, Any] = {
                 "CD_MUN_IBGE": cd_ibge,
                 "SG_UF": uf_res,
                 "NM_MUN": nm_res,
+                "MACRORREGIAO": macro_nome,
+                "MESORREGIAO": reg_info.get("meso", "Outras"),
+                "MICRORREGIAO": reg_info.get("micro", "Outras"),
             }
 
             max_val = -1.0
@@ -795,24 +873,88 @@ class DardoWebClient:
                 final_total = total_row
 
             row_dict["TOTAL_GERAL"] = round(final_total, 2) if is_float_metric else int(round(final_total))
-            row_dict["PREDOMINANTE"] = predominant_col if predominant_col else "Sem atividade"
-            row_dict["PERC_PREDOMINANTE"] = round((max_val / final_total) * 100.0, 2) if final_total > 0 else 0.0
+            row_dict["PREDOMINANTE"] = predominant_col if (predominant_col and max_val > 0) else "Sem atividade"
+            row_dict["PERC_PREDOMINANTE"] = round((max_val / final_total) * 100.0, 2) if (final_total > 0 and max_val > 0) else 0.0
 
             if has_active_filter:
                 pct_filt = round((filtered_sum / final_total) * 100.0, 2) if final_total > 0 else 0.0
                 row_dict["VINC_FILTR"] = round(filtered_sum, 2) if is_float_metric else int(round(filtered_sum))
                 row_dict["PCT_FILTR"] = pct_filt
             elif server_side_filtered:
-                row_dict["VINC_FILTR"] = row_dict["TOTAL_GERAL"]
-                row_dict["PCT_FILTR"] = 100.0
-
+                vinc_f = final_total
+                if totals_map:
+                    tot_mun_real = totals_map.get(cd_ibge, 0.0)
+                    if tot_mun_real <= 0:
+                        tot_mun_real = vinc_f
+                    row_dict["TOTAL_GERAL"] = round(tot_mun_real, 2) if is_float_metric else int(round(tot_mun_real))
+                    row_dict["VINC_FILTR"] = round(vinc_f, 2) if is_float_metric else int(round(vinc_f))
+                    row_dict["PCT_FILTR"] = round((vinc_f / tot_mun_real) * 100.0, 2) if tot_mun_real > 0 else 0.0
+                else:
+                    row_dict["VINC_FILTR"] = row_dict["TOTAL_GERAL"]
+                    row_dict["PCT_FILTR"] = 100.0
             records.append(row_dict)
+
+        # Inclusão de municípios de referência que possuem 0 registros no setor filtrado
+        if totals_map and (has_active_filter or server_side_filtered):
+            existing_cds = {r["CD_MUN_IBGE"] for r in records}
+            for cd_ibge, tot_val in totals_map.items():
+                if cd_ibge not in existing_cds:
+                    info = self.mapper.by_ibge.get(cd_ibge, {})
+                    nm_res = info.get("nome", cd_ibge)
+                    uf_res = info.get("uf", "")
+                    if uf_res:
+                        detected_ufs.add(uf_res)
+                    reg_info = self.mapper.get_regional_info(cd_ibge)
+                    macro_nome = self.mapper.get_macrorregiao_for_uf(uf_res)
+                    records.append({
+                        "CD_MUN_IBGE": cd_ibge,
+                        "SG_UF": uf_res,
+                        "NM_MUN": nm_res,
+                        "MACRORREGIAO": macro_nome,
+                        "MESORREGIAO": reg_info.get("meso", "Outras"),
+                        "MICRORREGIAO": reg_info.get("micro", "Outras"),
+                        "TOTAL_GERAL": round(tot_val, 2) if is_float_metric else int(round(tot_val)),
+                        "VINC_FILTR": 0,
+                        "PCT_FILTR": 0.0,
+                        "PREDOMINANTE": "Sem atividade",
+                        "PERC_PREDOMINANTE": 0.0,
+                        "QL": 0.0,
+                        "ESPECIALIZ": "Sem Registros (QL = 0)",
+                    })
+
+        # Cálculo de Quociente Locacional (QL)
+        if (has_active_filter or server_side_filtered) and records:
+            total_filtered_base = sum(float(r.get("VINC_FILTR") or 0.0) for r in records)
+            total_general_base = sum(float(r.get("TOTAL_GERAL") or 0.0) for r in records)
+            base_share = (total_filtered_base / total_general_base) if total_general_base > 0 else 0.0
+
+            for r in records:
+                vinc_f = float(r.get("VINC_FILTR") or 0.0)
+                tot_m = float(r.get("TOTAL_GERAL") or 0.0)
+                if tot_m > 0 and base_share > 0 and vinc_f > 0:
+                    mun_share = vinc_f / tot_m
+                    ql_val = mun_share / base_share
+                    r["QL"] = round(ql_val, 3)
+                    if ql_val >= 2.0:
+                        r["ESPECIALIZ"] = "Super Pólo / Cluster (QL >= 2,00)"
+                    elif ql_val >= 1.25:
+                        r["ESPECIALIZ"] = "Especializado / Pólo (1,25 a 2,00)"
+                    elif ql_val >= 0.75:
+                        r["ESPECIALIZ"] = "Equilíbrio Regional (0,75 a 1,25)"
+                    else:
+                        r["ESPECIALIZ"] = "Sub-representado (QL < 0,75)"
+                else:
+                    r["QL"] = 0.0
+                    r["ESPECIALIZ"] = "Sem Registros (QL = 0)"
 
         val_type = "float" if is_float_metric else "int"
         field_specs: List[Tuple[str, str]] = [
             ("CD_MUN_IBGE", "str"),
             ("SG_UF", "str"),
             ("NM_MUN", "str"),
+            ("MACRORREGIAO", "str"),
+            ("MESORREGIAO", "str"),
+            ("MICRORREGIAO", "str"),
             ("TOTAL_GERAL", val_type),
         ]
 
@@ -820,6 +962,8 @@ class DardoWebClient:
             field_specs.extend([
                 ("VINC_FILTR", val_type),
                 ("PCT_FILTR", "float"),
+                ("QL", "float"),
+                ("ESPECIALIZ", "str"),
             ])
 
         field_specs.extend([

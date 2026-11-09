@@ -100,6 +100,7 @@ class GeoTrabalhoLayerBuilder:
         keep_unmatched_polygons: bool = True,
         progress_callback: Optional[Callable[[int, str], None]] = None,
         geojson_path: Optional[str] = None,
+        filtro_meso: Optional[str] = None,
     ) -> QgsVectorLayer:
         """
         Monta a camada a partir da malha do IBGE. Se `geojson_path` já tiver sido obtido
@@ -131,6 +132,7 @@ class GeoTrabalhoLayerBuilder:
             ibge_field="codarea",
             layer_name=layer_name,
             keep_unmatched_polygons=keep_unmatched_polygons,
+            filtro_meso=filtro_meso,
         )
 
     @classmethod
@@ -141,6 +143,7 @@ class GeoTrabalhoLayerBuilder:
         ibge_field: str,
         layer_name: str = "GeoTrabalho_Espacializado",
         keep_unmatched_polygons: bool = True,
+        filtro_meso: Optional[str] = None,
     ) -> QgsVectorLayer:
         crs_authid = source_layer.crs().authid() or "EPSG:4674"
         mem_layer = QgsVectorLayer(f"MultiPolygon?crs={crs_authid}", layer_name, "memory")
@@ -159,6 +162,13 @@ class GeoTrabalhoLayerBuilder:
         for src_feat in source_layer.getFeatures():
             raw_code = str(src_feat[ibge_field] or "").strip()
             clean_code = mapper.format_ibge_code(raw_code)
+
+            # Filtro opcional por Mesorregião
+            if filtro_meso and filtro_meso.strip():
+                reg_check = mapper.get_regional_info(clean_code)
+                if (reg_check.get("meso") or "").strip().lower() != filtro_meso.strip().lower():
+                    continue
+
             rec = by_ibge7.get(clean_code)
             if rec is None and len(clean_code) >= 6:
                 rec = by_ibge6.get(clean_code[:6])
@@ -178,6 +188,8 @@ class GeoTrabalhoLayerBuilder:
                 info = mapper.by_ibge.get(clean_code, {})
                 nm_official = info.get("nome", "")
                 uf_official = info.get("uf", "")
+                reg_info = mapper.get_regional_info(clean_code)
+                macro_official = mapper.get_macrorregiao_for_uf(uf_official)
                 attrs = []
                 for name, ftype in result.field_specs:
                     if name == "CD_MUN_IBGE":
@@ -186,7 +198,15 @@ class GeoTrabalhoLayerBuilder:
                         attrs.append(nm_official)
                     elif name == "SG_UF":
                         attrs.append(uf_official)
+                    elif name == "MACRORREGIAO":
+                        attrs.append(macro_official)
+                    elif name == "MESORREGIAO":
+                        attrs.append(reg_info.get("meso", "Outras"))
+                    elif name == "MICRORREGIAO":
+                        attrs.append(reg_info.get("micro", "Outras"))
                     elif name == "PREDOMINANTE":
+                        attrs.append("Sem registros")
+                    elif name == "ESPECIALIZ":
                         attrs.append("Sem registros")
                     elif ftype == "float":
                         attrs.append(0.0)
@@ -340,6 +360,49 @@ class GeoTrabalhoLayerBuilder:
         renderer = QgsGraduatedSymbolRenderer(target_field, ranges)
         layer.setRenderer(renderer)
         layer.triggerRepaint()
+
+    @classmethod
+    def apply_ql_symbology(
+        cls,
+        layer: QgsVectorLayer,
+        ql_field: str = "QL",
+    ) -> bool:
+        """
+        Aplica rampa temática divergente padronizada para Quociente Locacional (QL):
+        - QL = 0: Cinza claro neutro (Sem registros)
+        - 0.00 a 0.75: Sub-representado (Amarelo palha / âmbar claro #fed7aa)
+        - 0.75 a 1.25: Equilíbrio com a Média (Azul celeste suave / neutro #bae6fd)
+        - 1.25 a 2.00: Especializado / Pólo Local (Azul real vibrante #2563eb)
+        - QL >= 2.00: Super Pólo / Cluster Expressivo (Azul marinho profundo #082f49)
+        """
+        idx = layer.fields().indexFromName(ql_field)
+        if idx < 0:
+            return False
+
+        classes = [
+            (0.000, 0.001, "#f3f4f6", "Sem Registros (QL = 0)"),
+            (0.001, 0.750, "#fed7aa", "Sub-representado (QL < 0,75)"),
+            (0.750, 1.250, "#bae6fd", "Equilíbrio Regional (0,75 a 1,25)"),
+            (1.250, 2.000, "#2563eb", "Especializado / Pólo (1,25 a 2,00)"),
+            (2.000, 999999.0, "#082f49", "Super Pólo / Cluster (QL >= 2,00)"),
+        ]
+
+        ranges: List[QgsRendererRange] = []
+        for low, high, color_hex, label in classes:
+            sym = QgsFillSymbol.createSimple({
+                "color": color_hex,
+                "outline_color": "#ffffff" if color_hex in ("#2563eb", "#082f49") else "#64748b",
+                "outline_width": "0.22",
+            })
+            ranges.append(QgsRendererRange(low, high, sym, label))
+
+        renderer = QgsGraduatedSymbolRenderer(ql_field, ranges)
+        layer.setRenderer(renderer)
+        layer.triggerRepaint()
+        return True
+
+
+
 
     @classmethod
     def build_centroid_point_layer(
@@ -599,6 +662,10 @@ class GeoTrabalhoLayerBuilder:
         renderer = QgsGraduatedSymbolRenderer(target_field, ranges)
         layer.setRenderer(renderer)
         layer.triggerRepaint()
+
+
+
+
 
 
 

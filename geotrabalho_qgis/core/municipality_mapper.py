@@ -8,9 +8,20 @@ import json
 import logging
 import os
 import unicodedata
-from typing import Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 LOGGER = logging.getLogger("GeoTrabalho")
+
+# Grandes Regiões oficiais do IBGE e suas respectivas UFs
+MACRORREGIOES: Dict[str, List[str]] = {
+    "Norte": ["AC", "AP", "AM", "PA", "RO", "RR", "TO"],
+    "Nordeste": ["AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"],
+    "Sudeste": ["ES", "MG", "RJ", "SP"],
+    "Sul": ["PR", "RS", "SC"],
+    "Centro-Oeste": ["DF", "GO", "MS", "MT"],
+}
+
+UF_TO_MACRO: Dict[str, str] = {uf: macro for macro, ufs in MACRORREGIOES.items() for uf in ufs}
 
 
 def normalize_text(text: str) -> str:
@@ -86,6 +97,55 @@ class MunicipalityMapper:
             if c7 in self.regional_by_ibge:
                 return self.regional_by_ibge[c7]
         return {"meso": "Outras", "micro": "Outras", "interm": "Outras", "uf": "", "nome": ""}
+
+    @staticmethod
+    def get_macrorregioes() -> List[str]:
+        """Retorna lista das 5 Grandes Regiões do Brasil."""
+        return list(MACRORREGIOES.keys())
+
+    @staticmethod
+    def get_ufs_for_macro(macro: str) -> List[str]:
+        """Retorna lista de UFs pertencentes à Grande Região informada."""
+        return list(MACRORREGIOES.get((macro or "").strip(), []))
+
+    @staticmethod
+    def get_macrorregiao_for_uf(uf: str) -> str:
+        """Retorna o nome da Grande Região a que pertence a UF (ex: 'Sul' para 'SC')."""
+        return UF_TO_MACRO.get((uf or "").upper().strip(), "Outras")
+
+    def get_mesorregioes_for_uf(self, uf: str) -> List[str]:
+        """Retorna lista alfabética única das mesorregiões oficiais do IBGE da UF informada."""
+        uf_u = (uf or "").upper().strip()
+        mesos = set()
+        for entry in self.regional_by_ibge.values():
+            if entry.get("uf", "").upper() == uf_u:
+                m = (entry.get("meso") or "").strip()
+                if m and m != "Outras":
+                    mesos.add(m)
+        return sorted(list(mesos))
+
+    def get_mesorregioes_for_macro(self, macro: str) -> List[str]:
+        """Retorna lista alfabética única das mesorregiões de toda a Macrorregião informada."""
+        ufs = set(self.get_ufs_for_macro(macro))
+        mesos = set()
+        for entry in self.regional_by_ibge.values():
+            if entry.get("uf", "").upper() in ufs:
+                m = (entry.get("meso") or "").strip()
+                if m and m != "Outras":
+                    mesos.add(m)
+        return sorted(list(mesos))
+
+    def get_municipios_for_meso(self, uf: Optional[str], meso: str) -> List[str]:
+        """Retorna lista de códigos IBGE (7 dígitos) dos municípios da mesorregião."""
+        uf_u = (uf or "").upper().strip() if uf else None
+        meso_norm = (meso or "").strip().lower()
+        codes = []
+        for cd7, entry in self.regional_by_ibge.items():
+            if uf_u and entry.get("uf", "").upper() != uf_u:
+                continue
+            if (entry.get("meso") or "").strip().lower() == meso_norm:
+                codes.append(cd7)
+        return sorted(codes)
 
     @staticmethod
     def format_ibge_code(raw_code) -> str:

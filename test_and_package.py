@@ -116,13 +116,14 @@ def package_and_sync():
 
     print(f"[OK] Pacote ZIP gerado: {out_zip} ({os.path.getsize(out_zip):,} bytes)")
 
-    # Sincroniza na pasta do QGIS 4 ativo
-    qgis4_dir = os.path.expandvars(r"%APPDATA%\QGIS\QGIS4\profiles\default\python\plugins\geotrabalho_qgis")
-    if os.path.exists(os.path.dirname(qgis4_dir)):
-        if os.path.exists(qgis4_dir):
-            shutil.rmtree(qgis4_dir)
-        shutil.copytree(plugin_folder, qgis4_dir)
-        print(f"[OK] Plugin sincronizado na pasta ativa do QGIS 4: {qgis4_dir}")
+    # Sincroniza na pasta do QGIS 4 e QGIS 3 ativos
+    for qgis_ver in ("QGIS4", "QGIS3"):
+        target_dir = os.path.expandvars(rf"%APPDATA%\QGIS\{qgis_ver}\profiles\default\python\plugins\geotrabalho_qgis")
+        if os.path.exists(os.path.dirname(target_dir)):
+            if os.path.exists(target_dir):
+                shutil.rmtree(target_dir)
+            shutil.copytree(plugin_folder, target_dir)
+            print(f"[OK] Plugin sincronizado na pasta ativa do {qgis_ver}: {target_dir}")
 
     from upload_to_qgis_hub import validate_qgis_zip
     ok, msgs = validate_qgis_zip(out_zip)

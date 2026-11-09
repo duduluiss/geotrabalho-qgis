@@ -1380,4 +1380,264 @@ class GeoTrabalhoAnalyticsEngine:
             })
             return bundle
 
+        # ==================================================================
+        # INDICADORES REGIONAIS: QUOCIENTE LOCACIONAL (QL)
+        # ==================================================================
+        if report_key == "esp_quociente_locacional":
+            if prog_cb:
+                prog_cb(20, f"Consultando emprego formal filtrado por município ({y_last})...")
+            res_filtr = self.client.query_dardo(
+                base_cubo="rais_vinculos",
+                ano=y_last,
+                uf=uf_clean,
+                coluna_cruzamento="---------Não---------",
+                indicador="->Frequência",
+                filtro_atividade=filtro_texto,
+                filtro_cnae_nivel=eff_nivel,
+                filtro_cnae_codigo=filtro_codigo,
+                prog_cb=prog_cb,
+            )
+            if prog_cb:
+                prog_cb(55, f"Consultando base comparativa municipal total ({y_last})...")
+            res_total = self.client.query_dardo(
+                base_cubo="rais_vinculos",
+                ano=y_last,
+                uf=uf_clean,
+                coluna_cruzamento="---------Não---------",
+                indicador="->Frequência",
+                filtro_atividade=None,
+                filtro_cnae_nivel=None,
+                filtro_cnae_codigo=None,
+                prog_cb=prog_cb,
+            )
+            total_mun_map = {r["CD_MUN_IBGE"]: float(r.get("TOTAL_GERAL", 0.0)) for r in res_total.records}
+            total_state_all = sum(total_mun_map.values())
+
+            filtr_mun_map = {r["CD_MUN_IBGE"]: float(r.get("TOTAL_GERAL", 0.0)) for r in res_filtr.records}
+            total_state_filtr = sum(filtr_mun_map.values())
+            base_share = (total_state_filtr / total_state_all) if total_state_all > 0 else 0.0
+
+            ql_records = []
+            for cd_ibge, v_filtr in filtr_mun_map.items():
+                if v_filtr <= 0:
+                    continue
+                v_tot = total_mun_map.get(cd_ibge, 0.0)
+                if v_tot > 0 and base_share > 0:
+                    pct_mun = (v_filtr / v_tot) * 100.0
+                    ql_val = (v_filtr / v_tot) / base_share
+                else:
+                    pct_mun = 0.0
+                    ql_val = 0.0
+
+                info = self.mapper.by_ibge.get(cd_ibge, {})
+                nm_mun = info.get("nome", cd_ibge)
+                reg = self.mapper.get_regional_info(cd_ibge)
+
+                if ql_val >= 2.0:
+                    clas = "Super Pólo (QL >= 2,0)"
+                elif ql_val >= 1.25:
+                    clas = "Especializado (QL >= 1,25)"
+                elif ql_val >= 0.75:
+                    clas = "Médio (0,75 a 1,25)"
+                elif ql_val > 0:
+                    clas = "Sub-representado (QL < 0,75)"
+                else:
+                    clas = "Sem registros"
+
+                ql_records.append({
+                    "cd_ibge": cd_ibge,
+                    "name": nm_mun,
+                    "uf": info.get("uf", uf_clean),
+                    "meso": reg.get("meso", "Outras"),
+                    "vinc": v_filtr,
+                    "tot_mun": v_tot,
+                    "pct": pct_mun,
+                    "ql": ql_val,
+                    "clas": clas,
+                })
+
+            ql_records.sort(key=lambda x: (x["ql"], x["vinc"]), reverse=True)
+            top_records = ql_records[:top_n]
+
+            headers = ["#", "Município", "Mesorregião", f"Vínculos {y_last}", "% na Cidade", "QL (Especialização)", "Classificação"]
+            rows = []
+            for idx, item in enumerate(top_records, start=1):
+                rows.append([
+                    f"{idx}º",
+                    item["name"],
+                    item["meso"],
+                    fmt_int_br(item["vinc"]),
+                    f"{fmt_float_br(item['pct'], 1)}%",
+                    fmt_float_br(item["ql"], 3),
+                    item["clas"]
+                ])
+
+            tot_state_str = fmt_int_br(total_state_filtr)
+            pct_state_str = f"{fmt_float_br(base_share * 100.0, 1)}%"
+            bundle.tables.append(StyledTableSpec(
+                table_id="tab_quociente_locacional",
+                title=f"Quociente Locacional (QL) e Pólos de Especialização — {uf_name} ({y_last})",
+                subtitle=f"Atividade: {sector_label} • Base Comparativa: Média Estadual",
+                headers=headers,
+                rows=rows,
+                footnote=f"* Total Estadual no Setor: {tot_state_str} vínculos ({pct_state_str} do emprego de {uf_name}). QL > 1,25 indica pólo regional exportador. Fonte: MTE / DardoWeb.",
+                theme="navy",
+                highlights=[
+                    f"Pólo Líder: {top_records[0]['name']} (QL {fmt_float_br(top_records[0]['ql'], 3)})" if top_records else "",
+                    f"Municípios com Especialização (QL > 1,25): {sum(1 for x in ql_records if x['ql'] >= 1.25)}",
+                ],
+            ))
+
+            chart_items = [{
+                "name": it["name"],
+                "value": it["ql"],
+                "by_year": {y_last: it["ql"]},
+            } for it in reversed(top_records)]
+
+            bundle.chart_payloads.append({
+                "chart_id": "grafico_quociente_locacional",
+                "type": "ranking_horizontal_bars",
+                "title": f"Top {len(top_records)} Municípios por Quociente Locacional (QL) — {uf_name}",
+                "subtitle": f"{sector_label} ({y_last}) — Limite de Especialização QL = 1,25",
+                "items": chart_items,
+                "years": [y_last],
+                "color": "#1d4ed8",
+                "unit": "DEC",
+                "xlabel": "Quociente Locacional (QL)",
+                "footnote": "Valores de QL > 1,0 indicam especialização superior à média estadual. Fonte: MTE / DardoWeb.",
+            })
+            return bundle
+
+        # ==================================================================
+        # INDICADORES REGIONAIS: MASSA SALARIAL ESTIMADA
+        # ==================================================================
+        if report_key == "esp_massa_salarial":
+            if prog_cb:
+                prog_cb(25, f"Consultando Vínculos por município ({y_last})...")
+            res_v = self.client.query_dardo(
+                base_cubo="rais_vinculos",
+                ano=y_last,
+                uf=uf_clean,
+                coluna_cruzamento="---------Não---------",
+                indicador="->Frequência",
+                filtro_atividade=filtro_texto,
+                filtro_cnae_nivel=eff_nivel,
+                filtro_cnae_codigo=filtro_codigo,
+                prog_cb=prog_cb,
+            )
+            if prog_cb:
+                prog_cb(60, f"Consultando Remuneração Média Nominal (R$) por município ({y_last})...")
+            res_sal = self.client.query_dardo(
+                base_cubo="rais_vinculos",
+                ano=y_last,
+                uf=uf_clean,
+                coluna_cruzamento="---------Não---------",
+                indicador="Vl Remun Média Nom",
+                operacao="Média",
+                filtro_atividade=filtro_texto,
+                filtro_cnae_nivel=eff_nivel,
+                filtro_cnae_codigo=filtro_codigo,
+                prog_cb=prog_cb,
+            )
+            sal_map = {r["CD_MUN_IBGE"]: float(r.get("TOTAL_GERAL", 0.0)) for r in res_sal.records}
+            massa_records = []
+            tot_massa_state = 0.0
+
+            for r in res_v.records:
+                cd = r["CD_MUN_IBGE"]
+                v = float(r.get("TOTAL_GERAL", 0.0))
+                if v <= 0:
+                    continue
+                sal = sal_map.get(cd, 0.0)
+                massa_mensal = v * sal
+                tot_massa_state += massa_mensal
+                info = self.mapper.by_ibge.get(cd, {})
+                reg = self.mapper.get_regional_info(cd)
+                massa_records.append({
+                    "cd_ibge": cd,
+                    "name": info.get("nome", cd),
+                    "meso": reg.get("meso", "Outras"),
+                    "vinc": v,
+                    "sal": sal,
+                    "massa_mensal": massa_mensal,
+                    "massa_anual": massa_mensal * 13.333,
+                })
+
+            massa_records.sort(key=lambda x: x["massa_mensal"], reverse=True)
+            top_records = massa_records[:top_n]
+            subtot_top = sum(x["massa_mensal"] for x in top_records)
+
+            headers = ["#", "Município", "Mesorregião", "Vínculos", "Salário Médio", "Massa Mensal Estimada", "Massa Anual Estimada", "% da Massa Estadual"]
+            rows = []
+            for idx, item in enumerate(top_records, start=1):
+                pct = (item["massa_mensal"] / tot_massa_state * 100.0) if tot_massa_state > 0 else 0.0
+                rows.append([
+                    f"{idx}º",
+                    item["name"],
+                    item["meso"],
+                    fmt_int_br(item["vinc"]),
+                    f"R$ {fmt_float_br(item['sal'], 2)}",
+                    f"R$ {fmt_float_br(item['massa_mensal'], 2)}",
+                    f"R$ {fmt_float_br(item['massa_anual'], 2)}",
+                    f"{fmt_float_br(pct, 1)}%"
+                ])
+
+            pct_sub = (subtot_top / tot_massa_state * 100.0) if tot_massa_state > 0 else 0.0
+            rows.append([
+                "SUBTOTAL",
+                f"Top {len(top_records)} Municípios",
+                "-",
+                fmt_int_br(sum(x["vinc"] for x in top_records)),
+                "-",
+                f"R$ {fmt_float_br(subtot_top, 2)}",
+                f"R$ {fmt_float_br(subtot_top * 13.333, 2)}",
+                f"{fmt_float_br(pct_sub, 1)}%"
+            ])
+            rows.append([
+                "TOTAL",
+                f"Total {uf_name}",
+                "-",
+                fmt_int_br(sum(x["vinc"] for x in massa_records)),
+                "-",
+                f"R$ {fmt_float_br(tot_massa_state, 2)}",
+                f"R$ {fmt_float_br(tot_massa_state * 13.333, 2)}",
+                "100,0%"
+            ])
+
+            footer_idxs = [len(rows) - 2, len(rows) - 1]
+            bundle.tables.append(StyledTableSpec(
+                table_id="tab_massa_salarial",
+                title=f"Massa Salarial e Injeção de Renda Municipal — {uf_name} ({y_last})",
+                subtitle=f"Atividade: {sector_label} • Volume Financeiro Mensal e Anual",
+                headers=headers,
+                rows=rows,
+                footer_row_indices=footer_idxs,
+                theme="wine",
+                footnote=f"* Massa Anual calculada com multiplicador 13,33x (inclui 13º salário e terço de férias). Fonte: MTE / DardoWeb.",
+                highlights=[
+                    f"Massa Salarial Estadual no Setor: R$ {fmt_float_br(tot_massa_state, 2)} / mês",
+                    f"Participação dos Top {len(top_records)}: {fmt_float_br(pct_sub, 1)}% da massa salarial de {uf_name}",
+                ]
+            ))
+
+            chart_items = [{
+                "name": it["name"],
+                "value": it["massa_mensal"],
+                "by_year": {y_last: it["massa_mensal"]},
+            } for it in reversed(top_records)]
+
+            bundle.chart_payloads.append({
+                "chart_id": "grafico_massa_salarial",
+                "type": "ranking_horizontal_bars",
+                "title": f"Top {len(top_records)} Municípios por Massa Salarial Mensal (R$) — {uf_name}",
+                "subtitle": f"{sector_label} ({y_last})",
+                "items": chart_items,
+                "years": [y_last],
+                "color": "#7a1c1c",
+                "unit": "BRL",
+                "xlabel": "Massa Salarial Mensal (R$)",
+                "footnote": "Fonte: MTE / DardoWeb.",
+            })
+            return bundle
+
         raise ValueError(f"Tipo de relatório não reconhecido: {report_key}")
